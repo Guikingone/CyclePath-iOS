@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		528206F7EE679475A191E2F8 /* Pods_CyclePathTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F7D8E254EB0054C9468319 /* Pods_CyclePathTests.framework */; };
 		71CEC73886033308A30FAE31 /* Pods_CyclePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 217D2D42F3FB925F5EF8E19A /* Pods_CyclePath.framework */; };
+		8A1D6EB71F7A5FBD00ECAD59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A1D6EB61F7A5FBD00ECAD59 /* GoogleService-Info.plist */; };
+		8A1D6EBA1F7A726F00ECAD59 /* SideMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EB91F7A726F00ECAD59 /* SideMenuAction.swift */; };
+		8A1D6EBC1F7A73E400ECAD59 /* ContainerActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EBB1F7A73E400ECAD59 /* ContainerActionViewController.swift */; };
+		8A1D6EC01F7A77F300ECAD59 /* LoginAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EBF1F7A77F300ECAD59 /* LoginAction.swift */; };
+		8A1D6EC21F7A781700ECAD59 /* RegisterAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EC11F7A781700ECAD59 /* RegisterAction.swift */; };
+		8A1D6EC51F7A784800ECAD59 /* SecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EC41F7A784800ECAD59 /* SecurityService.swift */; };
+		8A1D6EC71F7A83A700ECAD59 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EC61F7A83A700ECAD59 /* GradientView.swift */; };
+		8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */; };
+		8A1D6ECE1F7A927000ECAD59 /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */; };
+		8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */; };
 		8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */; };
 		8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05701F7A2A6D00992F06 /* ViewController.swift */; };
 		8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7C05721F7A2A6D00992F06 /* Main.storyboard */; };
@@ -17,7 +27,7 @@
 		8A7C05841F7A2A6D00992F06 /* CyclePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05831F7A2A6D00992F06 /* CyclePathTests.swift */; };
 		8A7C058F1F7A2A6D00992F06 /* CyclePathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C058E1F7A2A6D00992F06 /* CyclePathUITests.swift */; };
 		8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */; };
-		8AB3F70A1F7A3D0F00E62756 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3F7091F7A3D0F00E62756 /* AuthService.swift */; };
+		8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3F7091F7A3D0F00E62756 /* DataService.swift */; };
 		EECFBCDAAB5F0ECC39216635 /* Pods_CyclePathUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BF4961791B69083B9A6519 /* Pods_CyclePathUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +53,16 @@
 		217D2D42F3FB925F5EF8E19A /* Pods_CyclePath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CyclePath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F71A6A055667B1509A268E4 /* Pods-CyclePath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyclePath.release.xcconfig"; path = "Pods/Target Support Files/Pods-CyclePath/Pods-CyclePath.release.xcconfig"; sourceTree = "<group>"; };
 		72FB608F2BD943390968EE56 /* Pods-CyclePathUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyclePathUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CyclePathUITests/Pods-CyclePathUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8A1D6EB61F7A5FBD00ECAD59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8A1D6EB91F7A726F00ECAD59 /* SideMenuAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuAction.swift; sourceTree = "<group>"; };
+		8A1D6EBB1F7A73E400ECAD59 /* ContainerActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerActionViewController.swift; sourceTree = "<group>"; };
+		8A1D6EBF1F7A77F300ECAD59 /* LoginAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAction.swift; sourceTree = "<group>"; };
+		8A1D6EC11F7A781700ECAD59 /* RegisterAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAction.swift; sourceTree = "<group>"; };
+		8A1D6EC41F7A784800ECAD59 /* SecurityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityService.swift; sourceTree = "<group>"; };
+		8A1D6EC61F7A83A700ECAD59 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
+		8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8A7C056B1F7A2A6D00992F06 /* CyclePath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyclePath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7C05701F7A2A6D00992F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +77,7 @@
 		8A7C058E1F7A2A6D00992F06 /* CyclePathUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePathUITests.swift; sourceTree = "<group>"; };
 		8A7C05901F7A2A6D00992F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAction.swift; sourceTree = "<group>"; };
-		8AB3F7091F7A3D0F00E62756 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8AB3F7091F7A3D0F00E62756 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B73EF7D44E1103D77E3FA532 /* Pods-CyclePathTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyclePathTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CyclePathTests/Pods-CyclePathTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C069036414CAE0ED2C1EF357 /* Pods-CyclePathTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyclePathTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CyclePathTests/Pods-CyclePathTests.release.xcconfig"; sourceTree = "<group>"; };
 		CED158E067C329E61066FA93 /* Pods-CyclePath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CyclePath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CyclePath/Pods-CyclePath.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,9 +113,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A1D6EB81F7A725E00ECAD59 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D6EB91F7A726F00ECAD59 /* SideMenuAction.swift */,
+				8A1D6EBB1F7A73E400ECAD59 /* ContainerActionViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		8A1D6EBD1F7A77CE00ECAD59 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D6EBF1F7A77F300ECAD59 /* LoginAction.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8A1D6EBE1F7A77D300ECAD59 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D6EC11F7A781700ECAD59 /* RegisterAction.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		8A1D6EC31F7A783900ECAD59 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D6EC41F7A784800ECAD59 /* SecurityService.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		8A1D6EC81F7A912400ECAD59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */,
+				8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8A7C05621F7A2A6D00992F06 = {
 			isa = PBXGroup;
 			children = (
+				8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */,
 				8A7C056D1F7A2A6D00992F06 /* CyclePath */,
 				8A7C05821F7A2A6D00992F06 /* CyclePathTests */,
 				8A7C058D1F7A2A6D00992F06 /* CyclePathUITests */,
@@ -118,8 +181,13 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8A1D6EC81F7A912400ECAD59 /* Views */,
+				8A1D6EC31F7A783900ECAD59 /* Security */,
+				8A1D6EBE1F7A77D300ECAD59 /* Register */,
+				8A1D6EBD1F7A77CE00ECAD59 /* Login */,
+				8A1D6EB81F7A725E00ECAD59 /* SideMenu */,
+				8A1D6EB61F7A5FBD00ECAD59 /* GoogleService-Info.plist */,
 				8AB3F7081F7A3D0000E62756 /* Services */,
-				8A7C059F1F7A35A400992F06 /* Extensions */,
 				8A7C059C1F7A2D5E00992F06 /* Home */,
 				8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */,
 				8A7C05701F7A2A6D00992F06 /* ViewController.swift */,
@@ -153,21 +221,15 @@
 			isa = PBXGroup;
 			children = (
 				8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */,
+				8A1D6EC61F7A83A700ECAD59 /* GradientView.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		8A7C059F1F7A35A400992F06 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8AB3F7081F7A3D0000E62756 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8AB3F7091F7A3D0F00E62756 /* AuthService.swift */,
+				8AB3F7091F7A3D0F00E62756 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -312,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7C05791F7A2A6D00992F06 /* LaunchScreen.storyboard in Resources */,
+				8A1D6EB71F7A5FBD00ECAD59 /* GoogleService-Info.plist in Resources */,
 				8A7C05761F7A2A6D00992F06 /* Assets.xcassets in Resources */,
 				8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */,
 			);
@@ -491,9 +554,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */,
+				8A1D6ECE1F7A927000ECAD59 /* CardButton.swift in Sources */,
 				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
+				8A1D6EC71F7A83A700ECAD59 /* GradientView.swift in Sources */,
+				8A1D6EC21F7A781700ECAD59 /* RegisterAction.swift in Sources */,
 				8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */,
-				8AB3F70A1F7A3D0F00E62756 /* AuthService.swift in Sources */,
+				8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */,
+				8A1D6EBC1F7A73E400ECAD59 /* ContainerActionViewController.swift in Sources */,
+				8A1D6EC51F7A784800ECAD59 /* SecurityService.swift in Sources */,
+				8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */,
+				8A1D6EBA1F7A726F00ECAD59 /* SideMenuAction.swift in Sources */,
+				8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */,
+				8A1D6EC01F7A77F300ECAD59 /* LoginAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +871,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */,
+			);
+			currentVersion = 8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8A7C05631F7A2A6D00992F06 /* Project object */;
 }
