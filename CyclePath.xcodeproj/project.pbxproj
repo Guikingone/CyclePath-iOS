@@ -14,6 +14,7 @@
 		8A7C05791F7A2A6D00992F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7C05771F7A2A6D00992F06 /* LaunchScreen.storyboard */; };
 		8A7C05841F7A2A6D00992F06 /* CyclePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05831F7A2A6D00992F06 /* CyclePathTests.swift */; };
 		8A7C058F1F7A2A6D00992F06 /* CyclePathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C058E1F7A2A6D00992F06 /* CyclePathUITests.swift */; };
+		8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8A7C058A1F7A2A6D00992F06 /* CyclePathUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CyclePathUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C058E1F7A2A6D00992F06 /* CyclePathUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyclePathUITests.swift; sourceTree = "<group>"; };
 		8A7C05901F7A2A6D00992F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8A7C059C1F7A2D5E00992F06 /* Home */,
 				8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */,
 				8A7C05701F7A2A6D00992F06 /* ViewController.swift */,
 				8A7C05721F7A2A6D00992F06 /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				8A7C05901F7A2A6D00992F06 /* Info.plist */,
 			);
 			path = CyclePathUITests;
+			sourceTree = "<group>";
+		};
+		8A7C059C1F7A2D5E00992F06 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */,
+				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
 				8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN7CAY235J;
 				INFOPLIST_FILE = CyclePath/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.guillaumeloulier.CyclePath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,6 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PN7CAY235J;
 				INFOPLIST_FILE = CyclePath/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.guillaumeloulier.CyclePath;
 				PRODUCT_NAME = "$(TARGET_NAME)";
