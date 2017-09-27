@@ -6,7 +6,9 @@ target 'CyclePath' do
   use_frameworks!
 
   # Pods for CyclePath
-  pod 'Firebase'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
   target 'CyclePathTests' do
     inherit! :search_paths

@@ -19,6 +19,9 @@
 		8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */; };
 		8A1D6ECE1F7A927000ECAD59 /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */; };
 		8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */; };
+		8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE41F7BF07B0098B5CA /* PathView.swift */; };
+		8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */; };
+		8A2D2FE91F7BFCE30098B5CA /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE81F7BFCE30098B5CA /* HomeManager.swift */; };
 		8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */; };
 		8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05701F7A2A6D00992F06 /* ViewController.swift */; };
 		8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7C05721F7A2A6D00992F06 /* Main.storyboard */; };
@@ -64,6 +67,9 @@
 		8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
 		8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8A2D2FE41F7BF07B0098B5CA /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
+		8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		8A2D2FE81F7BFCE30098B5CA /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		8A7C056B1F7A2A6D00992F06 /* CyclePath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyclePath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7C05701F7A2A6D00992F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +231,9 @@
 			children = (
 				8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */,
 				8A1D6EC61F7A83A700ECAD59 /* GradientView.swift */,
+				8A2D2FE41F7BF07B0098B5CA /* PathView.swift */,
+				8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */,
+				8A2D2FE81F7BFCE30098B5CA /* HomeManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -545,12 +554,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CyclePath/Pods-CyclePath-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,9 +578,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2D2FE91F7BFCE30098B5CA /* HomeManager.swift in Sources */,
 				8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */,
 				8A1D6ECE1F7A927000ECAD59 /* CardButton.swift in Sources */,
 				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
+				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
+				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
 				8A1D6EC71F7A83A700ECAD59 /* GradientView.swift in Sources */,
 				8A1D6EC21F7A781700ECAD59 /* RegisterAction.swift in Sources */,
 				8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */,

@@ -39,6 +39,7 @@ class HomeAction: UIViewController
     @IBAction func StartTracking(_ sender: Any)
     {
         trackBtn.animateButton(load: true, withMessage: nil)
+        // TODO: Start tracking using Interactor.
     }
 }
 
@@ -54,7 +55,6 @@ extension HomeAction: MKMapViewDelegate
 
 extension HomeAction: CLLocationManagerDelegate
 {
-    
     func enableBasicLocationServices() {
         
         switch CLLocationManager.authorizationStatus() {

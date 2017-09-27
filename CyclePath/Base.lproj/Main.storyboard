@@ -11,6 +11,7 @@
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
             <string>AvenirNext-MediumItalic</string>
         </array>
     </customFonts>
@@ -29,7 +30,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-tE-JKr" customClass="GradientView" customModule="CyclePath" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="rlL-Ja-LAx"/>
+                                    <constraint firstAttribute="height" constant="140" id="0vx-Ak-l5n"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buY-dF-EgJ" customClass="PathView" customModule="CyclePath" customModuleProvider="target">
+                                <rect key="frame" x="15" y="114" width="345" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actual position" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omP-NH-uBi">
+                                        <rect key="frame" x="20" y="20" width="305" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="4yq-Nh-V9I"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish line" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQk-lf-h8b">
+                                        <rect key="frame" x="20" y="75" width="305" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="iG7-Im-vVZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="DQk-lf-h8b" firstAttribute="leading" secondItem="buY-dF-EgJ" secondAttribute="leading" constant="20" id="0qD-tK-IJs"/>
+                                    <constraint firstItem="omP-NH-uBi" firstAttribute="leading" secondItem="buY-dF-EgJ" secondAttribute="leading" constant="20" id="1LL-t3-8N5"/>
+                                    <constraint firstItem="DQk-lf-h8b" firstAttribute="top" secondItem="omP-NH-uBi" secondAttribute="bottom" constant="20" id="DYU-rt-LkV"/>
+                                    <constraint firstItem="omP-NH-uBi" firstAttribute="top" secondItem="buY-dF-EgJ" secondAttribute="top" constant="20" id="dHr-0B-VI7"/>
+                                    <constraint firstAttribute="trailing" secondItem="DQk-lf-h8b" secondAttribute="trailing" constant="20" id="nKi-tL-kkJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="omP-NH-uBi" secondAttribute="trailing" constant="20" id="v3e-E1-CFe"/>
+                                    <constraint firstAttribute="height" constant="100" id="w5m-gD-jDC"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erg-gZ-cUK">
@@ -109,23 +143,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bEf-tE-JKr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3gK-yk-Qvu"/>
                             <constraint firstItem="a5l-Ps-x6A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ajy-6Z-Jf2"/>
+                            <constraint firstItem="buY-dF-EgJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="BMT-OB-DWw"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="C93-OT-nwh"/>
+                            <constraint firstItem="buY-dF-EgJ" firstAttribute="top" secondItem="a5l-Ps-x6A" secondAttribute="bottom" constant="10" id="EJv-0h-8YC"/>
+                            <constraint firstItem="bEf-tE-JKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F8D-zm-Bag"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ic7-1O-ISx"/>
                             <constraint firstItem="erg-gZ-cUK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Klc-gD-gUs"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ONp-9l-NKS"/>
-                            <constraint firstItem="bEf-tE-JKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PyA-11-8ha"/>
                             <constraint firstItem="a5l-Ps-x6A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Ul0-xl-n54"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a5l-Ps-x6A" secondAttribute="trailing" constant="15" id="VUj-cK-WQ3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="buY-dF-EgJ" secondAttribute="trailing" constant="15" id="X9r-dA-KPZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ACj-yp-l04" secondAttribute="trailing" constant="20" id="XIE-BQ-GcC"/>
                             <constraint firstItem="erg-gZ-cUK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="c15-td-L2d"/>
+                            <constraint firstItem="bEf-tE-JKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c8E-wK-QUZ"/>
                             <constraint firstItem="erg-gZ-cUK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eeO-eO-pGo"/>
-                            <constraint firstItem="bEf-tE-JKr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fbO-7b-fRA"/>
+                            <constraint firstItem="bEf-tE-JKr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="g0x-8i-LjD"/>
                             <constraint firstItem="erg-gZ-cUK" firstAttribute="top" secondItem="ACj-yp-l04" secondAttribute="bottom" constant="10" id="oHf-fo-2RR"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qjG-Cn-pCV"/>
-                            <constraint firstItem="bEf-tE-JKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wIG-SX-pwT"/>
-                            <constraint firstItem="bEf-tE-JKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zEo-wQ-s8V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -136,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-80.799999999999997" y="132.26600985221674"/>
+            <point key="canvasLocation" x="-81.159420289855078" y="132.06521739130434"/>
         </scene>
         <!--Side Menu Action-->
         <scene sceneID="nEM-qK-XBE">
