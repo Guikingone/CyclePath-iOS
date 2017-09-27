@@ -23,11 +23,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xvM-cy-bmH">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xvM-cy-bmH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </mapView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-tE-JKr" customClass="GradientView" customModule="CyclePath" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-tE-JKr" customClass="GradientView" customModule="CyclePath" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="rlL-Ja-LAx"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erg-gZ-cUK">
                                 <rect key="frame" x="0.0" y="708" width="375" height="70"/>
@@ -106,12 +109,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bEf-tE-JKr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3gK-yk-Qvu"/>
                             <constraint firstItem="a5l-Ps-x6A" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ajy-6Z-Jf2"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="C93-OT-nwh"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ic7-1O-ISx"/>
-                            <constraint firstItem="bEf-tE-JKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KS7-by-lM9"/>
                             <constraint firstItem="erg-gZ-cUK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Klc-gD-gUs"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ONp-9l-NKS"/>
+                            <constraint firstItem="bEf-tE-JKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PyA-11-8ha"/>
                             <constraint firstItem="a5l-Ps-x6A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Ul0-xl-n54"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a5l-Ps-x6A" secondAttribute="trailing" constant="15" id="VUj-cK-WQ3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ACj-yp-l04" secondAttribute="trailing" constant="20" id="XIE-BQ-GcC"/>
@@ -121,6 +125,7 @@
                             <constraint firstItem="erg-gZ-cUK" firstAttribute="top" secondItem="ACj-yp-l04" secondAttribute="bottom" constant="10" id="oHf-fo-2RR"/>
                             <constraint firstItem="xvM-cy-bmH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qjG-Cn-pCV"/>
                             <constraint firstItem="bEf-tE-JKr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wIG-SX-pwT"/>
+                            <constraint firstItem="bEf-tE-JKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zEo-wQ-s8V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

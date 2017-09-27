@@ -10,48 +10,30 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class HomeAction: UIViewController, MKMapViewDelegate
+class HomeAction: UIViewController
 {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var trackBtn: CardButton!
     
-    var manager = CLLocationManager()
-    
-    var regionRadius: CLLocationDistance = 1000
+    let locationManager = CLLocationManager()
+    let authorizationStatus = CLLocationManager.authorizationStatus()
+    let regionRadius: Double = 1000
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        manager = CLLocationManager()
-        isAuthorizedToTrack()
-        
         mapView.delegate = self
+        locationManager.delegate = self
+        mapView.showsUserLocation = true
         
-        centerMapOnUserLocation()
-    }
-    
-    func isAuthorizedToTrack()
-    {
-        if CLLocationManager.authorizationStatus() == .authorizedAlways {
-            manager.delegate = self
-            manager.desiredAccuracy = kCLLocationAccuracyBest
-            manager.startUpdatingLocation()
-        } else {
-            manager.requestAlwaysAuthorization()
-        }
-    }
-    
-    func centerMapOnUserLocation()
-    {
-        let coordinates = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        
-        mapView.setRegion(coordinates, animated: true)
+        enableBasicLocationServices()
     }
     
     @IBAction func findUser(_ sender: Any)
     {
-        
+        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+            centerMapOnUserLocation()
+        }
     }
     
     @IBAction func StartTracking(_ sender: Any)
@@ -60,13 +42,39 @@ class HomeAction: UIViewController, MKMapViewDelegate
     }
 }
 
+extension HomeAction: MKMapViewDelegate
+{
+    func centerMapOnUserLocation()
+    {
+        guard let coordinates = locationManager.location?.coordinate else { return }
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(coordinates, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+}
+
 extension HomeAction: CLLocationManagerDelegate
 {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            isAuthorizedToTrack()
-            mapView.showsUserLocation = true
-            mapView.userTrackingMode = .follow
+    
+    func enableBasicLocationServices() {
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            // Request when-in-use authorization initially
+            locationManager.requestWhenInUseAuthorization()
+            break
+            
+        case .restricted, .denied:
+            // Disable location features
+            break
+            
+        case .authorizedWhenInUse, .authorizedAlways:
+            // Enable location features
+            break
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
+    {
+        centerMapOnUserLocation()
     }
 }
