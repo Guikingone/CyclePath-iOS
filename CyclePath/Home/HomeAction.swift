@@ -12,12 +12,20 @@ import CoreLocation
 
 class HomeAction: UIViewController
 {
+    @IBOutlet weak var profileImage: ProfileImage!
+    @IBOutlet weak var dataCard: PathView!
+    @IBOutlet weak var speedTxtLabel: UILabel!
+    @IBOutlet weak var distanceTxtLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var trackBtn: CardButton!
     
     let locationManager = CLLocationManager()
     let authorizationStatus = CLLocationManager.authorizationStatus()
     let regionRadius: Double = 1000
+    private var seconds = 0
+    private var timer: Timer?
+    private var distance = Measurement(value: 0, unit: UnitLength.meters)
+    private var locationList: [CLLocation] = []
     
     override func viewDidLoad()
     {
@@ -26,7 +34,16 @@ class HomeAction: UIViewController
         locationManager.delegate = self
         mapView.showsUserLocation = true
         
+        speedTxtLabel.text = ""
+        distanceTxtLabel.text = ""
+        
         enableBasicLocationServices()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
     }
     
     @IBAction func findUser(_ sender: Any)
@@ -39,7 +56,44 @@ class HomeAction: UIViewController
     @IBAction func StartTracking(_ sender: Any)
     {
         trackBtn.animateButton(load: true, withMessage: nil)
-        // TODO: Start tracking using Interactor.
+        // TODO: Call the interactor and start tracking.
+        seconds = 0
+        distance = Measurement(value: 0, unit: UnitLength.meters)
+        locationList.removeAll()
+        updateDisplay()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.eachSeconds()
+        }
+        startLocationUpdates()
+    }
+    
+    private func updateDisplay() {
+        let formattedDistance = HomeStruct.distance(distance)
+        let formattedTime = HomeStruct.time(seconds)
+//        let formattedPace = HomeStruct.pace(distance: distance,
+//                                            seconds: seconds,
+//                                            outputUnit: UnitSpeed.minutesPerMile)
+        
+        distanceTxtLabel.text = "Distance:  \(formattedDistance)"
+        speedTxtLabel.text = "Time:  \(formattedTime)"
+    }
+    
+    func eachSeconds()
+    {
+        seconds += 1
+        updateDisplay()
+    }
+    
+    public func resetTimer()
+    {
+        timer?.invalidate()
+    }
+    
+    private func startLocationUpdates() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 10
+        locationManager.startUpdatingLocation()
     }
 }
 
@@ -76,5 +130,19 @@ extension HomeAction: CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
         centerMapOnUserLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        for newLocation in locations {
+            let howRecent = newLocation.timestamp.timeIntervalSinceNow
+            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
+            
+            if let lastLocation = locationList.last {
+                let delta = newLocation.distance(from: lastLocation)
+                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+            }
+            
+            locationList.append(newLocation)
+        }
     }
 }

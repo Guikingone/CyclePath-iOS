@@ -10,5 +10,13 @@ import UIKit
 
 class SideMenuAction: UIViewController
 {
+    @IBAction func registerUser(_ sender: Any)
+    {
+        
+    }
     
+    @IBAction func loginUser(_ sender: Any)
+    {
+        
+    }
 }

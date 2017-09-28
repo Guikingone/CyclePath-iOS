@@ -7,16 +7,12 @@
 //
 
 import Foundation
+import CoreLocation
 
 class HomeInteractor
 {
-    public func startPath(started: @escaping (_: Bool) -> (), failed: @escaping (_: Bool) -> ())
+    func stopUpdatingLocation(locationManager: CLLocationManager)
     {
-        
-    }
-    
-    public func stopPath(stopped: @escaping (_: Bool) -> (), failed: @escaping (_: Bool) -> ())
-    {
-        
+        locationManager.stopUpdatingLocation()
     }
 }
