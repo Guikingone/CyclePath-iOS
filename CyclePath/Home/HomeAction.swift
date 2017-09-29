@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 import CoreLocation
 
 class HomeAction: UIViewController
@@ -16,6 +17,8 @@ class HomeAction: UIViewController
     @IBOutlet weak var dataCard: PathView!
     @IBOutlet weak var speedTxtLabel: UILabel!
     @IBOutlet weak var distanceTxtLabel: UILabel!
+    @IBOutlet weak var timeTxtLabel: UILabel!
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var trackBtn: CardButton!
     
@@ -36,6 +39,11 @@ class HomeAction: UIViewController
         
         speedTxtLabel.text = ""
         distanceTxtLabel.text = ""
+        timeTxtLabel.text = ""
+        
+        if Auth.auth().currentUser == nil {
+            profileImage.isHidden = true
+        }
         
         enableBasicLocationServices()
     }
@@ -44,6 +52,11 @@ class HomeAction: UIViewController
         super.viewWillDisappear(animated)
         timer?.invalidate()
         HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
+    }
+    
+    @IBAction func sideMenu()
+    {
+        
     }
     
     @IBAction func findUser(_ sender: Any)
@@ -70,12 +83,13 @@ class HomeAction: UIViewController
     private func updateDisplay() {
         let formattedDistance = HomeStruct.distance(distance)
         let formattedTime = HomeStruct.time(seconds)
-//        let formattedPace = HomeStruct.pace(distance: distance,
-//                                            seconds: seconds,
-//                                            outputUnit: UnitSpeed.minutesPerMile)
+        let formattedPace = HomeStruct.pace(distance: distance,
+                                            seconds: seconds,
+                                            outputUnit: UnitSpeed.minutesPerKilometer)
         
-        distanceTxtLabel.text = "Distance:  \(formattedDistance)"
-        speedTxtLabel.text = "Time:  \(formattedTime)"
+        speedTxtLabel.text = formattedPace
+        distanceTxtLabel.text = formattedDistance
+        timeTxtLabel.text = formattedTime
     }
     
     func eachSeconds()

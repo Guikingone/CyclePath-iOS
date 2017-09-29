@@ -10,26 +10,28 @@ import UIKit
 
 class LoginAction: UIViewController {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var emailTxtField: UITextField!
+    @IBOutlet weak var passwordTxtLabel: UITextField!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginUser(_ sender: Any)
+    {
+        guard let email = emailTxtField.text , emailTxtField.text != "" else { return }
+        guard let password = passwordTxtLabel.text , passwordTxtLabel.text != "" else { return }
+        
+        LoginWorker().login(withEmail: email, withPassword: password) { (logged, errors) in
+            if logged {
+                self.performSegue(withIdentifier: "LoggedSegue", sender: self)
+            } else {
+                print(errors)
+            }
+        }
     }
-    */
 
 }

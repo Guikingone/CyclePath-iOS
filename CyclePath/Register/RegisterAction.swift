@@ -8,28 +8,41 @@
 
 import UIKit
 
-class RegisterAction: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+class RegisterAction: UIViewController
+{
+    @IBOutlet weak var usernameTxtLabel: UITextField!
+    @IBOutlet weak var emailTextLabel: UITextField!
+    @IBOutlet weak var passwordTxtLabel: UITextField!
+    @IBOutlet weak var passwordRptTxtLabel: UITextField!
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        usernameTxtLabel.delegate = self
+        emailTextLabel.delegate = self
+        passwordTxtLabel.delegate = self
+        passwordRptTxtLabel.delegate = self
     }
-    */
 
+    @IBAction func registerUser(_ sender: Any)
+    {
+        guard let username = usernameTxtLabel.text , usernameTxtLabel.text != "" else { return }
+        guard let email = emailTextLabel.text , emailTextLabel.text != "" else { return }
+        guard let password = passwordTxtLabel.text , passwordTxtLabel.text != "" else { return }
+        guard let passwordRpt = passwordRptTxtLabel.text , passwordRptTxtLabel.text == password else { return }
+        
+        RegisterWorker().register(withUsername: username, withEmail: email, withPassword: passwordRpt) { (created, errors) in
+            if created {
+                self.performSegue(withIdentifier: "RegisterSegue", sender: self)
+            } else {
+                print(errors)
+            }
+        }
+    }
+}
+
+extension RegisterAction: UITextFieldDelegate
+{
+    
 }
