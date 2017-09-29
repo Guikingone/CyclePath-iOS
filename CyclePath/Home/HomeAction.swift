@@ -18,9 +18,10 @@ class HomeAction: UIViewController
     @IBOutlet weak var speedTxtLabel: UILabel!
     @IBOutlet weak var distanceTxtLabel: UILabel!
     @IBOutlet weak var timeTxtLabel: UILabel!
-    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var trackBtn: CardButton!
+    
+    var delegate: CenterActionDelegate?
     
     let locationManager = CLLocationManager()
     let authorizationStatus = CLLocationManager.authorizationStatus()
@@ -56,7 +57,7 @@ class HomeAction: UIViewController
     
     @IBAction func sideMenu()
     {
-        
+        delegate?.toggleLeftPanel()
     }
     
     @IBAction func findUser(_ sender: Any)

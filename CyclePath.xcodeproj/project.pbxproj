@@ -21,6 +21,7 @@
 		8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */; };
 		8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE41F7BF07B0098B5CA /* PathView.swift */; };
 		8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */; };
+		8A6E157D1F7EB07E0021D01B /* CenterActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E157C1F7EB07E0021D01B /* CenterActionDelegate.swift */; };
 		8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */; };
 		8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05701F7A2A6D00992F06 /* ViewController.swift */; };
 		8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7C05721F7A2A6D00992F06 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8A2D2FE41F7BF07B0098B5CA /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
 		8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		8A6E157C1F7EB07E0021D01B /* CenterActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterActionDelegate.swift; sourceTree = "<group>"; };
 		8A7C056B1F7A2A6D00992F06 /* CyclePath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyclePath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7C05701F7A2A6D00992F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8A6E157B1F7EB0660021D01B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E157C1F7EB07E0021D01B /* CenterActionDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		8A7C05621F7A2A6D00992F06 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8A6E157B1F7EB0660021D01B /* Protocols */,
 				8AB075551F7E6CA40096F022 /* Paths */,
 				8AB075521F7E6BE50096F022 /* Profile */,
 				8A961A1B1F7CF883000E7BB7 /* Container */,
@@ -634,6 +645,7 @@
 				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
 				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
 				8A961A1D1F7CF898000E7BB7 /* ContainerAction.swift in Sources */,
+				8A6E157D1F7EB07E0021D01B /* CenterActionDelegate.swift in Sources */,
 				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
 				8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */,
 				8A1D6EC71F7A83A700ECAD59 /* GradientView.swift in Sources */,
