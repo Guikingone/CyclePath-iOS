@@ -13,6 +13,7 @@ import CoreLocation
 
 class HomeAction: UIViewController
 {
+    @IBOutlet weak var sideMenuBtn: UIButton!
     @IBOutlet weak var profileImage: ProfileImage!
     @IBOutlet weak var dataCard: PathView!
     @IBOutlet weak var speedTxtLabel: UILabel!
@@ -20,8 +21,6 @@ class HomeAction: UIViewController
     @IBOutlet weak var timeTxtLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var trackBtn: CardButton!
-    
-    var delegate: CenterActionDelegate?
     
     let locationManager = CLLocationManager()
     let authorizationStatus = CLLocationManager.authorizationStatus()
@@ -34,6 +33,8 @@ class HomeAction: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        
         mapView.delegate = self
         locationManager.delegate = self
         mapView.showsUserLocation = true
@@ -53,11 +54,6 @@ class HomeAction: UIViewController
         super.viewWillDisappear(animated)
         timer?.invalidate()
         HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
-    }
-    
-    @IBAction func sideMenu()
-    {
-        delegate?.toggleLeftPanel()
     }
     
     @IBAction func findUser(_ sender: Any)

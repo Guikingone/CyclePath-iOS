@@ -15,13 +15,12 @@ class SideMenuAction: UIViewController
     
     @IBAction func registerUser(_ sender: Any)
     {
-        guard let registerAction = storyboard?.instantiateViewController(withIdentifier: "RegisterAction") as? RegisterAction else { return }
-        // TODO : Present the action.
+        self.performSegue(withIdentifier: "RegisterSegue", sender: self)
     }
     
     @IBAction func loginUser(_ sender: Any)
     {
-        
+        self.performSegue(withIdentifier: "LoginSegue", sender: self)
     }
     
     @IBAction func LogoutUser(_ sender: Any)
@@ -47,11 +46,11 @@ class SideMenuAction: UIViewController
     
     @IBAction func userProfile(_ sender: Any)
     {
-        
+        self.performSegue(withIdentifier: "ProfileSegue", sender: self)
     }
     
     @IBAction func userPaths(_ sender: Any)
     {
-        
+        self.performSegue(withIdentifier: "PathsSegue", sender: self)
     }
 }
