@@ -297,19 +297,10 @@
                                     <action selector="loginUser:" destination="r9U-zu-BSo" eventType="touchUpInside" id="Kl4-ed-hNy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-03-Kae">
-                                <rect key="frame" x="313" y="686" width="81" height="30"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="LogoutUser:" destination="r9U-zu-BSo" eventType="touchUpInside" id="2g9-qJ-IPe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Bj3-9H-fGs" firstAttribute="trailing" secondItem="mbr-03-Kae" secondAttribute="trailing" constant="20" id="2o1-DV-Qqa"/>
                             <constraint firstItem="Bj3-9H-fGs" firstAttribute="bottom" secondItem="Ygt-oP-Ki6" secondAttribute="bottom" constant="20" id="Aw5-KM-eBg"/>
-                            <constraint firstItem="Bj3-9H-fGs" firstAttribute="bottom" secondItem="mbr-03-Kae" secondAttribute="bottom" constant="20" id="E0e-Mz-zxC"/>
                             <constraint firstItem="Ygt-oP-Ki6" firstAttribute="leading" secondItem="Bj3-9H-fGs" secondAttribute="leading" constant="20" id="GqT-kF-jUd"/>
                             <constraint firstItem="gcW-1d-0c8" firstAttribute="leading" secondItem="Ygt-oP-Ki6" secondAttribute="trailing" constant="10" id="I9n-aq-5dQ"/>
                             <constraint firstItem="rVm-JE-Osk" firstAttribute="leading" secondItem="Bj3-9H-fGs" secondAttribute="leading" id="Pp9-Ia-VID"/>
@@ -322,7 +313,12 @@
                         <viewLayoutGuide key="safeArea" id="Bj3-9H-fGs"/>
                     </view>
                     <connections>
-                        <outlet property="logoutBtn" destination="mbr-03-Kae" id="23X-4Z-XhX"/>
+                        <outlet property="helpBtn" destination="YKx-80-OVx" id="jF3-dy-jB7"/>
+                        <outlet property="loginBtn" destination="gcW-1d-0c8" id="7gR-Xh-sfF"/>
+                        <outlet property="pathsBtn" destination="KXN-0P-654" id="OPn-BR-9Mi"/>
+                        <outlet property="profileBtn" destination="lcw-Vg-o1P" id="md5-hT-AeV"/>
+                        <outlet property="registerBtn" destination="Ygt-oP-Ki6" id="eod-gv-mRX"/>
+                        <outlet property="settingsBtn" destination="IUk-Mi-Vrm" id="aqn-6o-L6F"/>
                         <segue destination="Z9F-9L-zZu" kind="show" identifier="RegisterSegue" id="X5l-ZP-FAS"/>
                         <segue destination="Lxp-7k-bjf" kind="show" identifier="LoginSegue" id="peZ-xb-lg3"/>
                         <segue destination="YzN-q1-M1H" kind="show" identifier="ProfileSegue" id="bUB-RQ-Kaa"/>
@@ -361,13 +357,33 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-03-Kae">
+                                        <rect key="frame" x="346" y="50" width="48" height="20"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="LogoutUser:" destination="YzN-q1-M1H" eventType="touchUpInside" id="lFh-zP-p5V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsx-1h-rTe">
+                                        <rect key="frame" x="20" y="45" width="34" height="30"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backBtn:" destination="YzN-q1-M1H" eventType="touchUpInside" id="aXC-LU-oyh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="2AQ-ij-twv"/>
+                                    <constraint firstAttribute="trailing" secondItem="mbr-03-Kae" secondAttribute="trailing" constant="20" id="BXv-2G-1Wh"/>
+                                    <constraint firstItem="Wsx-1h-rTe" firstAttribute="leading" secondItem="srL-13-FEk" secondAttribute="leading" constant="20" id="CR5-R7-9wp"/>
                                     <constraint firstItem="Zmn-Uk-pHh" firstAttribute="centerX" secondItem="srL-13-FEk" secondAttribute="centerX" id="DRd-F1-ybK"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="HIm-Xu-9oj"/>
+                                    <constraint firstItem="Wsx-1h-rTe" firstAttribute="top" secondItem="srL-13-FEk" secondAttribute="top" constant="45" id="IgC-4b-oqr"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wsx-1h-rTe" secondAttribute="bottom" constant="45" id="NhH-BW-VFt"/>
                                     <constraint firstItem="Zmn-Uk-pHh" firstAttribute="centerY" secondItem="srL-13-FEk" secondAttribute="centerY" id="ZFn-6U-7d4"/>
+                                    <constraint firstAttribute="bottom" secondItem="mbr-03-Kae" secondAttribute="bottom" constant="50" id="kRU-TO-RHF"/>
+                                    <constraint firstItem="mbr-03-Kae" firstAttribute="top" secondItem="srL-13-FEk" secondAttribute="top" constant="50" id="pMu-98-dOw"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjN-DI-ygb">
@@ -685,7 +701,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="peZ-xb-lg3"/>
+        <segue reference="FDE-iB-UAG"/>
         <segue reference="zuB-5e-Dce"/>
     </inferredMetricsTieBreakers>
 </document>

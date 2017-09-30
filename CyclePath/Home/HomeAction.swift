@@ -30,10 +30,15 @@ class HomeAction: UIViewController
     private var distance = Measurement(value: 0, unit: UnitLength.meters)
     private var locationList: [CLLocation] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
         mapView.delegate = self
         locationManager.delegate = self
@@ -42,10 +47,6 @@ class HomeAction: UIViewController
         speedTxtLabel.text = ""
         distanceTxtLabel.text = ""
         timeTxtLabel.text = ""
-        
-        if Auth.auth().currentUser == nil {
-            profileImage.isHidden = true
-        }
         
         enableBasicLocationServices()
     }

@@ -16,6 +16,8 @@ class LoginAction: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
 
         // Do any additional setup after loading the view.
     }
@@ -29,9 +31,16 @@ class LoginAction: UIViewController {
             if logged {
                 self.performSegue(withIdentifier: "LoggedSegue", sender: self)
             } else {
-                print(errors)
+                print("Could not log the user : \(String(describing: errors?.localizedDescription))")
             }
         }
     }
+}
 
+extension LoginAction: UITextFieldDelegate
+{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }
