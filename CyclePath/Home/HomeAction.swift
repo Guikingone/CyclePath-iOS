@@ -32,8 +32,6 @@ class HomeAction: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
     }
     
     override func viewDidLoad()
@@ -51,11 +49,11 @@ class HomeAction: UIViewController
         enableBasicLocationServices()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        timer?.invalidate()
-        HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        timer?.invalidate()
+//        HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
+//    }
     
     @IBAction func findUser(_ sender: Any)
     {

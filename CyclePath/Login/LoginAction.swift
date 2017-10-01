@@ -29,7 +29,7 @@ class LoginAction: UIViewController {
         
         LoginWorker().login(withEmail: email, withPassword: password) { (logged, errors) in
             if logged {
-                self.performSegue(withIdentifier: "LoggedSegue", sender: self)
+                self.dismiss(animated: true, completion: nil)
             } else {
                 print("Could not log the user : \(String(describing: errors?.localizedDescription))")
             }

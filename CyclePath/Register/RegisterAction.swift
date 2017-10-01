@@ -34,9 +34,9 @@ class RegisterAction: UIViewController
         
         RegisterWorker().register(withUsername: username, withEmail: email, withPassword: passwordRpt) { (created, errors) in
             if created {
-                self.performSegue(withIdentifier: "RegisterSegue", sender: self)
+                self.performSegue(withIdentifier: "RegisteredSegue", sender: self)
             } else {
-                print(errors)
+                print(errors?.localizedDescription as Any)
             }
         }
     }
