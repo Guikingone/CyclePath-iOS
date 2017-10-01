@@ -25,6 +25,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gR5-nh-JvH"/>
@@ -604,15 +606,27 @@
                                     <action selector="loginUser:" destination="Lxp-7k-bjf" eventType="touchUpInside" id="g2V-eY-laZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyg-bQ-UMr">
+                                <rect key="frame" x="20" y="371" width="374" height="30"/>
+                                <state key="normal" title="Forgot password ? ">
+                                    <color key="titleColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="Lxp-7k-bjf" eventType="touchUpInside" id="q35-5H-G0l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xyg-bQ-UMr" firstAttribute="leading" secondItem="gwS-c8-Inv" secondAttribute="leading" constant="20" id="0Y5-Sa-Dky"/>
                             <constraint firstItem="XtS-DV-7TJ" firstAttribute="top" secondItem="xdY-jC-Jkv" secondAttribute="bottom" constant="40" id="4xi-6B-eyW"/>
                             <constraint firstItem="meZ-V8-cw4" firstAttribute="leading" secondItem="gwS-c8-Inv" secondAttribute="leading" constant="20" id="7vR-Xq-u0W"/>
                             <constraint firstItem="gwS-c8-Inv" firstAttribute="trailing" secondItem="meZ-V8-cw4" secondAttribute="trailing" constant="20" id="9DN-HC-kYZ"/>
                             <constraint firstItem="5fE-m5-NxF" firstAttribute="top" secondItem="z0A-Ck-oY3" secondAttribute="top" id="G81-dr-Bom"/>
                             <constraint firstItem="5fE-m5-NxF" firstAttribute="leading" secondItem="gwS-c8-Inv" secondAttribute="leading" id="IJX-ue-nfZ"/>
+                            <constraint firstItem="gwS-c8-Inv" firstAttribute="trailing" secondItem="xyg-bQ-UMr" secondAttribute="trailing" constant="20" id="Ife-fc-l4q"/>
                             <constraint firstItem="gwS-c8-Inv" firstAttribute="trailing" secondItem="XtS-DV-7TJ" secondAttribute="trailing" constant="20" id="Md4-T4-X2E"/>
+                            <constraint firstItem="xyg-bQ-UMr" firstAttribute="top" secondItem="XtS-DV-7TJ" secondAttribute="bottom" constant="10" id="Mqy-Zw-xnD"/>
                             <constraint firstItem="xdY-jC-Jkv" firstAttribute="leading" secondItem="gwS-c8-Inv" secondAttribute="leading" constant="20" id="SQA-FC-cXb"/>
                             <constraint firstItem="5fE-m5-NxF" firstAttribute="trailing" secondItem="gwS-c8-Inv" secondAttribute="trailing" id="T0c-sf-jXh"/>
                             <constraint firstItem="gwS-c8-Inv" firstAttribute="trailing" secondItem="Zel-DG-qFS" secondAttribute="trailing" constant="20" id="TIy-Fc-8Mm"/>
@@ -628,11 +642,106 @@
                     <connections>
                         <outlet property="emailTxtField" destination="xdY-jC-Jkv" id="KBO-Me-bfM"/>
                         <outlet property="passwordTxtLabel" destination="XtS-DV-7TJ" id="QHv-iZ-uY1"/>
+                        <segue destination="F6z-Pn-43P" kind="show" identifier="ForgotPasswordSegue" id="R7O-SP-oti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzI-SL-AFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="783" y="849"/>
+        </scene>
+        <!--Forgot Password Action-->
+        <scene sceneID="0gD-IT-vTy">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordAction" id="F6z-Pn-43P" customClass="ForgotPasswordAction" customModule="CyclePath" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ucO-oP-Sst">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbN-6z-3Iq">
+                                <rect key="frame" x="20" y="671" width="374" height="45"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="NdS-Qc-ttU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Reset password">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginUser:" destination="Lxp-7k-bjf" eventType="touchUpInside" id="s6z-x5-Jbm"/>
+                                    <action selector="resetPasswordRequest:" destination="F6z-Pn-43P" eventType="touchUpInside" id="RSY-Qj-0zR"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBQ-ML-2mk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfC-oP-rl0">
+                                        <rect key="frame" x="162" y="46.666666666666657" width="90.333333333333343" height="27.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wix-Q8-QTu">
+                                                <rect key="frame" x="0.0" y="0.0" width="50.666666666666657" height="27.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Path" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1QH-uw-0uM">
+                                                <rect key="frame" x="50.666666666666657" y="0.0" width="39.666666666666686" height="27.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="DfC-oP-rl0" firstAttribute="centerY" secondItem="QBQ-ML-2mk" secondAttribute="centerY" id="JG5-A4-Vqm"/>
+                                    <constraint firstAttribute="height" constant="120" id="l6U-bE-rEA"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="nUc-6S-d2g"/>
+                                    <constraint firstItem="DfC-oP-rl0" firstAttribute="centerX" secondItem="QBQ-ML-2mk" secondAttribute="centerX" id="wN2-tX-yxi"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NiB-sQ-Vzb">
+                                <rect key="frame" x="20" y="290" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nJ1-gg-zYt"/>
+                                </constraints>
+                                <color key="textColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An email containing a reset password link is about to be sent on this address." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvX-sF-LWc">
+                                <rect key="frame" x="20" y="370" width="374" height="54.666666666666686"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yvX-sF-LWc" firstAttribute="leading" secondItem="mbd-0i-C40" secondAttribute="leading" constant="20" id="9xw-Q7-BIl"/>
+                            <constraint firstItem="mbd-0i-C40" firstAttribute="trailing" secondItem="cbN-6z-3Iq" secondAttribute="trailing" constant="20" id="I6s-Wu-izT"/>
+                            <constraint firstItem="yvX-sF-LWc" firstAttribute="top" secondItem="NiB-sQ-Vzb" secondAttribute="bottom" constant="40" id="L7O-r3-0rT"/>
+                            <constraint firstItem="NiB-sQ-Vzb" firstAttribute="leading" secondItem="mbd-0i-C40" secondAttribute="leading" constant="20" id="N27-h7-Bcx"/>
+                            <constraint firstItem="mbd-0i-C40" firstAttribute="trailing" secondItem="yvX-sF-LWc" secondAttribute="trailing" constant="20" id="Q4s-z2-8cr"/>
+                            <constraint firstItem="cbN-6z-3Iq" firstAttribute="leading" secondItem="mbd-0i-C40" secondAttribute="leading" constant="20" id="dKi-n7-NoB"/>
+                            <constraint firstItem="QBQ-ML-2mk" firstAttribute="leading" secondItem="mbd-0i-C40" secondAttribute="leading" id="dOa-sg-P4c"/>
+                            <constraint firstItem="NiB-sQ-Vzb" firstAttribute="top" secondItem="QBQ-ML-2mk" secondAttribute="bottom" constant="170" id="e0Y-KH-qSf"/>
+                            <constraint firstItem="mbd-0i-C40" firstAttribute="bottom" secondItem="cbN-6z-3Iq" secondAttribute="bottom" constant="20" id="eFu-sa-QRK"/>
+                            <constraint firstItem="QBQ-ML-2mk" firstAttribute="trailing" secondItem="mbd-0i-C40" secondAttribute="trailing" id="ige-A0-HAd"/>
+                            <constraint firstItem="mbd-0i-C40" firstAttribute="trailing" secondItem="NiB-sQ-Vzb" secondAttribute="trailing" constant="20" id="ofd-be-Luo"/>
+                            <constraint firstItem="QBQ-ML-2mk" firstAttribute="top" secondItem="ucO-oP-Sst" secondAttribute="top" id="xXl-nF-iDD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mbd-0i-C40"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTxtField" destination="NiB-sQ-Vzb" id="yLM-oi-MKg"/>
+                        <outlet property="informationLbl" destination="yvX-sF-LWc" id="Cvz-Iq-tZw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wTc-jZ-roa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="849"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

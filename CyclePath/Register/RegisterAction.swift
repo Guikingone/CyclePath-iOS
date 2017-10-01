@@ -19,6 +19,9 @@ class RegisterAction: UIViewController
     {
         super.viewDidLoad()
         
+        // Input gesture
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
         usernameTxtLabel.delegate = self
         emailTextLabel.delegate = self
         passwordTxtLabel.delegate = self

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Firebase
+import CoreMotion
 import CoreLocation
 
 class HomeAction: UIViewController
@@ -23,7 +24,9 @@ class HomeAction: UIViewController
     @IBOutlet weak var trackBtn: CardButton!
     
     let locationManager = CLLocationManager()
+    let altimeterManager = CMAltimeter()
     let authorizationStatus = CLLocationManager.authorizationStatus()
+    private var altimeterTracking: Bool = false
     let regionRadius: Double = 1000
     private var seconds = 0
     private var timer: Timer?
@@ -154,5 +157,38 @@ extension HomeAction: CLLocationManagerDelegate
             
             locationList.append(newLocation)
         }
+    }
+}
+
+extension HomeAction: AltimeterProtocol
+{
+    func checkAltimeterAvailability()
+    {
+        if CMAltimeter.isRelativeAltitudeAvailable() {
+            altimeterTracking = true
+        }
+    }
+    
+    func startTrackingAltitude()
+    {
+        if altimeterTracking {
+            altimeterManager.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, errors) in
+                if errors != nil {
+                    print(errors?.localizedDescription as Any)
+                }
+                
+                // TODO
+            })
+        }
+    }
+    
+    func stopTrackingAltitude()
+    {
+        // TODO
+    }
+    
+    func saveAltitude()
+    {
+        HomeManager().savePathsByUser(uid: (Auth.auth().currentUser?.uid)!)
     }
 }

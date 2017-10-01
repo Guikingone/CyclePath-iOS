@@ -17,6 +17,7 @@ class LoginAction: UIViewController {
     {
         super.viewDidLoad()
         
+        // Input gesture
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
 
         // Do any additional setup after loading the view.
@@ -35,12 +36,9 @@ class LoginAction: UIViewController {
             }
         }
     }
-}
-
-extension LoginAction: UITextFieldDelegate
-{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
+    
+    @IBAction func forgotPassword(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "ForgotPasswordSegue", sender: self)
     }
 }

@@ -21,6 +21,10 @@
 		8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE41F7BF07B0098B5CA /* PathView.swift */; };
 		8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */; };
 		8A39E14A1F80E3E800A583E6 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1491F80E3E800A583E6 /* LoginRouter.swift */; };
+		8A39E14D1F80E8E900A583E6 /* AltimeterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E14C1F80E8E900A583E6 /* AltimeterProtocol.swift */; };
+		8A39E14F1F80E9F700A583E6 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E14E1F80E9F700A583E6 /* HomeManager.swift */; };
+		8A39E1511F80EA1800A583E6 /* HomeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1501F80EA1800A583E6 /* HomeManagerProtocol.swift */; };
+		8A39E1541F80EF0800A583E6 /* ForgotPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1531F80EF0800A583E6 /* ForgotPasswordAction.swift */; };
 		8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */; };
 		8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05701F7A2A6D00992F06 /* ViewController.swift */; };
 		8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7C05721F7A2A6D00992F06 /* Main.storyboard */; };
@@ -75,6 +79,10 @@
 		8A2D2FE41F7BF07B0098B5CA /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
 		8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8A39E1491F80E3E800A583E6 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		8A39E14C1F80E8E900A583E6 /* AltimeterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltimeterProtocol.swift; sourceTree = "<group>"; };
+		8A39E14E1F80E9F700A583E6 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		8A39E1501F80EA1800A583E6 /* HomeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManagerProtocol.swift; sourceTree = "<group>"; };
+		8A39E1531F80EF0800A583E6 /* ForgotPasswordAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAction.swift; sourceTree = "<group>"; };
 		8A7C056B1F7A2A6D00992F06 /* CyclePath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyclePath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7C05701F7A2A6D00992F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -181,8 +189,18 @@
 		8A39E14B1F80E80E00A583E6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				8A39E14C1F80E8E900A583E6 /* AltimeterProtocol.swift */,
+				8A39E1501F80EA1800A583E6 /* HomeManagerProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8A39E1521F80EEF600A583E6 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				8A39E1531F80EF0800A583E6 /* ForgotPasswordAction.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		8A7C05621F7A2A6D00992F06 = {
@@ -211,6 +229,7 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8A39E1521F80EEF600A583E6 /* ForgotPassword */,
 				8AB075551F7E6CA40096F022 /* Paths */,
 				8AB075521F7E6BE50096F022 /* Profile */,
 				8A1D6EC81F7A912400ECAD59 /* Views */,
@@ -260,6 +279,7 @@
 				8A961A171F7CD63C000E7BB7 /* HomeWorker.swift */,
 				8A961A191F7CD6B6000E7BB7 /* HomeStruct.swift */,
 				8A961A221F7D4295000E7BB7 /* HomeConverter.swift */,
+				8A39E14E1F80E9F700A583E6 /* HomeManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -640,9 +660,13 @@
 				8AB075541F7E6BF70096F022 /* ProfileAction.swift in Sources */,
 				8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */,
 				8A1D6EC51F7A784800ECAD59 /* SecurityService.swift in Sources */,
+				8A39E1541F80EF0800A583E6 /* ForgotPasswordAction.swift in Sources */,
 				8A961A1A1F7CD6B6000E7BB7 /* HomeStruct.swift in Sources */,
+				8A39E14F1F80E9F700A583E6 /* HomeManager.swift in Sources */,
 				8AB0754F1F7E2F120096F022 /* RegisterWorker.swift in Sources */,
 				8A961A231F7D4295000E7BB7 /* HomeConverter.swift in Sources */,
+				8A39E14D1F80E8E900A583E6 /* AltimeterProtocol.swift in Sources */,
+				8A39E1511F80EA1800A583E6 /* HomeManagerProtocol.swift in Sources */,
 				8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */,
 				8A1D6EBA1F7A726F00ECAD59 /* SideMenuAction.swift in Sources */,
 				8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */,
