@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
 class PathsAction: UIViewController {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var lastPathCard: UIView!
+    @IBOutlet weak var pathsList: UITableView!
+    @IBOutlet weak var noPathsTxt: UILabel!
+    @IBOutlet weak var authTxt: UILabel!
+    
+    private var pathsArray: [String: Any] = [:]
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        checkAuth()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        checkAuth()
     }
 }
 
@@ -32,5 +43,21 @@ extension PathsAction: PathsActionProtocol
     func reloadPaths()
     {
         
+    }
+    
+    func checkAuth()
+    {
+        if Auth.auth().currentUser == nil {
+            lastPathCard.isHidden = true
+            pathsList.isHidden = true
+            noPathsTxt.isHidden = true
+            authTxt.isHidden = false
+        } else {
+            if pathsArray.count < 1 {
+                authTxt.isHidden = true
+                pathsList.isHidden = true
+                noPathsTxt.isHidden = false
+            }
+        }
     }
 }

@@ -21,43 +21,14 @@ class ProfileAction: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        if Auth.auth().currentUser == nil {
-            logoutBtn.isHidden = true
-            profileImage.isHidden = true
-            loggedOutTxt.isHidden = false
-            registerBtn.isHidden = false
-            orTxtLabel.isHidden = false
-            loginBtn.isHidden = false
-        } else {
-            logoutBtn.isHidden = false
-            profileImage.isHidden = false
-            loggedOutTxt.isHidden = true
-            registerBtn.isHidden = true
-            orTxtLabel.isHidden = true
-            loginBtn.isHidden = true
-        }
+        
+        checkAuth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if Auth.auth().currentUser == nil {
-            logoutBtn.isHidden = true
-            profileImage.isHidden = true
-            loggedOutTxt.isHidden = false
-            registerBtn.isHidden = false
-            orTxtLabel.isHidden = false
-            loginBtn.isHidden = false
-        } else {
-            logoutBtn.isHidden = false
-            profileImage.isHidden = false
-            loggedOutTxt.isHidden = true
-            registerBtn.isHidden = true
-            orTxtLabel.isHidden = true
-            loginBtn.isHidden = true
-        }
+        checkAuth()
         
     }
     @IBAction func registerUser(_ sender: Any)
@@ -73,7 +44,7 @@ class ProfileAction: UIViewController
     @IBAction func LogoutUser(_ sender: Any)
     {
         let logoutPopUp = UIAlertController(
-            title: "Logout ?",
+            title: "You're about to be logged out.",
             message: "Are you sure ?",
             preferredStyle: .actionSheet
         )
@@ -95,6 +66,20 @@ extension ProfileAction: ProfileActionProtocol
 {
     func checkAuth()
     {
-        
+        if Auth.auth().currentUser == nil {
+            logoutBtn.isHidden = true
+            profileImage.isHidden = true
+            loggedOutTxt.isHidden = false
+            registerBtn.isHidden = false
+            orTxtLabel.isHidden = false
+            loginBtn.isHidden = false
+        } else {
+            logoutBtn.isHidden = false
+            profileImage.isHidden = false
+            loggedOutTxt.isHidden = true
+            registerBtn.isHidden = true
+            orTxtLabel.isHidden = true
+            loginBtn.isHidden = true
+        }
     }
 }

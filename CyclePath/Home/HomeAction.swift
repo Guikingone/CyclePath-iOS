@@ -14,26 +14,20 @@ import CoreLocation
 
 class HomeAction: UIViewController
 {
-    @IBOutlet weak var sideMenuBtn: UIButton!
-    @IBOutlet weak var profileImage: ProfileImage!
     @IBOutlet weak var dataCard: PathView!
     @IBOutlet weak var speedTxtLabel: UILabel!
     @IBOutlet weak var distanceTxtLabel: UILabel!
     @IBOutlet weak var timeTxtLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var trackBtn: CardButton!
     
     let locationManager = CLLocationManager()
     let altimeterManager = CMAltimeter()
     let authorizationStatus = CLLocationManager.authorizationStatus()
     private var altimeterTracking: Bool = false
-    let regionRadius: Double = 1000
-    private var seconds = 0
-    private var timer: Timer?
-    private var distance = Measurement(value: 0, unit: UnitLength.meters)
     private var locationList: [CLLocation] = []
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
     }
     
@@ -41,7 +35,7 @@ class HomeAction: UIViewController
     {
         super.viewDidLoad()
         
-        mapView.delegate = self
+        mapView.delegate = self as? MKMapViewDelegate
         locationManager.delegate = self
         mapView.showsUserLocation = true
         
@@ -50,58 +44,37 @@ class HomeAction: UIViewController
         timeTxtLabel.text = ""
         
         enableBasicLocationServices()
-        checkAltimeterAvailability()
+        HomeInteractor().checkAltimeterAvailability()
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        timer?.invalidate()
-//        HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
-//    }
     
     @IBAction func findUser(_ sender: Any)
     {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
-            centerMapOnUserLocation()
+            HomeInteractor().centerMapOnUser(locationManager: locationManager, mapView: mapView, regionRadius: 1000)
         }
     }
     
-    @IBAction func StartTracking(_ sender: Any)
+    @IBAction func startTracking(_ sender: Any)
     {
-        trackBtn.animateButton(load: true, withMessage: nil)
-        // TODO: Call the interactor and start tracking.
-        seconds = 0
-        distance = Measurement(value: 0, unit: UnitLength.meters)
-        locationList.removeAll()
-        updateDisplay()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.eachSeconds()
-        }
+        var data = HomeInteractor().startTracking()
+        
+        speedTxtLabel.text = data["rythm"]
+        distanceTxtLabel.text = data["distance"]
+        timeTxtLabel.text = data["time"]
+        
+        
         startLocationUpdates()
     }
     
-    private func updateDisplay()
+    @IBAction func pauseTracking(_ sender: Any)
     {
-        let formattedDistance = HomeStruct.distance(distance)
-        let formattedTime = HomeStruct.time(seconds)
-        let formattedPace = HomeStruct.pace(distance: distance,
-                                            seconds: seconds,
-                                            outputUnit: UnitSpeed.minutesPerKilometer)
         
-        speedTxtLabel.text = formattedPace
-        distanceTxtLabel.text = formattedDistance
-        timeTxtLabel.text = formattedTime
     }
     
-    func eachSeconds()
+    @IBAction func stopTracking(_ sender: Any)
     {
-        seconds += 1
-        updateDisplay()
-    }
-    
-    public func resetTimer()
-    {
-        timer?.invalidate()
+        HomeInteractor().stopTimer()
+        HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
     }
     
     private func startLocationUpdates() {
@@ -109,16 +82,6 @@ class HomeAction: UIViewController
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
-    }
-}
-
-extension HomeAction: MKMapViewDelegate
-{
-    func centerMapOnUserLocation()
-    {
-        guard let coordinates = locationManager.location?.coordinate else { return }
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(coordinates, regionRadius * 2.0, regionRadius * 2.0)
-        mapView.setRegion(coordinateRegion, animated: true)
     }
 }
 
@@ -144,7 +107,7 @@ extension HomeAction: CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
-        centerMapOnUserLocation()
+        HomeInteractor().centerMapOnUser(locationManager: locationManager, mapView: mapView, regionRadius: 1000)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -159,39 +122,5 @@ extension HomeAction: CLLocationManagerDelegate
             
             locationList.append(newLocation)
         }
-    }
-}
-
-extension HomeAction: AltimeterProtocol
-{
-    func checkAltimeterAvailability()
-    {
-        if CMAltimeter.isRelativeAltitudeAvailable() {
-            altimeterTracking = true
-        }
-    }
-    
-    func startTrackingAltitude()
-    {
-        if altimeterTracking {
-            altimeterManager.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, errors) in
-                if errors != nil {
-                    print(errors?.localizedDescription as Any)
-                }
-                
-                // TODO
-            })
-        }
-    }
-    
-    func stopTrackingAltitude()
-    {
-        self.altimeterManager.stopRelativeAltitudeUpdates()
-        
-    }
-    
-    func saveAltitude()
-    {
-        HomeManager().savePathsByUser(uid: (Auth.auth().currentUser?.uid)!)
     }
 }

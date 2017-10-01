@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class HomeManager
 {
@@ -15,8 +16,8 @@ class HomeManager
 
 extension HomeManager: HomeManagerProtocol
 {
-    func savePathsByUser(uid: String)
+    func savePathsByUser(uid: String, data: Dictionary<String, Any>)
     {
-        
+        DataService.instance.createPath(uid: uid, data: data)
     }
 }
