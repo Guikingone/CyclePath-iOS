@@ -21,15 +21,14 @@ class HomeAction: UIViewController
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
-    let altimeterManager = CMAltimeter()
     let authorizationStatus = CLLocationManager.authorizationStatus()
-    private var altimeterTracking: Bool = false
+    private var timer: Timer?
+    private var seconds = 0
+    private var distance = Measurement(value: 0, unit: UnitLength.meters)
     private var locationList: [CLLocation] = []
     
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super.viewWillAppear(animated)
-    }
+    let altimeterManager = CMAltimeter()
+    private var altimeterTracking: Bool = false
     
     override func viewDidLoad()
     {
@@ -56,25 +55,45 @@ class HomeAction: UIViewController
     
     @IBAction func startTracking(_ sender: Any)
     {
-        var data = HomeInteractor().startTracking()
-        
-        speedTxtLabel.text = data["rythm"]
-        distanceTxtLabel.text = data["distance"]
-        timeTxtLabel.text = data["time"]
-        
+        seconds = 0
+        distance = Measurement(value: 0, unit: UnitLength.meters)
+        locationList.removeAll()
+        updateDisplay()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.eachSeconds()
+        }
         
         startLocationUpdates()
     }
     
     @IBAction func pauseTracking(_ sender: Any)
     {
-        
+        // TODO
     }
     
     @IBAction func stopTracking(_ sender: Any)
     {
-        HomeInteractor().stopTimer()
+        timer?.invalidate()
         HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
+    }
+    
+    func eachSeconds()
+    {
+        seconds += 1
+        updateDisplay()
+    }
+    
+    func updateDisplay()
+    {
+        let formattedDistance = HomeStruct.distance(distance)
+        let formattedTime = HomeStruct.time(seconds)
+        let formattedPace = HomeStruct.pace(distance: distance,
+                                            seconds: seconds,
+                                            outputUnit: UnitSpeed.minutesPerKilometer)
+        
+        distanceTxtLabel.text = formattedDistance
+        timeTxtLabel.text = formattedTime
+        speedTxtLabel.text = formattedPace
     }
     
     private func startLocationUpdates() {
@@ -108,19 +127,5 @@ extension HomeAction: CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
         HomeInteractor().centerMapOnUser(locationManager: locationManager, mapView: mapView, regionRadius: 1000)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for newLocation in locations {
-            let howRecent = newLocation.timestamp.timeIntervalSinceNow
-            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-            
-            if let lastLocation = locationList.last {
-                let delta = newLocation.distance(from: lastLocation)
-                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
-            }
-            
-            locationList.append(newLocation)
-        }
     }
 }

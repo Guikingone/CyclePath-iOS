@@ -14,11 +14,34 @@ import CoreLocation
 class HomeInteractor
 {
     private var timer: Timer?
-    private var seconds = 0
-    private var distance = Measurement(value: 0, unit: UnitLength.meters)
-    private var locationList: [CLLocation] = []
+    let locationManager = CLLocationManager()
+    
     var altimeterTracking = false
     let altimeterManager = CMAltimeter()
+    
+    private var currentDistance: String = ""
+    private var currentTime: String = ""
+    private var currentPace: String = ""
+    
+    func setCurrentTimer(timer: Timer) {
+        self.timer = timer
+    }
+    
+    var getCurrentTimer: Timer {
+        return self.timer!
+    }
+    
+    var getCurrentDistance: String {
+        return currentDistance
+    }
+    
+    var getCurrentTime: String {
+        return currentTime
+    }
+    
+    var getCurrentPace: String {
+        return currentPace
+    }
 }
 
 extension HomeInteractor: HomeInteractorProtocol
@@ -34,13 +57,7 @@ extension HomeInteractor: HomeInteractorProtocol
     
     func startTracking()
     {
-        seconds = 0
-        distance = Measurement(value: 0, unit: UnitLength.meters)
-        locationList.removeAll()
-        updateDisplay()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.eachSeconds()
-        }
+        
     }
     
     func stopTimer()
@@ -51,27 +68,6 @@ extension HomeInteractor: HomeInteractorProtocol
     func stopUpdatingLocation(locationManager: CLLocationManager)
     {
         locationManager.stopUpdatingLocation()
-    }
-    
-    func eachSeconds()
-    {
-        seconds += 1
-        updateDisplay()
-    }
-    
-    func updateDisplay() -> Dictionary<String, Any>
-    {
-        let formattedDistance = HomeStruct.distance(distance)
-        let formattedTime = HomeStruct.time(seconds)
-        let formattedPace = HomeStruct.pace(distance: distance,
-                                            seconds: seconds,
-                                            outputUnit: UnitSpeed.minutesPerKilometer)
-        
-        return [
-            "distance": formattedDistance,
-            "time": formattedTime,
-            "rythm": formattedPace
-        ]
     }
     
     // Altimeter
