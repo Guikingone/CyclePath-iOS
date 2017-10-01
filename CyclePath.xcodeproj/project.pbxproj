@@ -25,6 +25,8 @@
 		8A39E14F1F80E9F700A583E6 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E14E1F80E9F700A583E6 /* HomeManager.swift */; };
 		8A39E1511F80EA1800A583E6 /* HomeManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1501F80EA1800A583E6 /* HomeManagerProtocol.swift */; };
 		8A39E1541F80EF0800A583E6 /* ForgotPasswordAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1531F80EF0800A583E6 /* ForgotPasswordAction.swift */; };
+		8A39E1571F80F34C00A583E6 /* PathsActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1561F80F34C00A583E6 /* PathsActionProtocol.swift */; };
+		8A39E15A1F80F43500A583E6 /* ProfileActionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1591F80F43500A583E6 /* ProfileActionProtocols.swift */; };
 		8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */; };
 		8A7C05711F7A2A6D00992F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C05701F7A2A6D00992F06 /* ViewController.swift */; };
 		8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A7C05721F7A2A6D00992F06 /* Main.storyboard */; };
@@ -83,6 +85,8 @@
 		8A39E14E1F80E9F700A583E6 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		8A39E1501F80EA1800A583E6 /* HomeManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManagerProtocol.swift; sourceTree = "<group>"; };
 		8A39E1531F80EF0800A583E6 /* ForgotPasswordAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordAction.swift; sourceTree = "<group>"; };
+		8A39E1561F80F34C00A583E6 /* PathsActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsActionProtocol.swift; sourceTree = "<group>"; };
+		8A39E1591F80F43500A583E6 /* ProfileActionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionProtocols.swift; sourceTree = "<group>"; };
 		8A7C056B1F7A2A6D00992F06 /* CyclePath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyclePath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A7C056E1F7A2A6D00992F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A7C05701F7A2A6D00992F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,22 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		8A39E1551F80F32B00A583E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8A39E1561F80F34C00A583E6 /* PathsActionProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8A39E1581F80F42100A583E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8A39E1591F80F43500A583E6 /* ProfileActionProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		8A7C05621F7A2A6D00992F06 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +307,7 @@
 		8AB075521F7E6BE50096F022 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8A39E1581F80F42100A583E6 /* Protocols */,
 				8AB075531F7E6BF70096F022 /* ProfileAction.swift */,
 			);
 			path = Profile;
@@ -295,6 +316,7 @@
 		8AB075551F7E6CA40096F022 /* Paths */ = {
 			isa = PBXGroup;
 			children = (
+				8A39E1551F80F32B00A583E6 /* Protocols */,
 				8AB075561F7E6CB30096F022 /* PathsAction.swift */,
 			);
 			path = Paths;
@@ -656,6 +678,7 @@
 				8A39E14A1F80E3E800A583E6 /* LoginRouter.swift in Sources */,
 				8A1D6EC71F7A83A700ECAD59 /* GradientView.swift in Sources */,
 				8A1D6EC21F7A781700ECAD59 /* RegisterAction.swift in Sources */,
+				8A39E15A1F80F43500A583E6 /* ProfileActionProtocols.swift in Sources */,
 				8A7C056F1F7A2A6D00992F06 /* AppDelegate.swift in Sources */,
 				8AB075541F7E6BF70096F022 /* ProfileAction.swift in Sources */,
 				8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */,
@@ -668,6 +691,7 @@
 				8A39E14D1F80E8E900A583E6 /* AltimeterProtocol.swift in Sources */,
 				8A39E1511F80EA1800A583E6 /* HomeManagerProtocol.swift in Sources */,
 				8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */,
+				8A39E1571F80F34C00A583E6 /* PathsActionProtocol.swift in Sources */,
 				8A1D6EBA1F7A726F00ECAD59 /* SideMenuAction.swift in Sources */,
 				8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */,
 				8A1D6EC01F7A77F300ECAD59 /* LoginAction.swift in Sources */,

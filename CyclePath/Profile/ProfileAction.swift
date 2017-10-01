@@ -90,3 +90,11 @@ class ProfileAction: UIViewController
         present(logoutPopUp, animated: true, completion: nil)
     }
 }
+
+extension ProfileAction: ProfileActionProtocol
+{
+    func checkAuth()
+    {
+        
+    }
+}

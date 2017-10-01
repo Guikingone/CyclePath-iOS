@@ -28,7 +28,8 @@ class ForgotPasswordAction: UIViewController
         
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if error != nil {
-                self.informationLbl.text = "An error has been detected : \(String(describing: error?.localizedDescription))"
+                self.informationLbl.text = "An error has been detected, please retry."
+                print(String(describing: error?.localizedDescription))
             } else {
                 self.dismiss(animated: true, completion: nil)
             }

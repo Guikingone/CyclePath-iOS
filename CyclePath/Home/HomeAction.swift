@@ -50,6 +50,7 @@ class HomeAction: UIViewController
         timeTxtLabel.text = ""
         
         enableBasicLocationServices()
+        checkAltimeterAvailability()
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {
@@ -79,7 +80,8 @@ class HomeAction: UIViewController
         startLocationUpdates()
     }
     
-    private func updateDisplay() {
+    private func updateDisplay()
+    {
         let formattedDistance = HomeStruct.distance(distance)
         let formattedTime = HomeStruct.time(seconds)
         let formattedPace = HomeStruct.pace(distance: distance,
@@ -184,7 +186,8 @@ extension HomeAction: AltimeterProtocol
     
     func stopTrackingAltitude()
     {
-        // TODO
+        self.altimeterManager.stopRelativeAltitudeUpdates()
+        
     }
     
     func saveAltitude()

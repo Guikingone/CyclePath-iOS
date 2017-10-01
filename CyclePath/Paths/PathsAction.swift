@@ -20,5 +20,17 @@ class PathsAction: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
+extension PathsAction: PathsActionProtocol
+{
+    func displayPaths()
+    {
+        
+    }
+    
+    func reloadPaths()
+    {
+        
+    }
 }
