@@ -46,6 +46,9 @@
 		8AB075571F7E6CB30096F022 /* PathsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB075561F7E6CB30096F022 /* PathsAction.swift */; };
 		8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3F7091F7A3D0F00E62756 /* DataService.swift */; };
 		8ABD98631F823B6B00A64099 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98621F823B6B00A64099 /* Paths.swift */; };
+		8ABD98671F8262A600A64099 /* PathsDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */; };
+		8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */; };
+		8ABD986D1F82651C00A64099 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD986C1F82651C00A64099 /* LoginProtocol.swift */; };
 		8AC9B5F91F7BAF2100FD8677 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC9B5F81F7BAF2100FD8677 /* MapKit.framework */; };
 		8AFB12321F81269B009C2A41 /* HomeInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB12311F81269B009C2A41 /* HomeInteractorProtocol.swift */; };
 		8AFB12341F8127F4009C2A41 /* HomeActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB12331F8127F4009C2A41 /* HomeActionProtocol.swift */; };
@@ -117,6 +120,9 @@
 		8AB075561F7E6CB30096F022 /* PathsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsAction.swift; sourceTree = "<group>"; };
 		8AB3F7091F7A3D0F00E62756 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8ABD98621F823B6B00A64099 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsDetailsAction.swift; sourceTree = "<group>"; };
+		8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDetailsProtocol.swift; sourceTree = "<group>"; };
+		8ABD986C1F82651C00A64099 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
 		8AC9B5F81F7BAF2100FD8677 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8AFB12311F81269B009C2A41 /* HomeInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorProtocol.swift; sourceTree = "<group>"; };
 		8AFB12331F8127F4009C2A41 /* HomeActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActionProtocol.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 		8A1D6EBD1F7A77CE00ECAD59 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8ABD986B1F82650F00A64099 /* Protocols */,
 				8A1D6EBF1F7A77F300ECAD59 /* LoginAction.swift */,
 				8AB075501F7E328C0096F022 /* LoginWorker.swift */,
 				8A39E1491F80E3E800A583E6 /* LoginRouter.swift */,
@@ -253,6 +260,7 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8ABD98651F82628F00A64099 /* PathsDetails */,
 				8AFB12301F81246D009C2A41 /* Extensions */,
 				8A39E1521F80EEF600A583E6 /* ForgotPassword */,
 				8AB075551F7E6CA40096F022 /* Paths */,
@@ -320,12 +328,12 @@
 		8AB075551F7E6CA40096F022 /* Paths */ = {
 			isa = PBXGroup;
 			children = (
+				8ABD98641F8241B500A64099 /* Cells */,
 				8ABD98611F823B6300A64099 /* Model */,
 				8A39E1551F80F32B00A583E6 /* Protocols */,
 				8AB075561F7E6CB30096F022 /* PathsAction.swift */,
 				8AA69D4E1F822A8200939FD9 /* PathsManager.swift */,
 				8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */,
-				8AA69D541F8232FE00939FD9 /* PathsCell.swift */,
 			);
 			path = Paths;
 			sourceTree = "<group>";
@@ -344,6 +352,39 @@
 				8ABD98621F823B6B00A64099 /* Paths.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8ABD98641F8241B500A64099 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8AA69D541F8232FE00939FD9 /* PathsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8ABD98651F82628F00A64099 /* PathsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8ABD98681F82630300A64099 /* Protocols */,
+				8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */,
+			);
+			path = PathsDetails;
+			sourceTree = "<group>";
+		};
+		8ABD98681F82630300A64099 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8ABD986B1F82650F00A64099 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8ABD986C1F82651C00A64099 /* LoginProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8AFB12301F81246D009C2A41 /* Extensions */ = {
@@ -699,6 +740,7 @@
 				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
 				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
 				8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */,
+				8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */,
 				8A39E14A1F80E3E800A583E6 /* LoginRouter.swift in Sources */,
 				8AA69D551F8232FE00939FD9 /* PathsCell.swift in Sources */,
 				8A1D6EC71F7A83A700ECAD59 /* GradientView.swift in Sources */,
@@ -710,7 +752,9 @@
 				8AB075541F7E6BF70096F022 /* ProfileAction.swift in Sources */,
 				8AFB12341F8127F4009C2A41 /* HomeActionProtocol.swift in Sources */,
 				8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */,
+				8ABD986D1F82651C00A64099 /* LoginProtocol.swift in Sources */,
 				8A1D6EC51F7A784800ECAD59 /* SecurityService.swift in Sources */,
+				8ABD98671F8262A600A64099 /* PathsDetailsAction.swift in Sources */,
 				8A39E1541F80EF0800A583E6 /* ForgotPasswordAction.swift in Sources */,
 				8A961A1A1F7CD6B6000E7BB7 /* HomeStruct.swift in Sources */,
 				8A39E14F1F80E9F700A583E6 /* HomeManager.swift in Sources */,

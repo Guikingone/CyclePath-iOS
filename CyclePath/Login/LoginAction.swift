@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LoginAction: UIViewController {
-
+class LoginAction: UIViewController
+{
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtLabel: UITextField!
     
@@ -21,6 +21,11 @@ class LoginAction: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func back(_ sender: Any)
+    {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func loginUser(_ sender: Any)

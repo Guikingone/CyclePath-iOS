@@ -61,7 +61,7 @@ class DataService
         REF_PATHS.childByAutoId().updateChildValues(data)
     }
     
-    public func getPathsByUser()
+    public func getPathsByUser(handler: @escaping (_ receivedData: [Paths]) -> ())
     {
         REF_PATHS.observeSingleEvent(of: .value) { (receivedDataSnapshot) in
             guard let receivedData = receivedDataSnapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -78,6 +78,8 @@ class DataService
                     print("You must be logged in !")
                 }
             }
+            
+            handler(self.paths)
         }
     }
     

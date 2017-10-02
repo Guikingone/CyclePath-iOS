@@ -27,6 +27,11 @@ class RegisterAction: UIViewController
         passwordTxtLabel.delegate = self
         passwordRptTxtLabel.delegate = self
     }
+    
+    @IBAction func back(_ sender: Any)
+    {
+       dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func registerUser(_ sender: Any)
     {

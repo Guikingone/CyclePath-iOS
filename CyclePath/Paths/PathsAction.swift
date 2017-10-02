@@ -9,12 +9,10 @@
 import UIKit
 import Firebase
 
-class PathsAction: UIViewController {
-
-    @IBOutlet weak var lastPathCard: UIView!
+class PathsAction: UIViewController
+{
     @IBOutlet weak var pathsList: UITableView!
-    @IBOutlet weak var noPathsTxt: UILabel!
-    @IBOutlet weak var authTxt: UILabel!
+    @IBOutlet weak var infoLbl: UILabel!
     
     private var pathsArray = [Paths]()
     
@@ -32,20 +30,25 @@ class PathsAction: UIViewController {
     {
         super.viewWillAppear(animated)
         
-        DataService.instance.getPathsByUser()
-        
         checkAuth()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        pathsArray = DataService.instance.getPaths
-        pathsList.reloadData()
-        
-        if pathsArray.count > 0 {
-            noPathsTxt.isHidden = true
-            pathsList.isHidden = false
+        if pathsArray.count >= 1 {
+            self.pathsList.reloadData()
+        } else {
+            
+            DataService.instance.getPathsByUser { (receivedData) in
+                self.pathsArray = receivedData
+                
+                if self.pathsArray.count > 0 {
+                    self.pathsList.isHidden = false
+                }
+                
+                self.pathsList.reloadData()
+            }
         }
     }
 }
@@ -65,15 +68,13 @@ extension PathsAction: PathsActionProtocol
     func checkAuth()
     {
         if Auth.auth().currentUser == nil {
-            lastPathCard.isHidden = true
             pathsList.isHidden = true
-            noPathsTxt.isHidden = true
-            authTxt.isHidden = false
+            infoLbl.isHidden = false
+            infoLbl.text = "You must be logged in order to see your saved paths."
         } else {
             if pathsArray.count < 1 {
-                authTxt.isHidden = true
+                infoLbl.isHidden = false
                 pathsList.isHidden = true
-                noPathsTxt.isHidden = false
             }
         }
     }
@@ -81,19 +82,27 @@ extension PathsAction: PathsActionProtocol
 
 extension PathsAction: UITableViewDelegate, UITableViewDataSource
 {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return pathsArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = pathsList.dequeueReusableCell(withIdentifier: "PathsCell") as? PathsCell else { return UITableViewCell() }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        guard let cell = pathsList.dequeueReusableCell(withIdentifier: "PathCell") as? PathsCell else { return UITableViewCell() }
         let path = pathsArray[indexPath.row]
         
         cell.configureCell(data: path)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        self.performSegue(withIdentifier: "PathDetailsSegue", sender: self)
     }
 }

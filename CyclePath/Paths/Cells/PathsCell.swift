@@ -10,14 +10,12 @@ import Foundation
 
 class PathsCell: UITableViewCell
 {
-    private var distance: Int = 0
-    private var duration: Int16 = 0
-    private var timestamp: String = ""
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var distanceLbl: UILabel!
     
     func configureCell(data: Paths)
     {
-        distance = data.formattedDistance
-        duration = data.formattedDuration
-        timestamp = data.formattedTimestamp
+        dateLbl.text = data.formattedTimestamp
+        distanceLbl.text = String(describing: data.formattedDistance)
     }
 }
