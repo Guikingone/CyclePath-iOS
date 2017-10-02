@@ -232,7 +232,10 @@
                         <outlet property="dataCard" destination="buY-dF-EgJ" id="6VH-GQ-cga"/>
                         <outlet property="distanceTxtLabel" destination="n4L-em-bez" id="PKA-gY-egR"/>
                         <outlet property="mapView" destination="xvM-cy-bmH" id="9Go-rV-hPM"/>
+                        <outlet property="pauseBtn" destination="vAC-Og-z4e" id="Ps4-Hb-9bN"/>
                         <outlet property="speedTxtLabel" destination="loj-PB-pXh" id="bAB-k8-fCM"/>
+                        <outlet property="startBtn" destination="4MM-ei-cls" id="wnM-n9-fni"/>
+                        <outlet property="stopBtn" destination="Jzy-1a-1r0" id="MWI-lA-U7C"/>
                         <outlet property="timeTxtLabel" destination="PUE-Yr-gJw" id="Epm-bx-kVG"/>
                     </connections>
                 </viewController>

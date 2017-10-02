@@ -6,8 +6,9 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import Foundation
+import CoreLocation
 
 class HomeManager
 {
@@ -16,8 +17,8 @@ class HomeManager
 
 extension HomeManager: HomeManagerProtocol
 {
-    func savePathsByUser(uid: String, data: Dictionary<String, Any>)
+    func savePathsByUser(distance: Any, duration: Int16, locations: [CLLocation], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
     {
-        DataService.instance.createPath(uid: uid, data: data)
+        DataService.instance.createPath(distance: distance, duration: duration, locations: locations)
     }
 }

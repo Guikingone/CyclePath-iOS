@@ -14,6 +14,11 @@ import CoreLocation
 
 class HomeAction: UIViewController
 {
+    @IBOutlet weak var startBtn: CardButton!
+    @IBOutlet weak var pauseBtn: CardButton!
+    @IBOutlet weak var stopBtn: CardButton!
+    
+    
     @IBOutlet weak var dataCard: PathView!
     @IBOutlet weak var speedTxtLabel: UILabel!
     @IBOutlet weak var distanceTxtLabel: UILabel!
@@ -43,6 +48,7 @@ class HomeAction: UIViewController
         timeTxtLabel.text = ""
         
         enableBasicLocationServices()
+        
         HomeInteractor().checkAltimeterAvailability()
     }
     
@@ -55,6 +61,7 @@ class HomeAction: UIViewController
     
     @IBAction func startTracking(_ sender: Any)
     {
+        startBtn.isEnabled = false
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
@@ -64,6 +71,8 @@ class HomeAction: UIViewController
         }
         
         startLocationUpdates()
+        
+        HomeInteractor().startTrackingAltitude()
     }
     
     @IBAction func pauseTracking(_ sender: Any)
@@ -75,6 +84,30 @@ class HomeAction: UIViewController
     {
         timer?.invalidate()
         HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
+        
+        if Auth.auth().currentUser == nil {
+            let alert = UIAlertController(
+                title: "Are you logged in ?",
+                message: "Do you want to save this path ?",
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(
+                title: "Save", style: .default, handler: { (_) in
+//                    self.performSegue(withIdentifier: "<#T##String#>", sender: <#T##Any?#>)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            HomeManager().savePathsByUser(distance: self.distance.value, duration: Int16(self.seconds), locations: locationList, success: { (saved) in
+                // TODO
+                print("saved !")
+            }, failure: { (failed) in
+                // TODO
+                print("Failed !")
+            })
+        }
+        
+        startBtn.isEnabled = true
     }
     
     func eachSeconds()

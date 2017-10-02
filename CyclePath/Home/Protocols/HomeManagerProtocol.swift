@@ -6,7 +6,9 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
+import CoreLocation
+
 protocol HomeManagerProtocol
 {
-    func savePathsByUser(uid: String, data: Dictionary<String, Any>)
+    func savePathsByUser(distance: Any, duration: Int16, locations: [CLLocation], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 let DB_BASE = Database.database().reference()
 
@@ -19,6 +20,8 @@ class DataService
     private var _REF_USERS = DB_BASE.child("users")
     private var _REF_PATHS = DB_BASE.child("path")
     private var _REF_LOCATIONS = DB_BASE.child("location")
+    
+    private var paths = [Paths]()
     
     var REF_BASER: DatabaseReference {
         return DB_BASE
@@ -36,14 +39,46 @@ class DataService
         return _REF_LOCATIONS
     }
     
+    var getPaths: [Paths] {
+        return paths
+    }
+    
     public func createUser(uid: String, data: Dictionary<String, Any>)
     {
         REF_USERS.child(uid).updateChildValues(data)
     }
     
-    public func createPath(uid: String, data: Dictionary<String, Any>)
+    public func createPath(distance: Any, duration: Int16, locations: [CLLocation])
     {
-        REF_PATHS.child(uid).updateChildValues(data)
+        let data = [
+            "user": Auth.auth().currentUser?.uid,
+            "distance": distance,
+            "duration": duration,
+            "timestamp": String(describing: Date()),
+            "locations": locations
+        ]
+        
+        REF_PATHS.childByAutoId().updateChildValues(data)
+    }
+    
+    public func getPathsByUser()
+    {
+        REF_PATHS.observeSingleEvent(of: .value) { (receivedDataSnapshot) in
+            guard let receivedData = receivedDataSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedData {
+                if data.childSnapshot(forPath: "user").value as? String == Auth.auth().currentUser?.uid {
+                    let distance = data.childSnapshot(forPath: "distance").value as! Int
+                    let duration = data.childSnapshot(forPath: "duration").value as! Int16
+                    let timestamp = data.childSnapshot(forPath: "timestamp").value as! String
+                    let path = Paths(distance: distance, duration: duration, timestamp: timestamp)
+                    
+                    self.paths.append(path)
+                } else {
+                    print("You must be logged in !")
+                }
+            }
+        }
     }
     
     public func createLocation()

@@ -16,11 +16,14 @@ class PathsAction: UIViewController {
     @IBOutlet weak var noPathsTxt: UILabel!
     @IBOutlet weak var authTxt: UILabel!
     
-    private var pathsArray: [String: Any] = [:]
+    private var pathsArray = [Paths]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        pathsList.delegate = self
+        pathsList.dataSource = self
         
         checkAuth()
     }
@@ -29,7 +32,21 @@ class PathsAction: UIViewController {
     {
         super.viewWillAppear(animated)
         
+        DataService.instance.getPathsByUser()
+        
         checkAuth()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        pathsArray = DataService.instance.getPaths
+        pathsList.reloadData()
+        
+        if pathsArray.count > 0 {
+            noPathsTxt.isHidden = true
+            pathsList.isHidden = false
+        }
     }
 }
 
@@ -59,5 +76,24 @@ extension PathsAction: PathsActionProtocol
                 noPathsTxt.isHidden = false
             }
         }
+    }
+}
+
+extension PathsAction: UITableViewDelegate, UITableViewDataSource
+{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pathsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = pathsList.dequeueReusableCell(withIdentifier: "PathsCell") as? PathsCell else { return UITableViewCell() }
+        let path = pathsArray[indexPath.row]
+        
+        cell.configureCell(data: path)
+        return cell
     }
 }
