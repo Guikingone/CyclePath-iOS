@@ -34,9 +34,4 @@ class HomeWorker: UnitConverter
         guard value != 0 else { return 0 }
         return 1.0 / value
     }
-    
-    public func resetTimer()
-    {
-        timer?.invalidate()
-    }
 }

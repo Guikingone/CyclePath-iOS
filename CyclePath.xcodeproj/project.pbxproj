@@ -36,6 +36,7 @@
 		8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A171F7CD63C000E7BB7 /* HomeWorker.swift */; };
 		8A961A1A1F7CD6B6000E7BB7 /* HomeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A191F7CD6B6000E7BB7 /* HomeStruct.swift */; };
 		8A961A231F7D4295000E7BB7 /* HomeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A221F7D4295000E7BB7 /* HomeConverter.swift */; };
+		8A9FF4F71F82A72C00EBA211 /* LocationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FF4F61F82A72C00EBA211 /* LocationStruct.swift */; };
 		8AA69D4F1F822A8200939FD9 /* PathsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D4E1F822A8200939FD9 /* PathsManager.swift */; };
 		8AA69D511F822FDD00939FD9 /* PathsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */; };
 		8AA69D531F82309700939FD9 /* PathsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D521F82309700939FD9 /* PathsInteractorProtocol.swift */; };
@@ -110,6 +111,7 @@
 		8A961A171F7CD63C000E7BB7 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		8A961A191F7CD6B6000E7BB7 /* HomeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStruct.swift; sourceTree = "<group>"; };
 		8A961A221F7D4295000E7BB7 /* HomeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConverter.swift; sourceTree = "<group>"; };
+		8A9FF4F61F82A72C00EBA211 /* LocationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStruct.swift; sourceTree = "<group>"; };
 		8AA69D4E1F822A8200939FD9 /* PathsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsManager.swift; sourceTree = "<group>"; };
 		8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsInteractor.swift; sourceTree = "<group>"; };
 		8AA69D521F82309700939FD9 /* PathsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -303,10 +305,10 @@
 		8A7C059C1F7A2D5E00992F06 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8A9FF4F81F82A7BA00EBA211 /* Struct */,
+				8A9FF4F51F828C5000EBA211 /* View */,
 				8A39E14B1F80E80E00A583E6 /* Protocols */,
 				8A7C059D1F7A2D6D00992F06 /* HomeAction.swift */,
-				8A1D6EC61F7A83A700ECAD59 /* GradientView.swift */,
-				8A2D2FE41F7BF07B0098B5CA /* PathView.swift */,
 				8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */,
 				8A961A171F7CD63C000E7BB7 /* HomeWorker.swift */,
 				8A961A191F7CD6B6000E7BB7 /* HomeStruct.swift */,
@@ -314,6 +316,23 @@
 				8A39E14E1F80E9F700A583E6 /* HomeManager.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		8A9FF4F51F828C5000EBA211 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A1D6EC61F7A83A700ECAD59 /* GradientView.swift */,
+				8A2D2FE41F7BF07B0098B5CA /* PathView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A9FF4F81F82A7BA00EBA211 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				8A9FF4F61F82A72C00EBA211 /* LocationStruct.swift */,
+			);
+			path = Struct;
 			sourceTree = "<group>";
 		};
 		8AB075521F7E6BE50096F022 /* Profile */ = {
@@ -332,8 +351,8 @@
 				8ABD98611F823B6300A64099 /* Model */,
 				8A39E1551F80F32B00A583E6 /* Protocols */,
 				8AB075561F7E6CB30096F022 /* PathsAction.swift */,
-				8AA69D4E1F822A8200939FD9 /* PathsManager.swift */,
 				8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */,
+				8AA69D4E1F822A8200939FD9 /* PathsManager.swift */,
 			);
 			path = Paths;
 			sourceTree = "<group>";
@@ -738,6 +757,7 @@
 				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
 				8AA69D531F82309700939FD9 /* PathsInteractorProtocol.swift in Sources */,
 				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
+				8A9FF4F71F82A72C00EBA211 /* LocationStruct.swift in Sources */,
 				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
 				8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */,
 				8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */,

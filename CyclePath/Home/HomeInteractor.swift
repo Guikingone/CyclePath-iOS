@@ -18,10 +18,19 @@ class HomeInteractor
     
     var altimeterTracking = false
     let altimeterManager = CMAltimeter()
+    private var altimeterData: [Double] = []
     
     private var currentDistance: String = ""
     private var currentTime: String = ""
     private var currentPace: String = ""
+    
+    // Altimeter
+    
+    var getAltimeterData: [Double] {
+        return altimeterData
+    }
+    
+    // Timer
     
     func setCurrentTimer(timer: Timer) {
         self.timer = timer
@@ -30,6 +39,8 @@ class HomeInteractor
     var getCurrentTimer: Timer {
         return self.timer!
     }
+    
+    // Location
     
     var getCurrentDistance: String {
         return currentDistance
@@ -87,7 +98,7 @@ extension HomeInteractor: HomeInteractorProtocol
                     print(errors?.localizedDescription as Any)
                 }
                 
-                // TODO
+                self.altimeterData.append((data?.relativeAltitude.doubleValue)!)
             })
         }
     }
@@ -101,5 +112,17 @@ extension HomeInteractor: HomeInteractorProtocol
     func saveAltitude()
     {
         
+    }
+    
+    func transformLocations(locations: [CLLocation], data: @escaping (_ : [LocationStruct.persist]) -> ())
+    {
+        var locationArray = [LocationStruct.persist]()
+        
+        for location in locations {
+            let locationStruct = LocationStruct.persist(timestamp: location.timestamp, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            locationArray.append(locationStruct)
+        }
+        
+        data(locationArray)
     }
 }

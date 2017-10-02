@@ -24,4 +24,8 @@ protocol HomeInteractorProtocol
     func stopTrackingAltitude()
     
     func saveAltitude()
+    
+    // Logic
+    
+    func transformLocations(locations: [CLLocation], data: @escaping (_ : [LocationStruct.persist]) -> ())
 }

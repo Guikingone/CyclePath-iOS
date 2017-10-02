@@ -15,9 +15,9 @@ class HomeManager
     
 }
 
-extension HomeManager: HomeManagerProtocol
+extension HomeManager
 {
-    func savePathsByUser(distance: Any, duration: Int16, locations: [CLLocation], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func savePathsByUser(distance: Any, duration: Int16, locations: [LocationStruct.persist], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
     {
         DataService.instance.createPath(distance: distance, duration: duration, locations: locations)
     }

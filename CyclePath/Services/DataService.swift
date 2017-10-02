@@ -48,14 +48,18 @@ class DataService
         REF_USERS.child(uid).updateChildValues(data)
     }
     
-    public func createPath(distance: Any, duration: Int16, locations: [CLLocation])
+    public func createPath(distance: Any, duration: Int16, locations: [LocationStruct.persist])
     {
+        print(locations)
+        
         let data = [
             "user": Auth.auth().currentUser?.uid,
             "distance": distance,
             "duration": duration,
             "timestamp": String(describing: Date()),
-            "locations": locations
+            "locations": [
+                // TODO: Pass the array of locations.
+            ]
         ]
         
         REF_PATHS.childByAutoId().updateChildValues(data)
@@ -64,6 +68,8 @@ class DataService
     public func getPathsByUser(handler: @escaping (_ receivedData: [Paths]) -> ())
     {
         REF_PATHS.observeSingleEvent(of: .value) { (receivedDataSnapshot) in
+            
+            var pathsList = [Paths]()
             guard let receivedData = receivedDataSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for data in receivedData {
@@ -73,18 +79,15 @@ class DataService
                     let timestamp = data.childSnapshot(forPath: "timestamp").value as! String
                     let path = Paths(distance: distance, duration: duration, timestamp: timestamp)
                     
-                    self.paths.append(path)
+                    // TODO: Check if the value already exist.
+                    
+                    pathsList.append(path)
                 } else {
                     print("You must be logged in !")
                 }
             }
             
-            handler(self.paths)
+            handler(pathsList)
         }
-    }
-    
-    public func createLocation()
-    {
-        
     }
 }

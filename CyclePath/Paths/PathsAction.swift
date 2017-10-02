@@ -75,6 +75,8 @@ extension PathsAction: PathsActionProtocol
             if pathsArray.count < 1 {
                 infoLbl.isHidden = false
                 pathsList.isHidden = true
+            } else {
+                infoLbl.isHidden = true
             }
         }
     }

@@ -8,5 +8,5 @@
 
 protocol PathsDetailsProtocol
 {
-    
+    func displayInformations()
 }

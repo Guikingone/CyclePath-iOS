@@ -18,7 +18,6 @@ class HomeAction: UIViewController
     @IBOutlet weak var pauseBtn: CardButton!
     @IBOutlet weak var stopBtn: CardButton!
     
-    
     @IBOutlet weak var dataCard: PathView!
     @IBOutlet weak var speedTxtLabel: UILabel!
     @IBOutlet weak var distanceTxtLabel: UILabel!
@@ -34,6 +33,7 @@ class HomeAction: UIViewController
     
     let altimeterManager = CMAltimeter()
     private var altimeterTracking: Bool = false
+    private var altimeterData = ""
     
     override func viewDidLoad()
     {
@@ -98,12 +98,15 @@ class HomeAction: UIViewController
             
             self.present(alert, animated: true, completion: nil)
         } else {
-            HomeManager().savePathsByUser(distance: self.distance.value, duration: Int16(self.seconds), locations: locationList, success: { (saved) in
-                // TODO
-                print("saved !")
-            }, failure: { (failed) in
-                // TODO
-                print("Failed !")
+            HomeInteractor().transformLocations(locations: locationList, data: { (data) in
+                
+                HomeManager().savePathsByUser(distance: self.distance.value, duration: Int16(self.seconds), locations: data, success: { (saved) in
+                    // TODO
+                    print("saved !")
+                }, failure: { (failed) in
+                    // TODO
+                    print("Failed !")
+                })
             })
         }
         
@@ -135,6 +138,7 @@ class HomeAction: UIViewController
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
+    
 }
 
 extension HomeAction: CLLocationManagerDelegate
@@ -160,5 +164,19 @@ extension HomeAction: CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
         HomeInteractor().centerMapOnUser(locationManager: locationManager, mapView: mapView, regionRadius: 1000)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        for newLocation in locations {
+            let howRecent = newLocation.timestamp.timeIntervalSinceNow
+            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
+            
+            if let lastLocation = locationList.last {
+                let delta = newLocation.distance(from: lastLocation)
+                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+            }
+            
+            locationList.append(newLocation)
+        }
     }
 }

@@ -8,5 +8,11 @@
 
 protocol HomeActionProtocol
 {
+    func checkLocationAccess()
     
+    func startTracking()
+    
+    func pauseTracking()
+    
+    func stopTracking()
 }

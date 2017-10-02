@@ -24,5 +24,8 @@ class PathsDetailsAction: UIViewController {
 
 extension PathsDetailsAction: PathsDetailsProtocol
 {
-    
+    func displayInformations()
+    {
+        
+    }
 }
