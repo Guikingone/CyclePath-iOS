@@ -93,19 +93,25 @@ class HomeAction: UIViewController
             )
             alert.addAction(UIAlertAction(
                 title: "Save", style: .default, handler: { (_) in
-//                    self.performSegue(withIdentifier: "<#T##String#>", sender: <#T##Any?#>)
+                    self.performSegue(withIdentifier: "ShouldBeLoggedSegue", sender: self)
             }))
             
             self.present(alert, animated: true, completion: nil)
         } else {
-            HomeInteractor().transformLocations(locations: locationList, data: { (data) in
+            HomeInteractor().transformLocations(locations: locationList, data: { (data, id) in
                 
-                HomeManager().savePathsByUser(distance: self.distance.value, duration: Int16(self.seconds), locations: data, success: { (saved) in
+                HomeManager().savePathsByUser(pathId: id, distance: self.distance.value, duration: Int16(self.seconds), success: { (saved) in
                     // TODO
                     print("saved !")
                 }, failure: { (failed) in
                     // TODO
                     print("Failed !")
+                })
+                
+                HomeManager().saveLocationByPath(pathId: id, locations: data, success: { (saved) in
+                    // TODO
+                }, failure: { (failed) in
+                    // TODO
                 })
             })
         }

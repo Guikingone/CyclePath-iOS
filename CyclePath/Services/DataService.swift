@@ -21,8 +21,6 @@ class DataService
     private var _REF_PATHS = DB_BASE.child("path")
     private var _REF_LOCATIONS = DB_BASE.child("location")
     
-    private var paths = [Paths]()
-    
     var REF_BASER: DatabaseReference {
         return DB_BASE
     }
@@ -39,27 +37,19 @@ class DataService
         return _REF_LOCATIONS
     }
     
-    var getPaths: [Paths] {
-        return paths
-    }
-    
     public func createUser(uid: String, data: Dictionary<String, Any>)
     {
         REF_USERS.child(uid).updateChildValues(data)
     }
     
-    public func createPath(distance: Any, duration: Int16, locations: [LocationStruct.persist])
+    public func createPath(id: Int32, distance: Any, duration: Int16)
     {
-        print(locations)
-        
         let data = [
             "user": Auth.auth().currentUser?.uid,
             "distance": distance,
             "duration": duration,
             "timestamp": String(describing: Date()),
-            "locations": [
-                // TODO: Pass the array of locations.
-            ]
+            "id": id
         ]
         
         REF_PATHS.childByAutoId().updateChildValues(data)
@@ -89,5 +79,25 @@ class DataService
             
             handler(pathsList)
         }
+    }
+    
+    public func createLocations(id: Int32, locations: [HomeLocationStruct.persist])
+    {
+        for location in locations {
+            
+            let array: [String: Any] = [
+                "id": id,
+                "timestamp": String(describing: location.timestamp),
+                "latitude": location.latitude,
+                "longitude": location.longitude
+            ]
+            
+            REF_LOCATIONS.childByAutoId().updateChildValues(array)
+        }
+    }
+    
+    public func getLocationsByPath(identifier: String, handler: @escaping (_: [HomeLocationStruct.persist]) -> ())
+    {
+        
     }
 }

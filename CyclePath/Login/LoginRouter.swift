@@ -12,3 +12,14 @@ class LoginRouter
 {
     
 }
+
+extension LoginRouter: LoginRouterProtocol
+{
+    func redirectToRegistration() {
+        // TODO
+    }
+    
+    func redirectToProfile() {
+        // TODO
+    }
+}

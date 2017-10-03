@@ -114,15 +114,17 @@ extension HomeInteractor: HomeInteractorProtocol
         
     }
     
-    func transformLocations(locations: [CLLocation], data: @escaping (_ : [LocationStruct.persist]) -> ())
+    func transformLocations(locations: [CLLocation], data: @escaping (_ : [HomeLocationStruct.persist], _ identifier: Int32) -> ())
     {
-        var locationArray = [LocationStruct.persist]()
+        var locationArray = [HomeLocationStruct.persist]()
+        let id = arc4random_uniform(44000)
         
         for location in locations {
-            let locationStruct = LocationStruct.persist(timestamp: location.timestamp, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            let locationStruct = HomeLocationStruct.persist(path: Int32(id), timestamp: location.timestamp, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             locationArray.append(locationStruct)
         }
         
-        data(locationArray)
+        data(locationArray, Int32(id))
     }
 }

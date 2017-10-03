@@ -36,7 +36,7 @@
 		8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A171F7CD63C000E7BB7 /* HomeWorker.swift */; };
 		8A961A1A1F7CD6B6000E7BB7 /* HomeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A191F7CD6B6000E7BB7 /* HomeStruct.swift */; };
 		8A961A231F7D4295000E7BB7 /* HomeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A221F7D4295000E7BB7 /* HomeConverter.swift */; };
-		8A9FF4F71F82A72C00EBA211 /* LocationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FF4F61F82A72C00EBA211 /* LocationStruct.swift */; };
+		8A9FF4F71F82A72C00EBA211 /* HomeLocationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FF4F61F82A72C00EBA211 /* HomeLocationStruct.swift */; };
 		8AA69D4F1F822A8200939FD9 /* PathsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D4E1F822A8200939FD9 /* PathsManager.swift */; };
 		8AA69D511F822FDD00939FD9 /* PathsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */; };
 		8AA69D531F82309700939FD9 /* PathsInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D521F82309700939FD9 /* PathsInteractorProtocol.swift */; };
@@ -50,6 +50,8 @@
 		8ABD98671F8262A600A64099 /* PathsDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */; };
 		8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */; };
 		8ABD986D1F82651C00A64099 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD986C1F82651C00A64099 /* LoginProtocol.swift */; };
+		8AC8681E1F8365A100CD8D69 /* HomePathStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8681D1F8365A100CD8D69 /* HomePathStruct.swift */; };
+		8AC868201F8366B800CD8D69 /* LoginRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8681F1F8366B800CD8D69 /* LoginRouterProtocol.swift */; };
 		8AC9B5F91F7BAF2100FD8677 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC9B5F81F7BAF2100FD8677 /* MapKit.framework */; };
 		8AFB12321F81269B009C2A41 /* HomeInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB12311F81269B009C2A41 /* HomeInteractorProtocol.swift */; };
 		8AFB12341F8127F4009C2A41 /* HomeActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFB12331F8127F4009C2A41 /* HomeActionProtocol.swift */; };
@@ -111,7 +113,7 @@
 		8A961A171F7CD63C000E7BB7 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
 		8A961A191F7CD6B6000E7BB7 /* HomeStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStruct.swift; sourceTree = "<group>"; };
 		8A961A221F7D4295000E7BB7 /* HomeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConverter.swift; sourceTree = "<group>"; };
-		8A9FF4F61F82A72C00EBA211 /* LocationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStruct.swift; sourceTree = "<group>"; };
+		8A9FF4F61F82A72C00EBA211 /* HomeLocationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocationStruct.swift; sourceTree = "<group>"; };
 		8AA69D4E1F822A8200939FD9 /* PathsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsManager.swift; sourceTree = "<group>"; };
 		8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsInteractor.swift; sourceTree = "<group>"; };
 		8AA69D521F82309700939FD9 /* PathsInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -125,6 +127,8 @@
 		8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsDetailsAction.swift; sourceTree = "<group>"; };
 		8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDetailsProtocol.swift; sourceTree = "<group>"; };
 		8ABD986C1F82651C00A64099 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
+		8AC8681D1F8365A100CD8D69 /* HomePathStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePathStruct.swift; sourceTree = "<group>"; };
+		8AC8681F1F8366B800CD8D69 /* LoginRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterProtocol.swift; sourceTree = "<group>"; };
 		8AC9B5F81F7BAF2100FD8677 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8AFB12311F81269B009C2A41 /* HomeInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorProtocol.swift; sourceTree = "<group>"; };
 		8AFB12331F8127F4009C2A41 /* HomeActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActionProtocol.swift; sourceTree = "<group>"; };
@@ -330,7 +334,8 @@
 		8A9FF4F81F82A7BA00EBA211 /* Struct */ = {
 			isa = PBXGroup;
 			children = (
-				8A9FF4F61F82A72C00EBA211 /* LocationStruct.swift */,
+				8A9FF4F61F82A72C00EBA211 /* HomeLocationStruct.swift */,
+				8AC8681D1F8365A100CD8D69 /* HomePathStruct.swift */,
 			);
 			path = Struct;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 		8AB075551F7E6CA40096F022 /* Paths */ = {
 			isa = PBXGroup;
 			children = (
+				8AC868211F83728D00CD8D69 /* Struct */,
 				8ABD98641F8241B500A64099 /* Cells */,
 				8ABD98611F823B6300A64099 /* Model */,
 				8A39E1551F80F32B00A583E6 /* Protocols */,
@@ -402,8 +408,16 @@
 			isa = PBXGroup;
 			children = (
 				8ABD986C1F82651C00A64099 /* LoginProtocol.swift */,
+				8AC8681F1F8366B800CD8D69 /* LoginRouterProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8AC868211F83728D00CD8D69 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Struct;
 			sourceTree = "<group>";
 		};
 		8AFB12301F81246D009C2A41 /* Extensions */ = {
@@ -757,7 +771,7 @@
 				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
 				8AA69D531F82309700939FD9 /* PathsInteractorProtocol.swift in Sources */,
 				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
-				8A9FF4F71F82A72C00EBA211 /* LocationStruct.swift in Sources */,
+				8A9FF4F71F82A72C00EBA211 /* HomeLocationStruct.swift in Sources */,
 				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
 				8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */,
 				8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */,
@@ -781,7 +795,9 @@
 				8AB0754F1F7E2F120096F022 /* RegisterWorker.swift in Sources */,
 				8A961A231F7D4295000E7BB7 /* HomeConverter.swift in Sources */,
 				8AA69D4F1F822A8200939FD9 /* PathsManager.swift in Sources */,
+				8AC8681E1F8365A100CD8D69 /* HomePathStruct.swift in Sources */,
 				8A39E1511F80EA1800A583E6 /* HomeManagerProtocol.swift in Sources */,
+				8AC868201F8366B800CD8D69 /* LoginRouterProtocol.swift in Sources */,
 				8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */,
 				8A39E1571F80F34C00A583E6 /* PathsActionProtocol.swift in Sources */,
 				8AFB12321F81269B009C2A41 /* HomeInteractorProtocol.swift in Sources */,

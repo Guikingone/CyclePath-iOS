@@ -237,6 +237,7 @@
                         <outlet property="startBtn" destination="4MM-ei-cls" id="wnM-n9-fni"/>
                         <outlet property="stopBtn" destination="Jzy-1a-1r0" id="MWI-lA-U7C"/>
                         <outlet property="timeTxtLabel" destination="PUE-Yr-gJw" id="Epm-bx-kVG"/>
+                        <segue destination="Lxp-7k-bjf" kind="show" identifier="ShouldBeLoggedSegue" id="hrF-LV-4WP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -915,6 +916,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FDE-iB-UAG"/>
+        <segue reference="hrF-LV-4WP"/>
     </inferredMetricsTieBreakers>
 </document>

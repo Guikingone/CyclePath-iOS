@@ -6,10 +6,11 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
-struct LocationStruct
+struct HomeLocationStruct
 {
     struct persist
     {
+        let path: Int32
         let timestamp: Date
         let latitude: Double
         let longitude: Double

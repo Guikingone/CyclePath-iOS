@@ -17,8 +17,18 @@ class HomeManager
 
 extension HomeManager
 {
-    func savePathsByUser(distance: Any, duration: Int16, locations: [LocationStruct.persist], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func savePathsByUser(pathId: Int32, distance: Any, duration: Int16, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
     {
-        DataService.instance.createPath(distance: distance, duration: duration, locations: locations)
+        DataService.instance.createPath(id: pathId, distance: distance, duration: duration)
+    }
+    
+    func saveLocationByPath(pathId: Int32, locations: [HomeLocationStruct.persist], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    {
+        DataService.instance.createLocations(id: pathId, locations: locations)
+    }
+    
+    func localPathStorage(path: HomePathStruct.create, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    {
+        
     }
 }
