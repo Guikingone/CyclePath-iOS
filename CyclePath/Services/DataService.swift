@@ -63,18 +63,28 @@ class DataService
             guard let receivedData = receivedDataSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for data in receivedData {
+                
                 if data.childSnapshot(forPath: "user").value as? String == Auth.auth().currentUser?.uid {
-                    let distance = data.childSnapshot(forPath: "distance").value as! Int
+                    let distance = data.childSnapshot(forPath: "distance").value as! Double
                     let duration = data.childSnapshot(forPath: "duration").value as! Int16
                     let timestamp = data.childSnapshot(forPath: "timestamp").value as! String
-                    let path = Paths(distance: distance, duration: duration, timestamp: timestamp)
+                    let id = data.childSnapshot(forPath: "id").value as! Int32
                     
-                    // TODO: Check if the value already exist.
+                    let path = Paths(distance: distance, duration: duration, timestamp: timestamp, id: id)
                     
                     pathsList.append(path)
+                    
                 } else {
                     print("You must be logged in !")
                 }
+            }
+            
+            for path in pathsList {
+                
+                // Call the locations handler in order to store the locations inside the path.
+                self.getLocationsByPath(identifier: path.getId, handler: { (locations) in
+                    path.linkLocations(locations: locations)
+                })
             }
             
             handler(pathsList)
@@ -96,8 +106,25 @@ class DataService
         }
     }
     
-    public func getLocationsByPath(identifier: String, handler: @escaping (_: [HomeLocationStruct.persist]) -> ())
+    public func getLocationsByPath(identifier: Int32, handler: @escaping (_: [PathsLocationStruct.fetching]) -> ())
     {
-        
+        REF_LOCATIONS.observeSingleEvent(of: DataEventType.value) { (receivedData) in
+            var locationsLists = [PathsLocationStruct.fetching]()
+            
+            guard let receivedLocations = receivedData.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedLocations {
+                let latitude = data.childSnapshot(forPath: "latitude").value as! Double
+                let longitude = data.childSnapshot(forPath: "longitude").value as! Double
+                let timestamp = data.childSnapshot(forPath: "timestamp").value as! String
+                
+                let location = PathsLocationStruct.fetching(latitude: latitude, longitude: longitude, timestamp: timestamp, id: identifier)
+                
+                locationsLists.append(location)
+            }
+            
+            handler(locationsLists)
+            
+        }
     }
 }

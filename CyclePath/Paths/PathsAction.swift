@@ -41,6 +41,7 @@ class PathsAction: UIViewController
         } else {
             
             DataService.instance.getPathsByUser { (receivedData) in
+                
                 self.pathsArray = receivedData
                 
                 if self.pathsArray.count > 0 {

@@ -10,11 +10,17 @@ import Foundation
 
 class Paths
 {
-    private var distance: Int = 0
+    private var distance: Double = 0
     private var duration: Int16 = 0
     private var timestamp: String = ""
+    private var id: Int32 = 0
+    private var locations = [PathsLocationStruct.fetching]()
     
-    var formattedDistance: Int {
+    var getId: Int32 {
+        return id
+    }
+    
+    var formattedDistance: Double {
         return distance
     }
     
@@ -26,10 +32,24 @@ class Paths
         return timestamp
     }
     
-    init(distance: Int, duration: Int16, timestamp: String)
+    init(distance: Double, duration: Int16, timestamp: String, id: Int32)
     {
         self.distance = distance
         self.duration = duration
         self.timestamp = timestamp
+        self.id = id
+    }
+    
+    func buildDomain(distance: Double, duration: Int16, timestamp: String, id: Int32)
+    {
+        self.distance = distance
+        self.duration = duration
+        self.timestamp = timestamp
+        self.id = id
+    }
+    
+    func linkLocations(locations: [PathsLocationStruct.fetching])
+    {
+        self.locations = locations
     }
 }
