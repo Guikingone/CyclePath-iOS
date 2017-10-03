@@ -13,5 +13,6 @@ struct HomePathStruct
         let distance: Double
         let duration: Int16
         let timestamp: Date
+        let locations: [HomeLocationStruct.create]
     }
 }

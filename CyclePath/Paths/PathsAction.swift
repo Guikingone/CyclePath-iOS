@@ -36,36 +36,26 @@ class PathsAction: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if pathsArray.count >= 1 {
-            self.pathsList.reloadData()
-        } else {
+        DataService.instance.getPathsByUser { (receivedData) in
             
-            DataService.instance.getPathsByUser { (receivedData) in
-                
-                self.pathsArray = receivedData
-                
-                if self.pathsArray.count > 0 {
-                    self.pathsList.isHidden = false
-                }
-                
-                self.pathsList.reloadData()
+            self.pathsArray = receivedData
+            
+            if self.pathsArray.count > 0 {
+                self.pathsList.isHidden = false
             }
+            
+            self.pathsList.reloadData()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        // TODO: Pass data into the PathsDetailAction.
     }
 }
 
 extension PathsAction: PathsActionProtocol
 {
-    func displayPaths()
-    {
-        
-    }
-    
-    func reloadPaths()
-    {
-        
-    }
-    
     func checkAuth()
     {
         if Auth.auth().currentUser == nil {

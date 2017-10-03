@@ -10,6 +10,8 @@ protocol HomeActionProtocol
 {
     func checkLocationAccess()
     
+    func checkUserAuthenticated()
+    
     func startTracking()
     
     func pauseTracking()

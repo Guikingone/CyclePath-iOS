@@ -26,6 +26,7 @@ class HomeAction: UIViewController
     
     let locationManager = CLLocationManager()
     let authorizationStatus = CLLocationManager.authorizationStatus()
+    
     private var timer: Timer?
     private var seconds = 0
     private var distance = Measurement(value: 0, unit: UnitLength.meters)
@@ -39,7 +40,7 @@ class HomeAction: UIViewController
     {
         super.viewDidLoad()
         
-        mapView.delegate = self as? MKMapViewDelegate
+        mapView.delegate = self
         locationManager.delegate = self
         mapView.showsUserLocation = true
         
@@ -62,6 +63,8 @@ class HomeAction: UIViewController
     @IBAction func startTracking(_ sender: Any)
     {
         startBtn.isEnabled = false
+        mapView.removeOverlays(mapView.overlays)
+        
         seconds = 0
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
@@ -138,13 +141,13 @@ class HomeAction: UIViewController
         speedTxtLabel.text = formattedPace
     }
     
-    private func startLocationUpdates() {
+    private func startLocationUpdates()
+    {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
-    
 }
 
 extension HomeAction: CLLocationManagerDelegate
@@ -180,9 +183,27 @@ extension HomeAction: CLLocationManagerDelegate
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                
+                let coordinates = [lastLocation.coordinate, newLocation.coordinate]
+                mapView.add(MKPolyline(coordinates: coordinates, count: 2))
+                let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
+                mapView.setRegion(region, animated: true)
             }
             
             locationList.append(newLocation)
         }
+    }
+}
+
+extension HomeAction: MKMapViewDelegate
+{
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = .blue
+        renderer.lineWidth = 3
+        return renderer
     }
 }

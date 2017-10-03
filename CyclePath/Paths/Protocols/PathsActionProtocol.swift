@@ -8,7 +8,5 @@
 
 protocol PathsActionProtocol
 {
-    func displayPaths()
-    func reloadPaths()
     func checkAuth()
 }
