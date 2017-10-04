@@ -18,7 +18,7 @@ class HomeInteractor
     
     var altimeterTracking = false
     let altimeterManager = CMAltimeter()
-    private var altimeterData: [Double] = []
+    private var altimeterData: Double = 0.0
     
     private var currentDistance: String = ""
     private var currentTime: String = ""
@@ -26,7 +26,7 @@ class HomeInteractor
     
     // Altimeter
     
-    var getAltimeterData: [Double] {
+    var getAltimeterData: Double {
         return altimeterData
     }
     
@@ -92,13 +92,13 @@ extension HomeInteractor: HomeInteractorProtocol
     
     func startTrackingAltitude()
     {
-        if altimeterTracking {
+        if CMAltimeter.isRelativeAltitudeAvailable() {
             altimeterManager.startRelativeAltitudeUpdates(to: OperationQueue.main, withHandler: { (data, errors) in
                 if errors != nil {
                     print(errors?.localizedDescription as Any)
                 }
                 
-                self.altimeterData.append((data?.relativeAltitude.doubleValue)!)
+                self.altimeterData = (data?.relativeAltitude.doubleValue)!
             })
         }
     }

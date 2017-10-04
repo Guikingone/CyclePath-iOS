@@ -40,14 +40,6 @@ class Paths
         self.id = id
     }
     
-    func buildDomain(distance: Double, duration: Int16, timestamp: String, id: Int32)
-    {
-        self.distance = distance
-        self.duration = duration
-        self.timestamp = timestamp
-        self.id = id
-    }
-    
     func linkLocations(locations: [PathsLocationStruct.fetching])
     {
         self.locations = locations

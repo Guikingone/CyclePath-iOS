@@ -22,6 +22,7 @@ class HomeAction: UIViewController
     @IBOutlet weak var speedTxtLabel: UILabel!
     @IBOutlet weak var distanceTxtLabel: UILabel!
     @IBOutlet weak var timeTxtLabel: UILabel!
+    @IBOutlet weak var altitudeLbl: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
@@ -47,6 +48,7 @@ class HomeAction: UIViewController
         speedTxtLabel.text = ""
         distanceTxtLabel.text = ""
         timeTxtLabel.text = ""
+        altitudeLbl.text = ""
         
         enableBasicLocationServices()
         
@@ -139,6 +141,7 @@ class HomeAction: UIViewController
         distanceTxtLabel.text = formattedDistance
         timeTxtLabel.text = formattedTime
         speedTxtLabel.text = formattedPace
+        altitudeLbl.text = String(format: "%.02f", HomeInteractor().getAltimeterData)
     }
     
     private func startLocationUpdates()
