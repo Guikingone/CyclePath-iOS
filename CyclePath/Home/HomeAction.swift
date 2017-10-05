@@ -53,6 +53,9 @@ class HomeAction: UIViewController
         enableBasicLocationServices()
         
         HomeInteractor().checkAltimeterAvailability()
+        
+        pauseBtn.isHidden = true
+        stopBtn.isHidden = true
     }
     
     @IBAction func findUser(_ sender: Any)
@@ -65,6 +68,9 @@ class HomeAction: UIViewController
     @IBAction func startTracking(_ sender: Any)
     {
         startBtn.isEnabled = false
+        pauseBtn.isHidden = false
+        stopBtn.isHidden = false
+        
         mapView.removeOverlays(mapView.overlays)
         
         seconds = 0
@@ -83,12 +89,53 @@ class HomeAction: UIViewController
     @IBAction func pauseTracking(_ sender: Any)
     {
         // TODO: Invalide the timer and save temporarly the data in order to save or restart.
+        startBtn.isHidden = true
+        stopBtn.isHidden = true
         timer?.invalidate()
         
+        let pauseAlert = UIAlertController(
+            title: "Mettre en pause ?",
+            message: "Voulez-vous sauvegarder ce suivi ?",
+            preferredStyle: .alert
+        )
+        pauseAlert.addAction(UIAlertAction(
+            title: "Reprendre", style: .default, handler: { (_) in
+                // TODO: Resume the tracking.
+                self.startBtn.isHidden = false
+                self.startBtn.isEnabled = true
+                self.stopBtn.isHidden = false
+        }))
+        pauseAlert.addAction(UIAlertAction(
+            title: "Sauvegarder", style: .default, handler: { (_) in
+                
+                let actualData = HomePathStruct.pause(distance: self.distance.value, duration: Int16(self.seconds), locations: self.locationList)
+                
+                HomeInteractor().transformLocations(locations: actualData.locations, data: { (data, id) in
+                    
+                    HomeManager().savePathsByUser(pathId: id, distance: actualData.distance, duration: actualData.duration, success: { (saved) in
+                        // TODO
+                        print("saved !")
+                    }, failure: { (failed) in
+                        // TODO
+                        print("Failed !")
+                    })
+                    
+                    HomeManager().saveLocationByPath(pathId: id, locations: data, success: { (saved) in
+                        // TODO
+                    }, failure: { (failed) in
+                        // TODO
+                    })
+                })
+        }))
+        
+        present(pauseAlert, animated: true, completion: nil)
     }
     
     @IBAction func stopTracking(_ sender: Any)
     {
+        startBtn.isHidden = true
+        pauseBtn.isHidden = true
+        
         timer?.invalidate()
         HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
         
@@ -105,22 +152,43 @@ class HomeAction: UIViewController
             
             self.present(alert, animated: true, completion: nil)
         } else {
-            HomeInteractor().transformLocations(locations: locationList, data: { (data, id) in
-                
-                HomeManager().savePathsByUser(pathId: id, distance: self.distance.value, duration: Int16(self.seconds), success: { (saved) in
-                    // TODO
-                    print("saved !")
-                }, failure: { (failed) in
-                    // TODO
-                    print("Failed !")
-                })
-                
-                HomeManager().saveLocationByPath(pathId: id, locations: data, success: { (saved) in
-                    // TODO
-                }, failure: { (failed) in
-                    // TODO
-                })
-            })
+            
+            let stopAlert = UIAlertController(
+                title: "Do you want to stop this track ?",
+                message: "Do you want to save this path ?",
+                preferredStyle: .alert
+            )
+            
+            stopAlert.addAction(UIAlertAction(
+                title: "Abort", style: .default, handler: { (_) in
+                    
+                    self.startBtn.isHidden = false
+                    self.startBtn.isEnabled = true
+                    self.pauseBtn.isHidden = false
+                    self.stopBtn.isHidden = false
+            }))
+            stopAlert.addAction(UIAlertAction(
+                title: "Save", style: .default, handler: { (_) in
+                    
+                    HomeInteractor().transformLocations(locations: self.locationList, data: { (data, id) in
+                        
+                        HomeManager().savePathsByUser(pathId: id, distance: self.distance.value, duration: Int16(self.seconds), success: { (saved) in
+                            // TODO
+                            print("saved !")
+                        }, failure: { (failed) in
+                            // TODO
+                            print("Failed !")
+                        })
+                        
+                        HomeManager().saveLocationByPath(pathId: id, locations: data, success: { (saved) in
+                            // TODO
+                        }, failure: { (failed) in
+                            // TODO
+                        })
+                    })
+            }))
+            
+            self.present(stopAlert, animated: true, completion: nil)
         }
         
         startBtn.isEnabled = true

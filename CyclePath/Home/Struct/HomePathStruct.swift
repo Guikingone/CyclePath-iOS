@@ -6,6 +6,8 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
+import CoreLocation
+
 struct HomePathStruct
 {
     struct create
@@ -20,7 +22,6 @@ struct HomePathStruct
     {
         let distance: Double
         let duration: Int16
-        let timestamp: Date
-        let locations: [HomeLocationStruct.create]
+        let locations: [CLLocation]
     }
 }
