@@ -15,7 +15,7 @@ class PathsRouter
     func showPathsDetails(segue: UIStoryboardSegue)
     {
         if let pathsDetailsAction = segue.destination as? PathsDetailsAction {
-            pathsDetailsAction.paths = (segue as? [Paths])!
+            pathsDetailsAction.path = (segue as? Paths)!
         }
     }
 }

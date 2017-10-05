@@ -272,6 +272,7 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8ACAE9D71F8628AE00067B72 /* Models */,
 				8ABD98651F82628F00A64099 /* PathsDetails */,
 				8AFB12301F81246D009C2A41 /* Extensions */,
 				8A39E1521F80EEF600A583E6 /* ForgotPassword */,
@@ -368,7 +369,6 @@
 			children = (
 				8AC868211F83728D00CD8D69 /* Struct */,
 				8ABD98641F8241B500A64099 /* Cells */,
-				8ABD98611F823B6300A64099 /* Model */,
 				8A39E1551F80F32B00A583E6 /* Protocols */,
 				8AB075561F7E6CB30096F022 /* PathsAction.swift */,
 				8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */,
@@ -384,14 +384,6 @@
 				8AB3F7091F7A3D0F00E62756 /* DataService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		8ABD98611F823B6300A64099 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8ABD98621F823B6B00A64099 /* Paths.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8ABD98641F8241B500A64099 /* Cells */ = {
@@ -435,6 +427,14 @@
 				8A0C16BE1F8390BF00537EFF /* PathsLocationStruct.swift */,
 			);
 			path = Struct;
+			sourceTree = "<group>";
+		};
+		8ACAE9D71F8628AE00067B72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8ABD98621F823B6B00A64099 /* Paths.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8AFB12301F81246D009C2A41 /* Extensions */ = {

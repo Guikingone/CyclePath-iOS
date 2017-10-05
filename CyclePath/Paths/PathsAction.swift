@@ -51,7 +51,7 @@ class PathsAction: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let pathDetailsAction = segue.destination as? PathsDetailsAction {
-            pathDetailsAction.paths = sender as! [Paths]
+            pathDetailsAction.path = sender as! Paths
         }
     }
 }
@@ -99,6 +99,6 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let values = pathsArray[indexPath.row]
-        self.performSegue(withIdentifier: "PathDetailsSegue", sender: [values])
+        self.performSegue(withIdentifier: "PathDetailsSegue", sender: values)
     }
 }

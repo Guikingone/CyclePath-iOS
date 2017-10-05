@@ -37,9 +37,9 @@
 		<string>MKDirectionsModePedestrian</string>
 	</array>
 	<key>NSLocationUsageDescription</key>
-	<string>Hey !</string>
+	<string>CyclePath requires your location in order to track your paths.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Hey !</string>
+	<string>CyclePath requires your location in order to track your paths.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

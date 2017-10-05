@@ -15,7 +15,7 @@ class PathsCell: UITableViewCell
     
     func configureCell(data: Paths)
     {
-        dateLbl.text = data.formattedTimestamp
+        dateLbl.text = data.formattedDate
         distanceLbl.text = String(describing: data.formattedDistance)
     }
 }

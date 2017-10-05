@@ -6,7 +6,17 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
+import MapKit
+
 protocol PathsDetailsProtocol
 {
     func displayInformations()
+    
+    func configureView()
+    
+    func mapRegion() -> MKCoordinateRegion?
+    
+    func polyLine() -> MKPolyline
+    
+    func loadMap()
 }

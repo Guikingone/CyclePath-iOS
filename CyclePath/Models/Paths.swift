@@ -12,7 +12,7 @@ class Paths
 {
     private var distance: Double = 0
     private var duration: Int16 = 0
-    private var timestamp: String = ""
+    private var date: String = ""
     private var id: Int32 = 0
     private var locations = [PathsLocationStruct.fetching]()
     
@@ -28,20 +28,33 @@ class Paths
         return duration
     }
     
-    var formattedTimestamp: String {
-        return timestamp
+    var formattedDate: String {
+        return date
     }
     
-    init(distance: Double, duration: Int16, timestamp: String, id: Int32)
+    var getLocations: [PathsLocationStruct.fetching] {
+        return locations
+    }
+    
+    init(distance: Double, duration: Int16, date: String, id: Int32)
     {
         self.distance = distance
         self.duration = duration
-        self.timestamp = timestamp
+        self.date = date
         self.id = id
     }
     
     func linkLocations(locations: [PathsLocationStruct.fetching])
     {
         self.locations = locations
+    }
+    
+    func transformStringToDate(date: Date) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
+        
+        return dateFormatter.string(from: date)
     }
 }
