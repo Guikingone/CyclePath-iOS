@@ -67,7 +67,6 @@ class HomeAction: UIViewController
     
     @IBAction func startTracking(_ sender: Any)
     {
-        startBtn.isEnabled = false
         pauseBtn.isHidden = false
         stopBtn.isHidden = false
         
@@ -91,6 +90,7 @@ class HomeAction: UIViewController
         // TODO: Invalide the timer and save temporarly the data in order to save or restart.
         startBtn.isHidden = true
         stopBtn.isHidden = true
+        
         timer?.invalidate()
         
         let pauseAlert = UIAlertController(
@@ -102,7 +102,6 @@ class HomeAction: UIViewController
             title: "Reprendre", style: .default, handler: { (_) in
                 // TODO: Resume the tracking.
                 self.startBtn.isHidden = false
-                self.startBtn.isEnabled = true
                 self.stopBtn.isHidden = false
         }))
         pauseAlert.addAction(UIAlertAction(
@@ -163,7 +162,6 @@ class HomeAction: UIViewController
                 title: "Abort", style: .default, handler: { (_) in
                     
                     self.startBtn.isHidden = false
-                    self.startBtn.isEnabled = true
                     self.pauseBtn.isHidden = false
                     self.stopBtn.isHidden = false
             }))
