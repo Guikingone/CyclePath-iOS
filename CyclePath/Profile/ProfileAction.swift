@@ -33,12 +33,16 @@ class ProfileAction: UIViewController
     }
     @IBAction func registerUser(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "registerSegue", sender: self)
+        guard let registerAction = storyboard?.instantiateViewController(withIdentifier: "RegisterAction") as? RegisterAction else { return }
+        
+        presentDetails(registerAction)
     }
     
     @IBAction func loginUser(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "loginSegue", sender: self)
+        guard let loginAction = storyboard?.instantiateViewController(withIdentifier: "LoginAction") as? LoginAction else { return }
+        
+        presentDetails(loginAction)
     }
     
     @IBAction func LogoutUser(_ sender: Any)

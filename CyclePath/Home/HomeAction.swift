@@ -82,7 +82,9 @@ class HomeAction: UIViewController
     
     @IBAction func pauseTracking(_ sender: Any)
     {
-        // TODO
+        // TODO: Invalide the timer and save temporarly the data in order to save or restart.
+        timer?.invalidate()
+        
     }
     
     @IBAction func stopTracking(_ sender: Any)

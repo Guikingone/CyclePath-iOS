@@ -33,7 +33,8 @@ class PathsAction: UIViewController
         checkAuth()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool)
+    {
         super.viewDidAppear(animated)
         
         DataService.instance.getPathsByUser { (receivedData) in
@@ -42,9 +43,9 @@ class PathsAction: UIViewController
             
             if self.pathsArray.count > 0 {
                 self.pathsList.isHidden = false
+                
+                self.pathsList.reloadData()
             }
-            
-            self.pathsList.reloadData()
         }
     }
     
@@ -99,6 +100,7 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let values = pathsArray[indexPath.row]
+        
         self.performSegue(withIdentifier: "PathDetailsSegue", sender: values)
     }
 }

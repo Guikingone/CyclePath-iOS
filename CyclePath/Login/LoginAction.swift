@@ -25,7 +25,7 @@ class LoginAction: UIViewController
     
     @IBAction func back(_ sender: Any)
     {
-        dismiss(animated: true, completion: nil)
+        dismissDetails()
     }
     
     @IBAction func loginUser(_ sender: Any)

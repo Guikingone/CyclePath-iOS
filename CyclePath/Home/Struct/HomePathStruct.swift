@@ -15,4 +15,12 @@ struct HomePathStruct
         let timestamp: Date
         let locations: [HomeLocationStruct.create]
     }
+    
+    struct pause
+    {
+        let distance: Double
+        let duration: Int16
+        let timestamp: Date
+        let locations: [HomeLocationStruct.create]
+    }
 }

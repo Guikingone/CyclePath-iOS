@@ -14,7 +14,7 @@ class Paths
     private var duration: Int16 = 0
     private var date: String = ""
     private var id: Int32 = 0
-    private var locations = [PathsLocationStruct.fetching]()
+    private var locations = [Locations]()
     
     var getId: Int32 {
         return id
@@ -32,7 +32,7 @@ class Paths
         return date
     }
     
-    var getLocations: [PathsLocationStruct.fetching] {
+    var getLocations: [Locations] {
         return locations
     }
     
@@ -44,7 +44,7 @@ class Paths
         self.id = id
     }
     
-    func linkLocations(locations: [PathsLocationStruct.fetching])
+    func linkLocations(locations: [Locations])
     {
         self.locations = locations
     }

@@ -52,7 +52,7 @@ class DataService
         let formattedDate = dateFormatter.string(from: date)
         
         let data = [
-            "user": String(describing: Auth.auth().currentUser?.uid),
+            "user": Auth.auth().currentUser?.uid,
             "distance": distance,
             "duration": duration,
             "date": formattedDate,
@@ -113,21 +113,25 @@ class DataService
         }
     }
     
-    public func getLocationsByPath(identifier: Int32, handler: @escaping (_: [PathsLocationStruct.fetching]) -> ())
+    public func getLocationsByPath(identifier: Int32, handler: @escaping (_: [Locations]) -> ())
     {
         REF_LOCATIONS.observeSingleEvent(of: DataEventType.value) { (receivedData) in
-            var locationsLists = [PathsLocationStruct.fetching]()
+            var locationsLists = [Locations]()
             
             guard let receivedLocations = receivedData.children.allObjects as? [DataSnapshot] else { return }
             
             for data in receivedLocations {
-                let latitude = data.childSnapshot(forPath: "latitude").value as! Double
-                let longitude = data.childSnapshot(forPath: "longitude").value as! Double
-                let timestamp = data.childSnapshot(forPath: "timestamp").value as! String
                 
-                let location = PathsLocationStruct.fetching(latitude: latitude, longitude: longitude, timestamp: timestamp, id: identifier)
-                
-                locationsLists.append(location)
+                if data.childSnapshot(forPath: "id").value as! Int32 == identifier {
+                    
+                    let latitude = data.childSnapshot(forPath: "latitude").value as! Double
+                    let longitude = data.childSnapshot(forPath: "longitude").value as! Double
+                    let timestamp = data.childSnapshot(forPath: "timestamp").value as! String
+                    
+                    let location = Locations(latitude: latitude, longitude: longitude, date: timestamp, identifier: identifier)
+                    
+                    locationsLists.append(location)
+                }
             }
             
             handler(locationsLists)
