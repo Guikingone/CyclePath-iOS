@@ -125,6 +125,8 @@ class HomeAction: UIViewController
                         // TODO
                     })
                 })
+                
+                self.startBtn.isHidden = false
         }))
         
         present(pauseAlert, animated: true, completion: nil)
@@ -172,7 +174,7 @@ class HomeAction: UIViewController
                         
                         HomeManager().savePathsByUser(pathId: id, distance: self.distance.value, duration: Int16(self.seconds), success: { (saved) in
                             // TODO
-                            print("saved !")
+                            
                         }, failure: { (failed) in
                             // TODO
                             print("Failed !")
@@ -184,6 +186,9 @@ class HomeAction: UIViewController
                             // TODO
                         })
                     })
+                    
+                    self.startBtn.isHidden = false
+                    self.pauseBtn.isHidden = false
             }))
             
             self.present(stopAlert, animated: true, completion: nil)

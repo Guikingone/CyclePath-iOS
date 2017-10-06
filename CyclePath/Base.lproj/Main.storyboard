@@ -381,7 +381,7 @@
                         <outlet property="loginBtn" destination="q02-3I-ROy" id="BEx-ZR-d3S"/>
                         <outlet property="logoutBtn" destination="mbr-03-Kae" id="Kbj-Od-ssi"/>
                         <outlet property="orTxtLabel" destination="jzi-7Z-Igd" id="2YM-vx-MA3"/>
-                        <outlet property="profileImage" destination="gjN-DI-ygb" id="dLE-uK-eHC"/>
+                        <outlet property="profileImage" destination="gjN-DI-ygb" id="64S-DC-Rid"/>
                         <outlet property="registerBtn" destination="D8P-wm-JBH" id="SiV-tL-sbp"/>
                         <segue destination="Lxp-7k-bjf" kind="show" identifier="loginSegue" id="ZiJ-Dk-mWh"/>
                         <segue destination="Z9F-9L-zZu" kind="show" identifier="registerSegue" id="v2H-O0-UWw"/>
@@ -389,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3c-Vm-aMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-381.15942028985512" y="848.64130434782612"/>
+            <point key="canvasLocation" x="-381" y="849"/>
         </scene>
         <!--Paths-->
         <scene sceneID="QUA-zC-GGa">
@@ -768,6 +768,14 @@
                                     <action selector="registerUser:" destination="Z9F-9L-zZu" eventType="touchUpInside" id="QVV-k6-SR2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJD-9q-5Jz">
+                                <rect key="frame" x="40" y="545.33333333333337" width="334" height="40"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Upload a profile image">
+                                    <color key="titleColor" red="0.97664143469999998" green="1" blue="0.99325318659999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -777,6 +785,7 @@
                             <constraint firstItem="VM0-9N-3kq" firstAttribute="trailing" secondItem="ynh-WN-QPx" secondAttribute="trailing" constant="20" id="7cB-pl-88A"/>
                             <constraint firstItem="8tQ-5U-NZQ" firstAttribute="leading" secondItem="VM0-9N-3kq" secondAttribute="leading" constant="20" id="8Gz-5H-gVm"/>
                             <constraint firstItem="N78-D6-ZFe" firstAttribute="leading" secondItem="VM0-9N-3kq" secondAttribute="leading" constant="20" id="AU1-nc-fhc"/>
+                            <constraint firstItem="pJD-9q-5Jz" firstAttribute="top" secondItem="8tQ-5U-NZQ" secondAttribute="bottom" constant="20" id="B8z-t0-Xm2"/>
                             <constraint firstItem="VM0-9N-3kq" firstAttribute="bottom" secondItem="N78-D6-ZFe" secondAttribute="bottom" constant="20" id="BGt-nw-Fay"/>
                             <constraint firstItem="ynh-WN-QPx" firstAttribute="leading" secondItem="VM0-9N-3kq" secondAttribute="leading" constant="20" id="Dfe-De-gpk"/>
                             <constraint firstItem="VM0-9N-3kq" firstAttribute="trailing" secondItem="8tQ-5U-NZQ" secondAttribute="trailing" constant="20" id="FWn-ZI-54L"/>
@@ -788,10 +797,12 @@
                             <constraint firstItem="pDF-lr-20v" firstAttribute="leading" secondItem="VM0-9N-3kq" secondAttribute="leading" constant="20" id="nP5-n9-FaM"/>
                             <constraint firstItem="VM0-9N-3kq" firstAttribute="trailing" secondItem="N78-D6-ZFe" secondAttribute="trailing" constant="20" id="qrj-hb-pv7"/>
                             <constraint firstItem="1lQ-LE-lh4" firstAttribute="trailing" secondItem="VM0-9N-3kq" secondAttribute="trailing" id="sPF-Aj-KX4"/>
+                            <constraint firstItem="VM0-9N-3kq" firstAttribute="trailing" secondItem="pJD-9q-5Jz" secondAttribute="trailing" constant="40" id="tqj-TX-4t2"/>
                             <constraint firstItem="VM0-9N-3kq" firstAttribute="trailing" secondItem="7GX-3h-Mf3" secondAttribute="trailing" constant="20" id="wAN-UK-bd4"/>
                             <constraint firstItem="1lQ-LE-lh4" firstAttribute="top" secondItem="xpf-rC-OoK" secondAttribute="top" id="wc9-RN-8oK"/>
                             <constraint firstItem="VM0-9N-3kq" firstAttribute="trailing" secondItem="pDF-lr-20v" secondAttribute="trailing" constant="20" id="xkN-Ko-tau"/>
                             <constraint firstItem="SaD-yX-gBo" firstAttribute="top" secondItem="pDF-lr-20v" secondAttribute="bottom" constant="40" id="zfd-Fz-ane"/>
+                            <constraint firstItem="pJD-9q-5Jz" firstAttribute="leading" secondItem="VM0-9N-3kq" secondAttribute="leading" constant="40" id="zyD-45-8Aa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VM0-9N-3kq"/>
                     </view>
@@ -1024,6 +1035,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hrF-LV-4WP"/>
+        <segue reference="FDE-iB-UAG"/>
     </inferredMetricsTieBreakers>
 </document>

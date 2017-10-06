@@ -56,5 +56,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>CyclePath require Photo access in order to load your profile image.</string>
 </dict>
 </plist>

@@ -38,6 +38,7 @@
 		8A961A231F7D4295000E7BB7 /* HomeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A961A221F7D4295000E7BB7 /* HomeConverter.swift */; };
 		8A9695441F84FCF000270A4F /* PathDetailsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9695431F84FCF000270A4F /* PathDetailsStruct.swift */; };
 		8A9695471F85208400270A4F /* PathsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9695461F85208400270A4F /* PathsRouter.swift */; };
+		8A98B32D1F87BA5F00C3B197 /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A98B32C1F87BA5F00C3B197 /* ProfileWorker.swift */; };
 		8A9FF4F71F82A72C00EBA211 /* HomeLocationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FF4F61F82A72C00EBA211 /* HomeLocationStruct.swift */; };
 		8AA69D4F1F822A8200939FD9 /* PathsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D4E1F822A8200939FD9 /* PathsManager.swift */; };
 		8AA69D511F822FDD00939FD9 /* PathsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */; };
@@ -120,6 +121,7 @@
 		8A961A221F7D4295000E7BB7 /* HomeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConverter.swift; sourceTree = "<group>"; };
 		8A9695431F84FCF000270A4F /* PathDetailsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDetailsStruct.swift; sourceTree = "<group>"; };
 		8A9695461F85208400270A4F /* PathsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsRouter.swift; sourceTree = "<group>"; };
+		8A98B32C1F87BA5F00C3B197 /* ProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorker.swift; sourceTree = "<group>"; };
 		8A9FF4F61F82A72C00EBA211 /* HomeLocationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocationStruct.swift; sourceTree = "<group>"; };
 		8AA69D4E1F822A8200939FD9 /* PathsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsManager.swift; sourceTree = "<group>"; };
 		8AA69D501F822FDD00939FD9 /* PathsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsInteractor.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			children = (
 				8A39E1581F80F42100A583E6 /* Protocols */,
 				8AB075531F7E6BF70096F022 /* ProfileAction.swift */,
+				8A98B32C1F87BA5F00C3B197 /* ProfileWorker.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -762,7 +765,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -771,7 +774,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -809,6 +812,7 @@
 				8ABD98631F823B6B00A64099 /* Paths.swift in Sources */,
 				8AA69D511F822FDD00939FD9 /* PathsInteractor.swift in Sources */,
 				8AB075541F7E6BF70096F022 /* ProfileAction.swift in Sources */,
+				8A98B32D1F87BA5F00C3B197 /* ProfileWorker.swift in Sources */,
 				8AFB12341F8127F4009C2A41 /* HomeActionProtocol.swift in Sources */,
 				8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */,
 				8ABD986D1F82651C00A64099 /* LoginProtocol.swift in Sources */,

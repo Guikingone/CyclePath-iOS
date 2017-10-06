@@ -50,7 +50,12 @@ extension PathsDetailsAction
         averageRythm.text = "\(path.formattedDuration)"
         averageAltimeterLbl.text = ""
         
-        loadMap()
+        if path.getLocations.count > 0 {
+            
+            loadMap()
+        } else {
+            return
+        }
     }
 
     internal func mapRegion() -> MKCoordinateRegion?

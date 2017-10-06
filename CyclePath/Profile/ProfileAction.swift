@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Photos
 import Firebase
 
 class ProfileAction: UIViewController
 {
     @IBOutlet weak var logoutBtn: UIButton!
-    @IBOutlet weak var profileImage: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var loggedOutTxt: UILabel!
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var orTxtLabel: UILabel!
@@ -23,14 +24,18 @@ class ProfileAction: UIViewController
         super.viewDidLoad()
         
         checkAuth()
+        
+        checkPhotosAccess()
+        accessPhotoLibrary()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
         
         checkAuth()
-        
     }
+    
     @IBAction func registerUser(_ sender: Any)
     {
         guard let registerAction = storyboard?.instantiateViewController(withIdentifier: "RegisterAction") as? RegisterAction else { return }
@@ -86,4 +91,73 @@ extension ProfileAction: ProfileActionProtocol
             loginBtn.isHidden = true
         }
     }
+    
+    func checkPhotosAccess()
+    {
+        if PHPhotoLibrary.authorizationStatus() == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ (authorized) in
+                self.accessPhotoLibrary()
+            })
+        }
+    }
+    
+    func accessPhotoLibrary()
+    {
+        profileImage.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(pickImageProfile)
+            )
+        )
+        
+        profileImage.isUserInteractionEnabled = true
+    }
+    
+    @objc func pickImageProfile()
+    {
+        let imageController = UIImagePickerController()
+        imageController.delegate = self
+        imageController.allowsEditing = true
+        
+        present(imageController, animated: true, completion: nil)
+    }
+    
+    func uploadProfileImage()
+    {
+        let data = UIImagePNGRepresentation(profileImage.image!)
+        
+        ProfileWorker().uploadImage(data: data!)
+    }
+}
+
+extension ProfileAction: UIImagePickerControllerDelegate
+{
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        // TODO
+        var selectedImage: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] {
+            selectedImage = editedImage as? UIImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            selectedImage = originalImage as? UIImage
+        }
+        
+        if let finalImage = selectedImage {
+            profileImage.image = finalImage
+            uploadProfileImage()
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileAction: UINavigationControllerDelegate
+{
+    
 }

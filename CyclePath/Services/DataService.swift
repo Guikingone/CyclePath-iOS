@@ -6,11 +6,14 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import FirebaseStorage
+import Foundation
+import SDWebImage
 import CoreLocation
 
 let DB_BASE = Database.database().reference()
+let STORAGE_BASE = Storage.storage().reference()
 
 class DataService
 {
@@ -40,6 +43,23 @@ class DataService
     public func createUser(uid: String, data: Dictionary<String, Any>)
     {
         REF_USERS.child(uid).updateChildValues(data)
+    }
+    
+    public func uploadProfileImage(data: Data)
+    {
+        STORAGE_BASE.child("users/profileImage/\((Auth.auth().currentUser?.uid)!).png").putData(data, metadata: nil) {
+            (data, errors) in
+            
+            if errors != nil {
+                return
+            }
+            
+            let image: Dictionary<String, Any> = [
+                "profileImage": (data?.downloadURL()?.absoluteString)!
+            ]
+            
+            self.REF_USERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(image)
+        }
     }
     
     public func createPath(id: Int32, distance: Any, duration: Int16)
