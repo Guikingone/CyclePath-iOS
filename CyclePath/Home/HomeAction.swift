@@ -77,7 +77,7 @@ class HomeAction: UIViewController
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
         updateDisplay()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
             self.eachSeconds()
             HomeInteractor().startTrackingAltitude()
             print(HomeInteractor().getAltimeterData)
@@ -228,8 +228,9 @@ class HomeAction: UIViewController
     {
         locationManager.delegate = self
         locationManager.activityType = .fitness
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = 2
         locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
     }
 }
 

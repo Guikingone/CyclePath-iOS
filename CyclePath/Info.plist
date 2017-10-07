@@ -40,8 +40,11 @@
 	<string>CyclePath requires your location in order to track your paths.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>CyclePath requires your location in order to track your paths.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>CyclePath require Photo access in order to load your profile image.</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -56,7 +59,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>CyclePath require Photo access in order to load your profile image.</string>
 </dict>
 </plist>
