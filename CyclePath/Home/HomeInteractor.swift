@@ -66,9 +66,35 @@ extension HomeInteractor: HomeInteractorProtocol
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func startTracking()
+    func startTracking(handledData: @escaping (_: Int, _: Measurement<UnitLength>,  _: [CLLocation]) -> ())
+    {
+        let seconds = 0
+        var locationList: [CLLocation] = []
+        locationList.removeAll()
+        
+        let distance = Measurement(value: 0, unit: UnitLength.meters)
+        
+        handledData(seconds, distance, locationList)
+    }
+    
+    func pauseTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.pause
+    {
+        return HomeManager().pauseTracking(seconds: seconds, distance: distance, locations: locations)
+    }
+    
+    func resumeTracking(actualData: TrackingPathStruct.pause)
     {
         
+    }
+    
+    func stopTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.stop
+    {
+        return HomeManager().stopTracking(seconds: seconds, distance: distance, locations: locations)
+    }
+    
+    func restartTracking(locationManager: CLLocationManager)
+    {
+        stopUpdatingLocation(locationManager: locationManager)
     }
     
     func stopTimer()

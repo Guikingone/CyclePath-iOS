@@ -12,5 +12,5 @@ protocol HomeManagerProtocol
 {
     func savePathsByUser(distance: Any, duration: Int16, locations: [CLLocation], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
     
-    func localPathStorage(path: HomePathStruct.create, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func localPathStorage(path: TrackingPathStruct.create, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
 }

@@ -17,17 +17,29 @@ class HomeManager
 
 extension HomeManager
 {
-    func savePathsByUser(pathId: Int32, distance: Any, duration: Int16, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func savePathsByUser(pathId: Int32, distance: Any, duration: Int16, success: @escaping (_: Bool) -> ())
     {
         DataService.instance.createPath(id: pathId, distance: distance, duration: duration)
+        success(true)
     }
     
-    func saveLocationByPath(pathId: Int32, locations: [HomeLocationStruct.persist], success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func saveLocationByPath(pathId: Int32, locations: [HomeLocationStruct.persist], success: @escaping (_: Bool) -> ())
     {
         DataService.instance.createLocations(id: pathId, locations: locations)
+        success(true)
     }
     
-    func localPathStorage(path: HomePathStruct.create, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func pauseTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.pause
+    {
+       return TrackingPathStruct.pause(distance: distance, duration: seconds, locations: locations)
+    }
+    
+    func stopTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.stop
+    {
+        return TrackingPathStruct.stop(distance: distance, duration: seconds, locations: locations)
+    }
+    
+    func localPathStorage(path: TrackingPathStruct.create, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
     {
         
     }

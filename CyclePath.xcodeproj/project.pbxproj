@@ -53,7 +53,7 @@
 		8ABD98671F8262A600A64099 /* PathsDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */; };
 		8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */; };
 		8ABD986D1F82651C00A64099 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD986C1F82651C00A64099 /* LoginProtocol.swift */; };
-		8AC8681E1F8365A100CD8D69 /* HomePathStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8681D1F8365A100CD8D69 /* HomePathStruct.swift */; };
+		8AC8681E1F8365A100CD8D69 /* TrackingPathStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8681D1F8365A100CD8D69 /* TrackingPathStruct.swift */; };
 		8AC868201F8366B800CD8D69 /* LoginRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8681F1F8366B800CD8D69 /* LoginRouterProtocol.swift */; };
 		8AC9B5F91F7BAF2100FD8677 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC9B5F81F7BAF2100FD8677 /* MapKit.framework */; };
 		8ACAE9D91F8655D200067B72 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAE9D81F8655D200067B72 /* UIViewControllerExtension.swift */; };
@@ -184,7 +184,7 @@
 		8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsDetailsAction.swift; sourceTree = "<group>"; };
 		8ABD98691F82631000A64099 /* PathDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathDetailsProtocol.swift; sourceTree = "<group>"; };
 		8ABD986C1F82651C00A64099 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
-		8AC8681D1F8365A100CD8D69 /* HomePathStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePathStruct.swift; sourceTree = "<group>"; };
+		8AC8681D1F8365A100CD8D69 /* TrackingPathStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingPathStruct.swift; sourceTree = "<group>"; };
 		8AC8681F1F8366B800CD8D69 /* LoginRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterProtocol.swift; sourceTree = "<group>"; };
 		8AC9B5F81F7BAF2100FD8677 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8ACAE9D81F8655D200067B72 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -427,7 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				8A9FF4F61F82A72C00EBA211 /* HomeLocationStruct.swift */,
-				8AC8681D1F8365A100CD8D69 /* HomePathStruct.swift */,
+				8AC8681D1F8365A100CD8D69 /* TrackingPathStruct.swift */,
 			);
 			path = Struct;
 			sourceTree = "<group>";
@@ -983,7 +983,7 @@
 				8AB0754F1F7E2F120096F022 /* RegisterWorker.swift in Sources */,
 				8A961A231F7D4295000E7BB7 /* HomeConverter.swift in Sources */,
 				8AA69D4F1F822A8200939FD9 /* PathsManager.swift in Sources */,
-				8AC8681E1F8365A100CD8D69 /* HomePathStruct.swift in Sources */,
+				8AC8681E1F8365A100CD8D69 /* TrackingPathStruct.swift in Sources */,
 				8A39E1511F80EA1800A583E6 /* HomeManagerProtocol.swift in Sources */,
 				8A9695471F85208400270A4F /* PathsRouter.swift in Sources */,
 				8AC868201F8366B800CD8D69 /* LoginRouterProtocol.swift in Sources */,

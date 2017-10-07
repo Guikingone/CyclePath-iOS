@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-struct HomePathStruct
+struct TrackingPathStruct
 {
     struct create
     {
@@ -19,6 +19,13 @@ struct HomePathStruct
     }
     
     struct pause
+    {
+        let distance: Double
+        let duration: Int16
+        let locations: [CLLocation]
+    }
+    
+    struct stop
     {
         let distance: Double
         let duration: Int16
