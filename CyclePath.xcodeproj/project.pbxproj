@@ -59,6 +59,7 @@
 		8ACAE9D91F8655D200067B72 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAE9D81F8655D200067B72 /* UIViewControllerExtension.swift */; };
 		8ADAD9951F8664F400EB12EE /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADAD9941F8664F400EB12EE /* Locations.swift */; };
 		8ADAD9971F867EC700EB12EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADAD9961F867EC700EB12EE /* GoogleService-Info.plist */; };
+		8AE120D21F8B5D78001DF5FC /* MapColorLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE120D11F8B5D78001DF5FC /* MapColorLine.swift */; };
 		8AF55EEB1F88BB3B003CF0FE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF55EE91F88BB3B003CF0FE /* Interface.storyboard */; };
 		8AF55EED1F88BB3B003CF0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF55EEC1F88BB3B003CF0FE /* Assets.xcassets */; };
 		8AF55EF41F88BB3B003CF0FE /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AF55EF31F88BB3B003CF0FE /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -190,6 +191,7 @@
 		8ACAE9D81F8655D200067B72 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8ADAD9941F8664F400EB12EE /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		8ADAD9961F867EC700EB12EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8AE120D11F8B5D78001DF5FC /* MapColorLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapColorLine.swift; sourceTree = "<group>"; };
 		8AF55EE71F88BB3B003CF0FE /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF55EEA1F88BB3B003CF0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		8AF55EEC1F88BB3B003CF0FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				8ACAE9D81F8655D200067B72 /* UIViewControllerExtension.swift */,
+				8AE120D11F8B5D78001DF5FC /* MapColorLine.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -988,6 +991,7 @@
 				8A9695471F85208400270A4F /* PathsRouter.swift in Sources */,
 				8AC868201F8366B800CD8D69 /* LoginRouterProtocol.swift in Sources */,
 				8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */,
+				8AE120D21F8B5D78001DF5FC /* MapColorLine.swift in Sources */,
 				8A39E1571F80F34C00A583E6 /* PathsActionProtocol.swift in Sources */,
 				8AFB12321F81269B009C2A41 /* HomeInteractorProtocol.swift in Sources */,
 				8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */,

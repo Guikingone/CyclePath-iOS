@@ -57,4 +57,12 @@ class Paths
         
         return dateFormatter.string(from: date)
     }
+    
+    func transformDateFromString(date: String) -> Date
+    {
+        let dateFormatted: DateFormatter = DateFormatter()
+        dateFormatted.timeZone = TimeZone(abbreviation: "GMT+2:00")
+        
+        return dateFormatted.date(from: date)!
+    }
 }

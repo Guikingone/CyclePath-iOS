@@ -36,4 +36,12 @@ class Locations
         self.date = date
         self.id = identifier
     }
+    
+    func transformDateFromString(date: String) -> Date
+    {
+        let dateFormatted: DateFormatter = DateFormatter()
+        dateFormatted.timeZone = TimeZone(abbreviation: "GMT+2:00")
+        
+        return dateFormatted.date(from: self.getDate)!
+    }
 }
