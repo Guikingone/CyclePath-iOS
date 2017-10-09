@@ -6,6 +6,8 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
+import Foundation
+
 class Locations
 {
     private var latitude: Double = 0.0
