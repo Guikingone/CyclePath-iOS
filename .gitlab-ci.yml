@@ -1,0 +1,8 @@
+stages:
+    - test
+    - build
+    - production
+
+testing:
+    stage: test
+

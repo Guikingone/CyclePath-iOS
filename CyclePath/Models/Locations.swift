@@ -43,6 +43,9 @@ class Locations
     {
         let dateFormatted: DateFormatter = DateFormatter()
         dateFormatted.timeZone = TimeZone(abbreviation: "GMT+2:00")
+        var formatted = dateFormatted.date(from: date)!
+        
+        print(date, formatted)
         
         return dateFormatted.date(from: self.getDate)!
     }

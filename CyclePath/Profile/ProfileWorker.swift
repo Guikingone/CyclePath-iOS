@@ -6,8 +6,8 @@
 //  Copyright © 2017 Guillaume Loulier. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Foundation
 
 class ProfileWorker
 {

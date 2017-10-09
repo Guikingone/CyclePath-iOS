@@ -85,71 +85,35 @@ extension PathsDetailsAction
         return MKCoordinateRegion(center: center, span: span)
     }
 
-    internal func polyLine() -> [MapColorLine]
+    internal func polyLine() -> MKPolyline
     {
         let locations = path.getLocations
-        var coordinates: [(CLLocation, CLLocation)] = []
-        var speeds: [Double] = []
-        var minSpeed = Double.greatestFiniteMagnitude
-        var maxSpeed = 0.0
         
-        // 2
-        for (first, second) in zip(locations, locations.dropFirst()) {
-            let start = CLLocation(latitude: first.getLatitude, longitude: first.getLongitude)
-            let end = CLLocation(latitude: second.getLatitude, longitude: second.getLongitude)
-            coordinates.append((start, end))
-            
-            //3
-            let distance = end.distance(from: start)
-            
-            let formattedTime = second.transformDateFromString(date: second.getDate) as Date
-            let firstFormattedTime = first.transformDateFromString(date: first.getDate) as Date
-            let differenceTime = formattedTime.timeIntervalSince(formattedTime)
-            let time = formattedTime.timeIntervalSince(formattedTime)
-            
-            let speed = differenceTime > 0 ? distance / differenceTime : 0
-            speeds.append(speed)
-            minSpeed = min(minSpeed, speed)
-            maxSpeed = max(maxSpeed, speed)
+        let coords: [CLLocationCoordinate2D] = locations.map { location in
+            let location = location as Locations
+            return CLLocationCoordinate2D(latitude: location.getLatitude, longitude: location.getLongitude)
         }
         
-        //4
-        let midSpeed = speeds.reduce(0, +) / Double(speeds.count)
-        
-        //5
-        var segments: [MapColorLine] = []
-        
-        for ((start, end), speed) in zip(coordinates, speeds) {
-            let coords = [start.coordinate, end.coordinate]
-            let segment = MapColorLine(coordinates: coords, count: 2)
-            segment.color = segment.segmentColor(speed: speed,
-                                         midSpeed: midSpeed,
-                                         slowestSpeed: minSpeed,
-                                         fastestSpeed: maxSpeed)
-            segments.append(segment)
-        }
-        
-        return segments
+        return MKPolyline(coordinates: coords, count: coords.count)
     }
 
     internal func loadMap()
     {
-        let locations = path.getLocations
         let region = mapRegion()!
 
         mapViewDetails.setRegion(region, animated: true)
-        mapViewDetails.addOverlays(polyLine())
+        mapViewDetails.add(polyLine())
     }
 }
 
 extension PathsDetailsAction: MKMapViewDelegate
 {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        guard let polyline = overlay as? MapColorLine else {
+        guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = polyline.color
+        renderer.strokeColor = .black
         renderer.lineWidth = 3
         return renderer
     }
