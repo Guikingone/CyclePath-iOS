@@ -11,7 +11,7 @@ import MapKit
 
 class PathsDetailsAction: UIViewController
 {
-    var path = Paths(distance: 0.0, duration: 0, date: "", id: 0)
+    var path = Paths(distance: 0.0, duration: 0, date: "", altitude: 0.0, id: 0)
     
     @IBOutlet weak var pathDateLbl: UILabel!
     @IBOutlet weak var distanceLbl: UILabel!
@@ -47,8 +47,8 @@ extension PathsDetailsAction
     {
         pathDateLbl.text = "Path of \(path.formattedDate)"
         distanceLbl.text = "\(String(describing: path.formattedDistance)) meters"
-        averageRythm.text = "\(path.formattedDuration)"
-        averageAltimeterLbl.text = ""
+        averageRythm.text = "\(path.transformSecondsIntoMinutes(seconds: path.formattedDuration)) minutes"
+        averageAltimeterLbl.text = "\(String(format: "%.02f", path.getAltitude)) meters"
         
         if path.getLocations.count > 0 {
             

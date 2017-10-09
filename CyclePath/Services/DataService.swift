@@ -62,7 +62,7 @@ class DataService
         }
     }
     
-    public func createPath(id: Int32, distance: Any, duration: Int16)
+    public func createPath(id: Int32, distance: Any, duration: Int16, altitude: Double)
     {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
@@ -75,6 +75,7 @@ class DataService
             "user": Auth.auth().currentUser?.uid,
             "distance": distance,
             "duration": duration,
+            "altitude": altitude,
             "date": formattedDate,
             "id": id
         ]
@@ -96,8 +97,9 @@ class DataService
                     let duration = data.childSnapshot(forPath: "duration").value as! Int16
                     let date = data.childSnapshot(forPath: "date").value as! String
                     let id = data.childSnapshot(forPath: "id").value as! Int32
+                    let altitude = data.childSnapshot(forPath: "altitude").value as! Double
                     
-                    let path = Paths(distance: distance, duration: duration, date: date, id: id)
+                    let path = Paths(distance: distance, duration: duration, date: date, altitude: altitude, id: id)
                     
                     pathsList.append(path)
                     

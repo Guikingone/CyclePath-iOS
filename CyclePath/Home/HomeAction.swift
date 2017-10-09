@@ -77,7 +77,7 @@ class HomeAction: UIViewController
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
         updateDisplay()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.eachSeconds()
             HomeInteractor().startTrackingAltitude()
             print(HomeInteractor().getAltimeterData)
@@ -124,7 +124,7 @@ class HomeAction: UIViewController
                 HomeInteractor().transformLocations(locations: actualData.locations, data: {
                     (data, id) in
                     
-                    HomeManager().savePathsByUser(pathId: id, distance: actualData.distance, duration: actualData.duration, success: {
+                    HomeManager().savePathsByUser(pathId: id, distance: actualData.distance, duration: actualData.duration, altitude: HomeInteractor().getAltimeterSum,success: {
                         (saved) in
                         
                         HomeManager().saveLocationByPath(pathId: id, locations: data, success: { (saved) in
@@ -184,7 +184,7 @@ class HomeAction: UIViewController
                     
                     HomeInteractor().transformLocations(locations: pausedData.locations, data: { (data, id) in
                         
-                        HomeManager().savePathsByUser(pathId: id, distance: pausedData.distance, duration: pausedData.duration, success: {
+                        HomeManager().savePathsByUser(pathId: id, distance: pausedData.distance, duration: pausedData.duration, altitude: HomeInteractor().getAltimeterSum,success: {
                             (saved) in
                             
                             HomeManager().saveLocationByPath(pathId: id, locations: data, success: {
@@ -221,7 +221,7 @@ class HomeAction: UIViewController
         distanceTxtLabel.text = formattedDistance
         timeTxtLabel.text = formattedTime
         speedTxtLabel.text = formattedPace
-        altitudeLbl.text = String(format: "%.02f", HomeInteractor().getAltimeterData)
+        altitudeLbl.text = String(format: "%.02f", HomeInteractor().getAltimeterSum)
     }
     
     private func startLocationUpdates()

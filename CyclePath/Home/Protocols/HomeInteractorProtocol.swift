@@ -17,13 +17,17 @@ protocol HomeInteractorProtocol
     
     func stopUpdatingLocation(locationManager: CLLocationManager)
     
+    // Altimeter
+    
     func checkAltimeterAvailability()
     
     func startTrackingAltitude()
     
     func stopTrackingAltitude()
     
-    func saveAltitude()
+    func countAltitudeEntry()
+    
+    func saveAltitude(altitudeSum: Double)
     
     // Logic
     

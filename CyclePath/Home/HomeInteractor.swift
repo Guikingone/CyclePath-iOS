@@ -18,7 +18,8 @@ class HomeInteractor
     
     var altimeterTracking = false
     let altimeterManager = CMAltimeter()
-    private var altimeterData: Double = 0.0
+    private var altimeterData: [Double] = []
+    private var altimeterSum: Double = 0.0
     
     private var currentDistance: String = ""
     private var currentTime: String = ""
@@ -26,8 +27,12 @@ class HomeInteractor
     
     // Altimeter
     
-    var getAltimeterData: Double {
+    var getAltimeterData: [Double] {
         return altimeterData
+    }
+    
+    var getAltimeterSum: Double {
+        return altimeterSum
     }
     
     // Timer
@@ -124,7 +129,7 @@ extension HomeInteractor: HomeInteractorProtocol
                     print(errors?.localizedDescription as Any)
                 }
                 
-                self.altimeterData = (data?.relativeAltitude.doubleValue)!
+                self.altimeterData = [(data?.relativeAltitude.doubleValue)!]
             })
         }
     }
@@ -135,7 +140,18 @@ extension HomeInteractor: HomeInteractorProtocol
         
     }
     
-    func saveAltitude()
+    func countAltitudeEntry()
+    {
+        let altimeterCount = Double(altimeterData.count)
+        var altimeterLevel: Double = 0.0
+        
+        for altimeter in altimeterData {
+            altimeterLevel += altimeter
+            self.altimeterSum = altimeterLevel / altimeterCount
+        }
+    }
+    
+    func saveAltitude(altitudeSum: Double)
     {
         
     }

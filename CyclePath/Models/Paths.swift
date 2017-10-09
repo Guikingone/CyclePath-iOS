@@ -13,6 +13,7 @@ class Paths
     private var distance: Double = 0
     private var duration: Int16 = 0
     private var date: String = ""
+    private var altitude: Double = 0.0
     private var id: Int32 = 0
     private var locations = [Locations]()
     
@@ -32,15 +33,20 @@ class Paths
         return date
     }
     
+    var getAltitude: Double {
+        return altitude
+    }
+    
     var getLocations: [Locations] {
         return locations
     }
     
-    init(distance: Double, duration: Int16, date: String, id: Int32)
+    init(distance: Double, duration: Int16, date: String, altitude: Double, id: Int32)
     {
         self.distance = distance
         self.duration = duration
         self.date = date
+        self.altitude = altitude
         self.id = id
     }
     
@@ -64,5 +70,10 @@ class Paths
         dateFormatted.timeZone = TimeZone(abbreviation: "GMT+2:00")
         
         return dateFormatted.date(from: date)!
+    }
+    
+    func transformSecondsIntoMinutes(seconds: Int16) -> Double
+    {
+        return Double(Double(seconds) / 60)
     }
 }
