@@ -72,17 +72,22 @@ class Paths
         return dateFormatted.date(from: date)!
     }
     
-    func transformMeters(meters: Double) -> Double
+    func transformMeters() -> String
     {
-        return Double()
+        return String(format: "%.02f", formattedDistance)
     }
     
-    func transformSecondsIntoMinutes(seconds: Int16) -> Double
+    func transformSecondsIntoMinutes() -> String
     {
-        if seconds < 60 {
-            return Double("0.\(seconds)")!
+        if formattedDuration < 60 {
+            return String(describing: "0.\(formattedDuration)")
         }
         
-        return Double(seconds / 60)
+        return String(format: "%.02f", Double(formattedDuration / 60))
+    }
+    
+    func transformAltitude() -> String
+    {
+        return String(format: "%.02f", getAltitude)
     }
 }

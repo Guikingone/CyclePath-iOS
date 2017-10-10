@@ -24,8 +24,6 @@ class PathsDetailsAction: UIViewController
         super.viewDidLoad()
         
         mapViewDetails.delegate = self
-        
-        displayInformations()
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -46,12 +44,11 @@ extension PathsDetailsAction
     func displayInformations()
     {
         pathDateLbl.text = "Path of \(path.formattedDate)"
-        distanceLbl.text = "\(String(describing: path.formattedDistance)) meters"
-        averageRythm.text = "\(path.transformSecondsIntoMinutes(seconds: path.formattedDuration)) minutes"
-        averageAltimeterLbl.text = "\(String(format: "%.02f", path.getAltitude)) meters"
+        distanceLbl.text = "\(path.transformMeters()) mètres"
+        averageRythm.text = "\(path.transformSecondsIntoMinutes()) minutes"
+        averageAltimeterLbl.text = "\(path.transformAltitude()) mètres"
         
         if path.getLocations.count > 0 {
-            
             loadMap()
         } else {
             return
@@ -79,6 +76,7 @@ extension PathsDetailsAction
 
         let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2,
                                             longitude: (minLong + maxLong) / 2)
+        
         let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3,
                                     longitudeDelta: (maxLong - minLong) * 1.3)
 
