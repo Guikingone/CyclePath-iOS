@@ -74,6 +74,6 @@ class Paths
     
     func transformSecondsIntoMinutes(seconds: Int16) -> Double
     {
-        return Double(Double(seconds) / 60)
+        return Double()
     }
 }

@@ -165,13 +165,14 @@
                                     <constraint firstItem="81V-ah-gru" firstAttribute="top" secondItem="buY-dF-EgJ" secondAttribute="top" constant="10" id="wtc-2B-0gw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACj-yp-l04">
-                                <rect key="frame" x="319" y="557" width="75" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACj-yp-l04" customClass="CardButton" customModule="CyclePath" customModuleProvider="target">
+                                <rect key="frame" x="359" y="572" width="35" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="35C-Rp-XI6"/>
-                                    <constraint firstAttribute="height" constant="50" id="Z3E-ph-sQj"/>
+                                    <constraint firstAttribute="width" constant="35" id="35C-Rp-XI6"/>
+                                    <constraint firstAttribute="height" constant="35" id="Z3E-ph-sQj"/>
                                 </constraints>
-                                <state key="normal" title="Find me"/>
+                                <state key="normal" image="findMeBtn"/>
                                 <connections>
                                     <action selector="findUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yHR-PD-zXw"/>
                                 </connections>
@@ -245,7 +246,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="mjF-3d-GHc"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeIcon" selectedImage="HomeIcon" id="mjF-3d-GHc"/>
                     <connections>
                         <outlet property="altitudeLbl" destination="kxl-in-Mdv" id="D7e-Lo-D1e"/>
                         <outlet property="dataCard" destination="buY-dF-EgJ" id="6VH-GQ-cga"/>
@@ -291,9 +292,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-03-Kae">
-                                        <rect key="frame" x="346" y="50" width="48" height="20"/>
-                                        <state key="normal" title="Logout"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-03-Kae">
+                                        <rect key="frame" x="359" y="40" width="25" height="40"/>
+                                        <state key="normal" image="logoutBtn"/>
                                         <connections>
                                             <action selector="LogoutUser:" destination="YzN-q1-M1H" eventType="touchUpInside" id="lFh-zP-p5V"/>
                                         </connections>
@@ -302,12 +303,12 @@
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="2AQ-ij-twv"/>
-                                    <constraint firstAttribute="trailing" secondItem="mbr-03-Kae" secondAttribute="trailing" constant="20" id="BXv-2G-1Wh"/>
+                                    <constraint firstAttribute="trailing" secondItem="mbr-03-Kae" secondAttribute="trailing" constant="30" id="BXv-2G-1Wh"/>
                                     <constraint firstItem="Zmn-Uk-pHh" firstAttribute="centerX" secondItem="srL-13-FEk" secondAttribute="centerX" id="DRd-F1-ybK"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="HIm-Xu-9oj"/>
                                     <constraint firstItem="Zmn-Uk-pHh" firstAttribute="centerY" secondItem="srL-13-FEk" secondAttribute="centerY" id="ZFn-6U-7d4"/>
-                                    <constraint firstAttribute="bottom" secondItem="mbr-03-Kae" secondAttribute="bottom" constant="50" id="kRU-TO-RHF"/>
-                                    <constraint firstItem="mbr-03-Kae" firstAttribute="top" secondItem="srL-13-FEk" secondAttribute="top" constant="50" id="pMu-98-dOw"/>
+                                    <constraint firstAttribute="bottom" secondItem="mbr-03-Kae" secondAttribute="bottom" constant="40" id="kRU-TO-RHF"/>
+                                    <constraint firstItem="mbr-03-Kae" firstAttribute="top" secondItem="srL-13-FEk" secondAttribute="top" constant="40" id="pMu-98-dOw"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjN-DI-ygb" customClass="ProfileImage" customModule="CyclePath" customModuleProvider="target">
@@ -375,7 +376,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qlz-rZ-54t"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" id="VQG-vV-dkD"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="ProfileIcon" selectedImage="ProfileIcon" id="VQG-vV-dkD"/>
                     <connections>
                         <outlet property="loggedOutTxt" destination="QFH-6O-Azh" id="srd-G7-E1p"/>
                         <outlet property="loginBtn" destination="q02-3I-ROy" id="BEx-ZR-d3S"/>
@@ -516,7 +517,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E8W-V6-faS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Paths" id="tQA-0Z-uh7"/>
+                    <tabBarItem key="tabBarItem" title="Paths" image="PathsIcon" selectedImage="PathsIcon" id="tQA-0Z-uh7"/>
                     <connections>
                         <outlet property="infoLbl" destination="Wu7-8L-tnF" id="ZAS-Sd-CgG"/>
                         <outlet property="pathsList" destination="i5d-zu-Sn6" id="762-0H-cEI"/>
@@ -555,9 +556,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ9-0U-s70">
-                                        <rect key="frame" x="10" y="45" width="34" height="30"/>
-                                        <state key="normal" title="Back"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ9-0U-s70">
+                                        <rect key="frame" x="10" y="45" width="25" height="30"/>
+                                        <state key="normal" image="backBtn"/>
                                         <connections>
                                             <action selector="backBtn:" destination="oAU-fh-zP2" eventType="touchUpInside" id="3ja-pv-TKa"/>
                                         </connections>
@@ -706,9 +707,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-3G-zsT">
-                                        <rect key="frame" x="10" y="40" width="34" height="40"/>
-                                        <state key="normal" title="Back"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-3G-zsT">
+                                        <rect key="frame" x="10" y="40" width="25" height="40"/>
+                                        <state key="normal" image="backBtn"/>
                                         <connections>
                                             <action selector="back:" destination="Z9F-9L-zZu" eventType="touchUpInside" id="d89-P4-lrj"/>
                                         </connections>
@@ -846,9 +847,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQM-GB-H3a">
-                                        <rect key="frame" x="10" y="40" width="34" height="40"/>
-                                        <state key="normal" title="Back"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQM-GB-H3a">
+                                        <rect key="frame" x="10" y="40" width="25" height="40"/>
+                                        <state key="normal" image="backBtn"/>
                                         <connections>
                                             <action selector="back:" destination="Lxp-7k-bjf" eventType="touchUpInside" id="zDF-wa-eLx"/>
                                         </connections>
@@ -1034,7 +1035,15 @@
             <point key="canvasLocation" x="1504" y="849"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeIcon" width="25" height="25"/>
+        <image name="PathsIcon" width="25" height="25"/>
+        <image name="ProfileIcon" width="25" height="25"/>
+        <image name="backBtn" width="25" height="25"/>
+        <image name="findMeBtn" width="25" height="25"/>
+        <image name="logoutBtn" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZiJ-Dk-mWh"/>
+        <segue reference="hrF-LV-4WP"/>
     </inferredMetricsTieBreakers>
 </document>
