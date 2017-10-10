@@ -72,8 +72,17 @@ class Paths
         return dateFormatted.date(from: date)!
     }
     
-    func transformSecondsIntoMinutes(seconds: Int16) -> Double
+    func transformMeters(meters: Double) -> Double
     {
         return Double()
+    }
+    
+    func transformSecondsIntoMinutes(seconds: Int16) -> Double
+    {
+        if seconds < 60 {
+            return Double("0.\(seconds)")!
+        }
+        
+        return Double(seconds / 60)
     }
 }
