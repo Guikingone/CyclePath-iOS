@@ -55,6 +55,16 @@ class Paths
         self.locations = locations
     }
     
+    func createDate() -> String
+    {
+        let dateFormatter = DateFormatter()
+        let date = Date()
+        dateFormatter.dateFormat = "d MMMM YYYY - HH:mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
+        
+        return dateFormatter.string(from: date)
+    }
+    
     func transformStringToDate(date: Date) -> String
     {
         let dateFormatter = DateFormatter()

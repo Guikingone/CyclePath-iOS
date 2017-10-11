@@ -21,3 +21,13 @@ class ProfileWorker
         
     }
 }
+
+extension ProfileWorker
+{
+    func getActualUser(user: @escaping (_: User) -> ())
+    {
+        DataService.instance.getActualUser { (user) in
+            let user = user
+        }
+    }
+}

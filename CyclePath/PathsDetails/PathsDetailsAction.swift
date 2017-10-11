@@ -43,7 +43,7 @@ extension PathsDetailsAction
 {
     func displayInformations()
     {
-        pathDateLbl.text = "Path of \(path.formattedDate)"
+        pathDateLbl.text = "Tracé du \(path.formattedDate)"
         distanceLbl.text = "\(path.transformMeters()) mètres"
         averageRythm.text = "\(path.transformSecondsIntoMinutes()) minutes"
         averageAltimeterLbl.text = "\(path.transformAltitude()) mètres"

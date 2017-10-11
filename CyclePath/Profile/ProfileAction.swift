@@ -18,6 +18,8 @@ class ProfileAction: UIViewController
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var orTxtLabel: UILabel!
     @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var usernameLbl: UILabel!
     
     override func viewDidLoad()
     {
@@ -34,6 +36,7 @@ class ProfileAction: UIViewController
         super.viewWillAppear(animated)
         
         checkAuth()
+        getActualUserInformations()
     }
     
     @IBAction func registerUser(_ sender: Any)
@@ -53,8 +56,8 @@ class ProfileAction: UIViewController
     @IBAction func LogoutUser(_ sender: Any)
     {
         let logoutPopUp = UIAlertController(
-            title: "You're about to be logged out.",
-            message: "Are you sure ?",
+            title: "Se déconnecter",
+            message: "Etes-vous sûr ?",
             preferredStyle: .actionSheet
         )
         
@@ -69,6 +72,11 @@ class ProfileAction: UIViewController
         logoutPopUp.addAction(logoutAction)
         present(logoutPopUp, animated: true, completion: nil)
     }
+    
+    @IBAction func editprofile(_ sender: Any)
+    {
+        
+    }
 }
 
 extension ProfileAction: ProfileActionProtocol
@@ -77,18 +85,29 @@ extension ProfileAction: ProfileActionProtocol
     {
         if Auth.auth().currentUser == nil {
             logoutBtn.isHidden = true
+            editBtn.isHidden = true
             profileImage.isHidden = true
+            usernameLbl.isHidden = true
             loggedOutTxt.isHidden = false
             registerBtn.isHidden = false
             orTxtLabel.isHidden = false
             loginBtn.isHidden = false
         } else {
             logoutBtn.isHidden = false
+            editBtn.isHidden = false
+            usernameLbl.isHidden = false
             profileImage.isHidden = false
             loggedOutTxt.isHidden = true
             registerBtn.isHidden = true
             orTxtLabel.isHidden = true
             loginBtn.isHidden = true
+        }
+    }
+    
+    func getActualUserInformations()
+    {
+        if Auth.auth().currentUser != nil {
+            usernameLbl.text = Auth.auth().currentUser?.email
         }
     }
     

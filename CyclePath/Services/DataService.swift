@@ -45,6 +45,25 @@ class DataService
         REF_USERS.child(uid).updateChildValues(data)
     }
     
+    func getActualUser(handler: @escaping (_: User) -> ())
+    {
+        let actualUser = Auth.auth().currentUser?.uid
+        
+        let child = REF_USERS.child(actualUser!)
+        
+        child.observeSingleEvent(of: .value) { (receivedSnapShot) in
+            let user = User()
+            
+            guard let receivedData = receivedSnapShot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedData {
+                print(data)
+            }
+            
+            handler(user)
+        }
+    }
+    
     public func uploadProfileImage(data: Data)
     {
         STORAGE_BASE.child("users/profileImage/\((Auth.auth().currentUser?.uid)!).png").putData(data, metadata: nil) {
@@ -65,7 +84,7 @@ class DataService
     public func createPath(id: Int32, distance: Any, duration: Int16, altitude: Double)
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
+        dateFormatter.dateFormat = "d MMMM, YYYY HH:mm"
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
         
         let date = Date()

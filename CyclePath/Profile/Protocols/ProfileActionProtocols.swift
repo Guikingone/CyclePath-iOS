@@ -9,4 +9,6 @@
 protocol ProfileActionProtocol
 {
     func checkAuth()
+    
+    func getActualUserInformations()
 }

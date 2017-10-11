@@ -298,13 +298,23 @@
                                             <action selector="LogoutUser:" destination="YzN-q1-M1H" eventType="touchUpInside" id="lFh-zP-p5V"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4M-K3-Nz5">
+                                        <rect key="frame" x="20" y="40" width="25" height="40"/>
+                                        <state key="normal" image="editBtn"/>
+                                        <connections>
+                                            <action selector="editprofile:" destination="YzN-q1-M1H" eventType="touchUpInside" id="zPg-mX-Bs5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.59607843140000005" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="2AQ-ij-twv"/>
+                                    <constraint firstItem="f4M-K3-Nz5" firstAttribute="leading" secondItem="srL-13-FEk" secondAttribute="leading" constant="20" id="2JX-f0-hEK"/>
                                     <constraint firstAttribute="trailing" secondItem="mbr-03-Kae" secondAttribute="trailing" constant="30" id="BXv-2G-1Wh"/>
                                     <constraint firstItem="Zmn-Uk-pHh" firstAttribute="centerX" secondItem="srL-13-FEk" secondAttribute="centerX" id="DRd-F1-ybK"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="HIm-Xu-9oj"/>
+                                    <constraint firstAttribute="bottom" secondItem="f4M-K3-Nz5" secondAttribute="bottom" constant="40" id="Nkr-6T-dXa"/>
+                                    <constraint firstItem="f4M-K3-Nz5" firstAttribute="top" secondItem="srL-13-FEk" secondAttribute="top" constant="40" id="PzN-FP-mfE"/>
                                     <constraint firstItem="Zmn-Uk-pHh" firstAttribute="centerY" secondItem="srL-13-FEk" secondAttribute="centerY" id="ZFn-6U-7d4"/>
                                     <constraint firstAttribute="bottom" secondItem="mbr-03-Kae" secondAttribute="bottom" constant="40" id="kRU-TO-RHF"/>
                                     <constraint firstItem="mbr-03-Kae" firstAttribute="top" secondItem="srL-13-FEk" secondAttribute="top" constant="40" id="pMu-98-dOw"/>
@@ -352,6 +362,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eq-Tc-zZL">
+                                <rect key="frame" x="20" y="280" width="374" height="27.333333333333314"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -360,6 +376,7 @@
                             <constraint firstItem="gjN-DI-ygb" firstAttribute="centerX" secondItem="fb0-hA-sAh" secondAttribute="centerX" id="5ar-aE-7Gp"/>
                             <constraint firstItem="srL-13-FEk" firstAttribute="trailing" secondItem="Qlz-rZ-54t" secondAttribute="trailing" id="6dh-ks-wlO"/>
                             <constraint firstItem="jzi-7Z-Igd" firstAttribute="leading" secondItem="Qlz-rZ-54t" secondAttribute="leading" constant="20" id="6oQ-R7-o3d"/>
+                            <constraint firstItem="4eq-Tc-zZL" firstAttribute="leading" secondItem="Qlz-rZ-54t" secondAttribute="leading" constant="20" id="7ou-0H-Gx7"/>
                             <constraint firstItem="Qlz-rZ-54t" firstAttribute="trailing" secondItem="jzi-7Z-Igd" secondAttribute="trailing" constant="20" id="ADf-83-DJp"/>
                             <constraint firstItem="srL-13-FEk" firstAttribute="leading" secondItem="Qlz-rZ-54t" secondAttribute="leading" id="F3A-Gk-Dqb"/>
                             <constraint firstItem="QFH-6O-Azh" firstAttribute="top" secondItem="gjN-DI-ygb" secondAttribute="bottom" constant="35" id="Fhw-Pv-kp4"/>
@@ -370,19 +387,23 @@
                             <constraint firstItem="D8P-wm-JBH" firstAttribute="leading" secondItem="Qlz-rZ-54t" secondAttribute="leading" constant="20" id="fmt-Nu-VBf"/>
                             <constraint firstItem="QFH-6O-Azh" firstAttribute="leading" secondItem="Qlz-rZ-54t" secondAttribute="leading" constant="20" id="kfu-T0-NDD"/>
                             <constraint firstItem="Qlz-rZ-54t" firstAttribute="trailing" secondItem="D8P-wm-JBH" secondAttribute="trailing" constant="20" id="mgs-Ul-97C"/>
+                            <constraint firstItem="4eq-Tc-zZL" firstAttribute="top" secondItem="gjN-DI-ygb" secondAttribute="bottom" constant="20" id="pc3-wx-hjN"/>
                             <constraint firstItem="q02-3I-ROy" firstAttribute="leading" secondItem="Qlz-rZ-54t" secondAttribute="leading" constant="20" id="sux-xs-fVm"/>
+                            <constraint firstItem="Qlz-rZ-54t" firstAttribute="trailing" secondItem="4eq-Tc-zZL" secondAttribute="trailing" constant="20" id="yNH-xw-U12"/>
                             <constraint firstItem="Qlz-rZ-54t" firstAttribute="trailing" secondItem="q02-3I-ROy" secondAttribute="trailing" constant="20" id="zgb-a5-p7Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qlz-rZ-54t"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="ProfileIcon" selectedImage="ProfileIcon" id="VQG-vV-dkD"/>
                     <connections>
+                        <outlet property="editBtn" destination="f4M-K3-Nz5" id="kvW-Cd-Hsv"/>
                         <outlet property="loggedOutTxt" destination="QFH-6O-Azh" id="srd-G7-E1p"/>
                         <outlet property="loginBtn" destination="q02-3I-ROy" id="BEx-ZR-d3S"/>
                         <outlet property="logoutBtn" destination="mbr-03-Kae" id="Kbj-Od-ssi"/>
                         <outlet property="orTxtLabel" destination="jzi-7Z-Igd" id="2YM-vx-MA3"/>
                         <outlet property="profileImage" destination="gjN-DI-ygb" id="64S-DC-Rid"/>
                         <outlet property="registerBtn" destination="D8P-wm-JBH" id="SiV-tL-sbp"/>
+                        <outlet property="usernameLbl" destination="4eq-Tc-zZL" id="5zp-2a-DTL"/>
                         <segue destination="Lxp-7k-bjf" kind="show" identifier="loginSegue" id="ZiJ-Dk-mWh"/>
                         <segue destination="Z9F-9L-zZu" kind="show" identifier="registerSegue" id="v2H-O0-UWw"/>
                     </connections>
@@ -1028,10 +1049,11 @@
         <image name="PathsIcon" width="25" height="25"/>
         <image name="ProfileIcon" width="25" height="25"/>
         <image name="backBtn" width="25" height="25"/>
+        <image name="editBtn" width="25" height="25"/>
         <image name="findMeBtn" width="25" height="25"/>
         <image name="logoutBtn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FDE-iB-UAG"/>
+        <segue reference="ZiJ-Dk-mWh"/>
     </inferredMetricsTieBreakers>
 </document>
