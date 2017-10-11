@@ -81,7 +81,7 @@ class DataService
         }
     }
     
-    public func createPath(id: Int32, distance: Any, duration: Int16, altitude: Double)
+    public func createPath(id: String, distance: Any, duration: Int16, altitude: Double)
     {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM, YYYY HH:mm"
@@ -115,7 +115,7 @@ class DataService
                     let distance = data.childSnapshot(forPath: "distance").value as! Double
                     let duration = data.childSnapshot(forPath: "duration").value as! Int16
                     let date = data.childSnapshot(forPath: "date").value as! String
-                    let id = data.childSnapshot(forPath: "id").value as! Int32
+                    let id = data.childSnapshot(forPath: "id").value as! String
                     let altitude = data.childSnapshot(forPath: "altitude").value as! Double
                     
                     let path = Paths(distance: distance, duration: duration, date: date, altitude: altitude, id: id)
@@ -139,7 +139,25 @@ class DataService
         }
     }
     
-    public func createLocations(id: Int32, locations: [HomeLocationStruct.persist])
+    func deletePath(identifier: String)
+    {
+        REF_PATHS.observeSingleEvent(of: .value) { (dataSnapshot) in
+            guard let receivedData = dataSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedData {
+                if data.childSnapshot(forPath: "id").value as! String == identifier {
+                    self.REF_PATHS.child(data.key).removeValue()
+                }
+            }
+        }
+    }
+    
+    func makeFavoritePath(identifier: String, handler: @escaping (_: Bool) -> ())
+    {
+        
+    }
+    
+    public func createLocations(id: String, locations: [HomeLocationStruct.persist])
     {
         for location in locations {
             
@@ -154,7 +172,7 @@ class DataService
         }
     }
     
-    public func getLocationsByPath(identifier: Int32, handler: @escaping (_: [Locations]) -> ())
+    public func getLocationsByPath(identifier: String, handler: @escaping (_: [Locations]) -> ())
     {
         REF_LOCATIONS.observeSingleEvent(of: DataEventType.value) { (receivedData) in
             var locationsLists = [Locations]()
@@ -163,7 +181,7 @@ class DataService
             
             for data in receivedLocations {
                 
-                if data.childSnapshot(forPath: "id").value as! Int32 == identifier {
+                if data.childSnapshot(forPath: "id").value as! String == identifier {
                     
                     let latitude = data.childSnapshot(forPath: "latitude").value as! Double
                     let longitude = data.childSnapshot(forPath: "longitude").value as! Double

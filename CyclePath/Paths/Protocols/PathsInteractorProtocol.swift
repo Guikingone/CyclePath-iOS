@@ -8,5 +8,5 @@
 
 protocol PathsInteractorProtocol
 {
-    func getUserPaths() -> [String: Any]
+    
 }

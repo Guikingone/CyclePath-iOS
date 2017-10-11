@@ -31,5 +31,5 @@ protocol HomeInteractorProtocol
     
     // Logic
     
-    func transformLocations(locations: [CLLocation], data: @escaping (_ : [HomeLocationStruct.persist], _ : Int32) -> ())
+    func transformLocations(locations: [CLLocation], data: @escaping (_ : [HomeLocationStruct.persist], _ : String) -> ())
 }

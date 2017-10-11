@@ -14,10 +14,10 @@ class Paths
     private var duration: Int16 = 0
     private var date: String = ""
     private var altitude: Double = 0.0
-    private var id: Int32 = 0
+    private var id: String = ""
     private var locations = [Locations]()
     
-    var getId: Int32 {
+    var getId: String {
         return id
     }
     
@@ -41,7 +41,7 @@ class Paths
         return locations
     }
     
-    init(distance: Double, duration: Int16, date: String, altitude: Double, id: Int32)
+    init(distance: Double, duration: Int16, date: String, altitude: Double, id: String)
     {
         self.distance = distance
         self.duration = duration

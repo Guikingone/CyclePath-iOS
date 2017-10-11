@@ -19,7 +19,7 @@ struct HomeLocationStruct
     
     struct persist
     {
-        let path: Int32
+        let path: String
         let timestamp: Date
         let latitude: Double
         let longitude: Double

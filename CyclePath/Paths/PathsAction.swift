@@ -41,7 +41,7 @@ class PathsAction: UIViewController
             
             self.pathsArray = receivedData
             
-            if self.pathsArray.count > 0 {
+            if self.pathsArray.count >= 1 {
                 self.pathsList.isHidden = false
                 
                 self.pathsList.reloadData()
@@ -74,6 +74,14 @@ extension PathsAction: PathsActionProtocol
             }
         }
     }
+    
+    func loadPaths()
+    {
+        DataService.instance.getPathsByUser { (paths) in
+            self.pathsArray = paths
+            self.pathsList.reloadData()
+        }
+    }
 }
 
 extension PathsAction: UITableViewDelegate, UITableViewDataSource
@@ -102,5 +110,35 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
         let values = pathsArray[indexPath.row]
         
         self.performSegue(withIdentifier: "PathDetailsSegue", sender: values)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, index) in
+            let path = self.pathsArray[index.row]
+            PathsInteractor().removePath(identifier: path.getId)
+            self.pathsList.reloadData()
+            // TODO : Remove the value from the paths array.
+            tableView.deleteRows(at: [indexPath], with: .top)
+        }
+        
+        let favoriteAction = UITableViewRowAction(style: .normal, title: "FAVORITE") { (rowAction, indexPath) in
+            let values = self.pathsArray[indexPath.row]
+            PathsInteractor().makeFavoritePath(data: values, handler: { (bool) in
+                // TODO
+            })
+        }
+        
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1592534781, blue: 0.184384346, alpha: 1)
+        favoriteAction.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        
+        return [deleteAction, favoriteAction]
     }
 }

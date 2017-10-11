@@ -13,7 +13,7 @@ class Locations
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
     private var date: String = ""
-    private var id: Int32 = 0
+    private var id: String = ""
     
     var getLatitude: Double {
         return latitude
@@ -27,11 +27,11 @@ class Locations
         return date
     }
     
-    var getId: Int32 {
+    var getId: String {
         return id
     }
     
-    init(latitude: Double, longitude: Double, date: String, identifier: Int32)
+    init(latitude: Double, longitude: Double, date: String, identifier: String)
     {
         self.latitude = latitude
         self.longitude = longitude

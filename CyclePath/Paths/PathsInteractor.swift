@@ -11,3 +11,22 @@ class PathsInteractor
     
 }
 
+extension PathsInteractor: PathsInteractorProtocol
+{
+    func removePath(identifier: String)
+    {
+        DataService.instance.deletePath(identifier: identifier)
+    }
+    
+    func makeFavoritePath(data: Paths, handler: @escaping (_: Bool) -> ())
+    {
+        DataService.instance.makeFavoritePath(identifier: data.getId) { (success) in
+            if success {
+                handler(true)
+            } else {
+                handler(false)
+            }
+        }
+    }
+}
+

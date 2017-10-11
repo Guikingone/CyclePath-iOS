@@ -191,7 +191,7 @@ class HomeAction: UIViewController
                                 (saved) in
                                 
                                 self.startBtn.isHidden = false
-                                self.pauseBtn.isHidden = false
+                                self.stopBtn.isHidden = true
                                 
                                 HomeInteractor().restartTracking(locationManager: self.locationManager)
                                 
