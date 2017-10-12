@@ -96,7 +96,8 @@ class DataService
             "duration": duration,
             "altitude": altitude,
             "date": formattedDate,
-            "id": id
+            "id": id,
+            "favorite": false
         ]
         
         REF_PATHS.childByAutoId().updateChildValues(data)

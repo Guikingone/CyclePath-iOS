@@ -45,10 +45,7 @@ class HomeAction: UIViewController
         locationManager.delegate = self
         mapView.showsUserLocation = true
         
-        speedTxtLabel.text = ""
-        distanceTxtLabel.text = ""
-        timeTxtLabel.text = ""
-        altitudeLbl.text = ""
+        resetDisplay()
         
         enableBasicLocationServices()
         
@@ -131,6 +128,8 @@ class HomeAction: UIViewController
                             // TODO
                             self.startBtn.isHidden = false
                             self.pauseBtn.isHidden = true
+                            
+                            self.resetDisplay()
                         })
                     })
                 })
@@ -194,6 +193,7 @@ class HomeAction: UIViewController
                                 self.stopBtn.isHidden = true
                                 
                                 HomeInteractor().restartTracking(locationManager: self.locationManager)
+                                self.resetDisplay()
                                 
                             })
                         })
@@ -231,6 +231,17 @@ class HomeAction: UIViewController
         locationManager.distanceFilter = 2
         locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
+    }
+}
+
+extension HomeAction
+{
+    func resetDisplay()
+    {
+        speedTxtLabel.text = ""
+        distanceTxtLabel.text = ""
+        timeTxtLabel.text = ""
+        altitudeLbl.text = ""
     }
 }
 
