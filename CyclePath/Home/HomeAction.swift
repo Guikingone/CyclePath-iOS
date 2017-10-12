@@ -55,13 +55,6 @@ class HomeAction: UIViewController
         stopBtn.isHidden = true
     }
     
-    @IBAction func findUser(_ sender: Any)
-    {
-        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
-            HomeInteractor().centerMapOnUser(locationManager: locationManager, mapView: mapView, regionRadius: 1000)
-        }
-    }
-    
     @IBAction func startTracking(_ sender: Any)
     {
         startBtn.isHidden = true
@@ -77,7 +70,6 @@ class HomeAction: UIViewController
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             self.eachSeconds()
             HomeInteractor().startTrackingAltitude()
-            print(HomeInteractor().getAltimeterData)
         }
         
         startLocationUpdates()
@@ -105,12 +97,23 @@ class HomeAction: UIViewController
         pauseAlert.addAction(UIAlertAction(
             title: "Reprendre", style: .default, handler: { (_) in
                 
-                self.startBtn.isHidden = false
+                self.pauseBtn.isHidden = false
                 self.stopBtn.isHidden = false
                 
                 // TODO: Take the data saved before and resume the tracking.
                 
                 HomeInteractor().resumeTracking(actualData: pausedTracking)
+                
+                self.seconds = Int(pausedTracking.duration)
+                self.distanceTxtLabel.text = String(describing: pausedTracking.distance)
+                
+                self.updateDisplay()
+                self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                    self.eachSeconds()
+                    HomeInteractor().startTrackingAltitude()
+                }
+                
+                self.startLocationUpdates()
                 
         }))
         pauseAlert.addAction(UIAlertAction(
@@ -147,14 +150,26 @@ class HomeAction: UIViewController
         HomeInteractor().stopUpdatingLocation(locationManager: locationManager)
         
         if Auth.auth().currentUser == nil {
+            
+            
+            let actualData = TrackingPathStruct.pause(
+                distance: self.distance.value,
+                duration: Int16(self.seconds),
+                locations: self.locationList
+            )
+            
             let alert = UIAlertController(
                 title: "Are you logged in ?",
                 message: "Do you want to save this path ?",
                 preferredStyle: .alert
             )
             alert.addAction(UIAlertAction(
-                title: "Save", style: .default, handler: { (_) in
+                title: "Se connecter", style: .default, handler: { (_) in
+                    
                     self.performSegue(withIdentifier: "ShouldBeLoggedSegue", sender: self)
+                    
+                    // TODO: Pass the data so the user can save it after login.
+                    
             }))
             
             self.present(alert, animated: true, completion: nil)
@@ -175,8 +190,10 @@ class HomeAction: UIViewController
                 title: "Annuler", style: .default, handler: { (_) in
                     
                     self.startBtn.isHidden = false
-                    self.pauseBtn.isHidden = false
-                    self.stopBtn.isHidden = false
+                    self.pauseBtn.isHidden = true
+                    self.stopBtn.isHidden = true
+                    
+                    self.resetDisplay()
             }))
             stopAlert.addAction(UIAlertAction(
                 title: "Sauvegarder", style: .default, handler: { (_) in
@@ -234,7 +251,7 @@ class HomeAction: UIViewController
     }
 }
 
-extension HomeAction
+extension HomeAction: HomeActionProtocol
 {
     func resetDisplay()
     {
@@ -242,6 +259,13 @@ extension HomeAction
         distanceTxtLabel.text = ""
         timeTxtLabel.text = ""
         altitudeLbl.text = ""
+    }
+    
+    @IBAction func findUser(_ sender: Any)
+    {
+        if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+            HomeInteractor().centerMapOnUser(locationManager: locationManager, mapView: mapView, regionRadius: 1000)
+        }
     }
 }
 

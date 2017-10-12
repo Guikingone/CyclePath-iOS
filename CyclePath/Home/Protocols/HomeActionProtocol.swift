@@ -8,13 +8,7 @@
 
 protocol HomeActionProtocol
 {
-    func checkLocationAccess()
+    func resetDisplay()
     
-    func checkUserAuthenticated()
-    
-    func startTracking()
-    
-    func pauseTracking()
-    
-    func stopTracking()
+    func findUser(_ sender: Any)
 }
