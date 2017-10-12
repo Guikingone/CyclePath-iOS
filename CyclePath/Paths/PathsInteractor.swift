@@ -18,15 +18,14 @@ extension PathsInteractor: PathsInteractorProtocol
         DataService.instance.deletePath(identifier: identifier)
     }
     
-    func makeFavoritePath(data: Paths, handler: @escaping (_: Bool) -> ())
+    func removeLocationsLinkedToPath(identifier: String)
     {
-        DataService.instance.makeFavoritePath(identifier: data.getId) { (success) in
-            if success {
-                handler(true)
-            } else {
-                handler(false)
-            }
-        }
+        DataService.instance.deleteLocationsByPath(identifier: identifier)
+    }
+    
+    func makeFavoritePath(identifier: String)
+    {
+        DataService.instance.makeFavoritePath(identifier: identifier)
     }
 }
 

@@ -117,8 +117,9 @@ class DataService
                     let date = data.childSnapshot(forPath: "date").value as! String
                     let id = data.childSnapshot(forPath: "id").value as! String
                     let altitude = data.childSnapshot(forPath: "altitude").value as! Double
+                    let favorite = data.childSnapshot(forPath: "favorite").value as! Bool
                     
-                    let path = Paths(distance: distance, duration: duration, date: date, altitude: altitude, id: id)
+                    let path = Paths(distance: distance, duration: duration, date: date, altitude: altitude, id: id, favorite: favorite)
                     
                     pathsList.append(path)
                     
@@ -152,9 +153,21 @@ class DataService
         }
     }
     
-    func makeFavoritePath(identifier: String, handler: @escaping (_: Bool) -> ())
+    func makeFavoritePath(identifier: String)
     {
-        
+        REF_PATHS.observeSingleEvent(of: .value) { (snapshot) in
+            guard let receivedData = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedData {
+                if data.childSnapshot(forPath: "id").value as! String == identifier {
+                    let values = [
+                        "favorite": true
+                    ]
+                    
+                    self.REF_PATHS.child(data.key).updateChildValues(values)
+                }
+            }
+        }
     }
     
     public func createLocations(id: String, locations: [HomeLocationStruct.persist])
@@ -195,6 +208,19 @@ class DataService
             
             handler(locationsLists)
             
+        }
+    }
+    
+    func deleteLocationsByPath(identifier: String)
+    {
+        REF_LOCATIONS.observeSingleEvent(of: .value) { (snapshot) in
+            guard let receivedData = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedData {
+                if data.childSnapshot(forPath: "id").value as! String == identifier {
+                    self.REF_LOCATIONS.child(data.key).removeValue()
+                }
+            }
         }
     }
 }

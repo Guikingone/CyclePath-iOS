@@ -15,6 +15,7 @@ class Paths
     private var date: String = ""
     private var altitude: Double = 0.0
     private var id: String = ""
+    private var favorite: Bool = false
     private var locations = [Locations]()
     
     var getId: String {
@@ -37,17 +38,22 @@ class Paths
         return altitude
     }
     
+    var isFavorite: Bool {
+        return favorite
+    }
+    
     var getLocations: [Locations] {
         return locations
     }
     
-    init(distance: Double, duration: Int16, date: String, altitude: Double, id: String)
+    init(distance: Double, duration: Int16, date: String, altitude: Double, id: String, favorite: Bool)
     {
         self.distance = distance
         self.duration = duration
         self.date = date
         self.altitude = altitude
         self.id = id
+        self.favorite = favorite
     }
     
     func linkLocations(locations: [Locations])

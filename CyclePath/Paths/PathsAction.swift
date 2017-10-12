@@ -121,19 +121,45 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let path = pathsArray[indexPath.row]
+        
+        if path.isFavorite {
+            
+            
+            let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, index) in
+                let path = self.pathsArray[index.row]
+                PathsInteractor().removePath(identifier: path.getId)
+                PathsInteractor().removeLocationsLinkedToPath(identifier: path.getId)
+                self.pathsList.reloadData()
+                let arrayIndex = self.pathsArray.index(where: { (path) -> Bool in
+                    return true
+                })
+                self.pathsArray.remove(at: arrayIndex!)
+                
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+            deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1592534781, blue: 0.184384346, alpha: 1)
+            
+            return [deleteAction]
+        }
+        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, index) in
             let path = self.pathsArray[index.row]
             PathsInteractor().removePath(identifier: path.getId)
+            PathsInteractor().removeLocationsLinkedToPath(identifier: path.getId)
             self.pathsList.reloadData()
-            // TODO : Remove the value from the paths array.
-            tableView.deleteRows(at: [indexPath], with: .top)
+            let arrayIndex = self.pathsArray.index(where: { (path) -> Bool in
+                return true
+            })
+            self.pathsArray.remove(at: arrayIndex!)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         let favoriteAction = UITableViewRowAction(style: .normal, title: "FAVORITE") { (rowAction, indexPath) in
             let values = self.pathsArray[indexPath.row]
-            PathsInteractor().makeFavoritePath(data: values, handler: { (bool) in
-                // TODO
-            })
+            PathsInteractor().makeFavoritePath(identifier: values.getId)
         }
         
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1592534781, blue: 0.184384346, alpha: 1)
