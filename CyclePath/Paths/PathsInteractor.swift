@@ -27,5 +27,10 @@ extension PathsInteractor: PathsInteractorProtocol
     {
         DataService.instance.makeFavoritePath(identifier: identifier)
     }
+    
+    func unmrkFavoritePath(identifier: String)
+    {
+        DataService.instance.unmarkFavoritePath(identifier: identifier)
+    }
 }
 

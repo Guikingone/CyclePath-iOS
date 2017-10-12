@@ -17,6 +17,6 @@ class PathsCell: UITableViewCell
     func configureCell(data: Paths)
     {
         dateLbl.text = data.formattedDate
-        distanceLbl.text = String(describing: data.formattedDistance)
+        distanceLbl.text = "\(data.transformMeters()) mètres"
     }
 }

@@ -126,7 +126,7 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
         if path.isFavorite {
             
             
-            let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, index) in
+            let deleteAction = UITableViewRowAction(style: .destructive, title: "Supprimer") { (rowAction, index) in
                 let path = self.pathsArray[index.row]
                 PathsInteractor().removePath(identifier: path.getId)
                 PathsInteractor().removeLocationsLinkedToPath(identifier: path.getId)
@@ -139,12 +139,18 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             
-            deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1592534781, blue: 0.184384346, alpha: 1)
+            let defavoriteAction = UITableViewRowAction(style: .normal, title: "Unmark") { (rowAction, indexPath) in
+                let values = self.pathsArray[indexPath.row]
+                PathsInteractor().unmrkFavoritePath(identifier: values.getId)
+            }
             
-            return [deleteAction]
+            deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1592534781, blue: 0.184384346, alpha: 1)
+            defavoriteAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            
+            return [deleteAction, defavoriteAction]
         }
         
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, index) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Supprimer") { (rowAction, index) in
             let path = self.pathsArray[index.row]
             PathsInteractor().removePath(identifier: path.getId)
             PathsInteractor().removeLocationsLinkedToPath(identifier: path.getId)
@@ -157,7 +163,7 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
-        let favoriteAction = UITableViewRowAction(style: .normal, title: "FAVORITE") { (rowAction, indexPath) in
+        let favoriteAction = UITableViewRowAction(style: .normal, title: "Mark") { (rowAction, indexPath) in
             let values = self.pathsArray[indexPath.row]
             PathsInteractor().makeFavoritePath(identifier: values.getId)
         }

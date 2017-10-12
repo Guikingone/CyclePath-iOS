@@ -500,6 +500,10 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nZp-ZU-WwW">
+                                                    <rect key="frame" x="-112" y="57" width="54" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="0wW-hQ-Eby" firstAttribute="leading" secondItem="n02-L2-elg" secondAttribute="leading" constant="10" id="cMt-Is-wbl"/>
@@ -663,6 +667,23 @@
                                 <rect key="frame" x="20" y="503" width="374" height="5"/>
                                 <color key="backgroundColor" red="0.73044851040000003" green="0.73044851040000003" blue="0.73044851040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-75-GNA">
+                                <rect key="frame" x="20" y="349.33333333333331" width="136.66666666666666" height="27.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favoris :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFH-46-0nb">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="27.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxK-qm-W7r">
+                                        <rect key="frame" x="86" y="0.0" width="50.666666666666657" height="27.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -674,6 +695,7 @@
                             <constraint firstItem="Jjh-0u-Qsx" firstAttribute="top" secondItem="PI1-sc-Cpl" secondAttribute="bottom" constant="40" id="CJd-Jy-ViQ"/>
                             <constraint firstItem="yBf-GJ-ElE" firstAttribute="leading" secondItem="3yI-CI-vHz" secondAttribute="leading" constant="20" id="Gob-rX-Yal"/>
                             <constraint firstItem="OjO-MR-gCl" firstAttribute="top" secondItem="0j8-hh-NKx" secondAttribute="bottom" constant="10" id="Jeu-rW-vtD"/>
+                            <constraint firstItem="iAt-75-GNA" firstAttribute="top" secondItem="yBf-GJ-ElE" secondAttribute="bottom" constant="10" id="M3q-yI-MQq"/>
                             <constraint firstItem="PI1-sc-Cpl" firstAttribute="top" secondItem="Z75-5y-kHm" secondAttribute="top" id="Rt8-8M-3jw"/>
                             <constraint firstItem="3yI-CI-vHz" firstAttribute="bottom" secondItem="wrP-Sr-Xfw" secondAttribute="bottom" constant="20" id="Wlo-da-HN7"/>
                             <constraint firstItem="3yI-CI-vHz" firstAttribute="trailing" secondItem="8C4-Av-Mz7" secondAttribute="trailing" constant="20" id="Xq2-vs-yWL"/>
@@ -684,6 +706,7 @@
                             <constraint firstItem="wrP-Sr-Xfw" firstAttribute="top" secondItem="8C4-Av-Mz7" secondAttribute="bottom" constant="10" id="qiS-fD-pFs"/>
                             <constraint firstItem="OjO-MR-gCl" firstAttribute="leading" secondItem="3yI-CI-vHz" secondAttribute="leading" constant="20" id="rCp-Nr-KqM"/>
                             <constraint firstItem="3yI-CI-vHz" firstAttribute="trailing" secondItem="wrP-Sr-Xfw" secondAttribute="trailing" constant="20" id="uNN-DO-COs"/>
+                            <constraint firstItem="iAt-75-GNA" firstAttribute="leading" secondItem="3yI-CI-vHz" secondAttribute="leading" constant="20" id="x8p-Lh-qpl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3yI-CI-vHz"/>
                     </view>
@@ -691,6 +714,7 @@
                         <outlet property="averageAltimeterLbl" destination="aUz-6u-Q5O" id="vdK-sR-LWj"/>
                         <outlet property="averageRythm" destination="ywb-fu-Rci" id="TNF-G3-2CZ"/>
                         <outlet property="distanceLbl" destination="g82-e7-pln" id="bSR-fK-Qhb"/>
+                        <outlet property="favoriteLbl" destination="uxK-qm-W7r" id="wsE-Ky-Ibh"/>
                         <outlet property="mapViewDetails" destination="wrP-Sr-Xfw" id="8B8-By-73P"/>
                         <outlet property="pathDateLbl" destination="Jjh-0u-Qsx" id="Iev-rq-hqD"/>
                     </connections>

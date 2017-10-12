@@ -84,7 +84,7 @@ class DataService
     public func createPath(id: String, distance: Any, duration: Int16, altitude: Double)
     {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM, YYYY HH:mm"
+        dateFormatter.dateFormat = "d MMMM YYYY HH:mm"
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
         
         let date = Date()
@@ -163,6 +163,23 @@ class DataService
                 if data.childSnapshot(forPath: "id").value as! String == identifier {
                     let values = [
                         "favorite": true
+                    ]
+                    
+                    self.REF_PATHS.child(data.key).updateChildValues(values)
+                }
+            }
+        }
+    }
+    
+    func unmarkFavoritePath(identifier: String)
+    {
+        REF_PATHS.observeSingleEvent(of: .value) { (snapshot) in
+            guard let receivedData = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for data in receivedData {
+                if data.childSnapshot(forPath: "id").value as! String == identifier {
+                    let values = [
+                        "favorite": false
                     ]
                     
                     self.REF_PATHS.child(data.key).updateChildValues(values)

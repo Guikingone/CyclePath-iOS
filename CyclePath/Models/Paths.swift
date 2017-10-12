@@ -106,4 +106,13 @@ class Paths
     {
         return String(format: "%.02f", getAltitude)
     }
+    
+    func transformFavorite() -> String
+    {
+        if isFavorite {
+            return "Oui"
+        } else {
+            return "Non"
+        }
+    }
 }

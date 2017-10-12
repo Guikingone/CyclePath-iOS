@@ -17,6 +17,7 @@ class PathsDetailsAction: UIViewController
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var averageAltimeterLbl: UILabel!
     @IBOutlet weak var averageRythm: UILabel!
+    @IBOutlet weak var favoriteLbl: UILabel!
     @IBOutlet weak var mapViewDetails: MKMapView!
     
     override func viewDidLoad()
@@ -47,6 +48,7 @@ extension PathsDetailsAction
         distanceLbl.text = "\(path.transformMeters()) mètres"
         averageRythm.text = "\(path.transformSecondsIntoMinutes()) minutes"
         averageAltimeterLbl.text = "\(path.transformAltitude()) mètres"
+        favoriteLbl.text = path.transformFavorite()
         
         if path.getLocations.count > 0 {
             loadMap()
