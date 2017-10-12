@@ -94,9 +94,10 @@ extension ProfileAction: ProfileActionProtocol
             loginBtn.isHidden = false
         } else {
             logoutBtn.isHidden = false
-            editBtn.isHidden = false
+            editBtn.isHidden = true
             usernameLbl.isHidden = false
             profileImage.isHidden = false
+            profileImage.image = #imageLiteral(resourceName: "ProfileImage")
             loggedOutTxt.isHidden = true
             registerBtn.isHidden = true
             orTxtLabel.isHidden = true

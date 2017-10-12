@@ -64,7 +64,7 @@ extension PathsAction: PathsActionProtocol
         if Auth.auth().currentUser == nil {
             pathsList.isHidden = true
             infoLbl.isHidden = false
-            infoLbl.text = "You must be logged in order to see your saved paths."
+            infoLbl.text = "Vous devez être connecté(e) pour voir vos tracés."
         } else {
             if pathsArray.count < 1 {
                 infoLbl.isHidden = false
