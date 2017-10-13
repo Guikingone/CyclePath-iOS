@@ -37,6 +37,8 @@ class PathsAction: UIViewController
     {
         super.viewDidAppear(animated)
         
+        let trace = Performance.startTrace(name: "PathLoading")
+        
         DataService.instance.getPathsByUser { (receivedData) in
             
             self.pathsArray = receivedData
@@ -47,6 +49,8 @@ class PathsAction: UIViewController
                 self.pathsList.reloadData()
             }
         }
+        
+        trace?.stop()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -165,7 +169,6 @@ extension PathsAction: UITableViewDelegate, UITableViewDataSource
             let favoriteAction = UITableViewRowAction(style: .normal, title: "Mark") { (rowAction, indexPath) in
                 let values = self.pathsArray[indexPath.row]
                 PathsInteractor().makeFavoritePath(identifier: values.getId)
-                self.pathsList.reloadData()
             }
             
             

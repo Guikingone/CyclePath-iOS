@@ -83,6 +83,8 @@ class DataService
     
     public func createPath(id: String, distance: Any, duration: Int16, altitude: Double)
     {
+        let trace = Performance.startTrace(name: "Path_creation")
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM YYYY HH:mm"
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+2:00")
@@ -101,10 +103,14 @@ class DataService
         ]
         
         REF_PATHS.childByAutoId().updateChildValues(data)
+        
+        trace?.stop()
     }
     
     public func getPathsByUser(handler: @escaping (_ receivedData: [Paths]) -> ())
     {
+        let trace = Performance.startTrace(name: "Paths_getting")
+        
         REF_PATHS.observeSingleEvent(of: .value) { (receivedDataSnapshot) in
             
             var pathsList = [Paths]()
@@ -139,10 +145,14 @@ class DataService
             
             handler(pathsList)
         }
+        
+        trace?.stop()
     }
     
     func deletePath(identifier: String)
     {
+        let trace = Performance.startTrace(name: "Path_deletion")
+        
         REF_PATHS.observeSingleEvent(of: .value) { (dataSnapshot) in
             guard let receivedData = dataSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
@@ -152,6 +162,8 @@ class DataService
                 }
             }
         }
+        
+        trace?.stop()
     }
     
     func makeFavoritePath(identifier: String)
