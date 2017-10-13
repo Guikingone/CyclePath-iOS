@@ -55,6 +55,13 @@ class HomeAction: UIViewController
         stopBtn.isHidden = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let loginAction = segue.destination as? LoginAction {
+            loginAction.path = sender as! TrackingPathStruct.pause
+        }
+    }
+    
     @IBAction func startTracking(_ sender: Any)
     {
         startBtn.isHidden = true
@@ -86,7 +93,8 @@ class HomeAction: UIViewController
         let pausedTracking = HomeInteractor().pauseTracking(
             seconds: Int16(seconds),
             distance: self.distance.value,
-            locations: self.locationList
+            locations: self.locationList,
+            altitude: HomeInteractor().getAltimeterSum
         )
         
         let pauseAlert = UIAlertController(
@@ -119,7 +127,7 @@ class HomeAction: UIViewController
         pauseAlert.addAction(UIAlertAction(
             title: "Sauvegarder", style: .default, handler: { (_) in
                 
-                let actualData = TrackingPathStruct.pause(distance: self.distance.value, duration: Int16(self.seconds), locations: self.locationList)
+                let actualData = TrackingPathStruct.pause(distance: self.distance.value, duration: Int16(self.seconds), locations: self.locationList, altitude: HomeInteractor().getAltimeterSum)
                 
                 HomeInteractor().transformLocations(locations: actualData.locations, data: {
                     (data, id) in
@@ -151,11 +159,11 @@ class HomeAction: UIViewController
         
         if Auth.auth().currentUser == nil {
             
-            
             let actualData = TrackingPathStruct.pause(
                 distance: self.distance.value,
                 duration: Int16(self.seconds),
-                locations: self.locationList
+                locations: self.locationList,
+                altitude: HomeInteractor().getAltimeterSum
             )
             
             let alert = UIAlertController(
@@ -165,11 +173,7 @@ class HomeAction: UIViewController
             )
             alert.addAction(UIAlertAction(
                 title: "Se connecter", style: .default, handler: { (_) in
-                    
-                    self.performSegue(withIdentifier: "ShouldBeLoggedSegue", sender: self)
-                    
-                    // TODO: Pass the data so the user can save it after login.
-                    
+                    self.performSegue(withIdentifier: "ShouldBeLoggedSegue", sender: actualData)
             }))
             
             self.present(alert, animated: true, completion: nil)
@@ -178,7 +182,8 @@ class HomeAction: UIViewController
             let pausedData = HomeInteractor().stopTracking(
                 seconds: Int16(seconds),
                 distance: self.distance.value,
-                locations: locationList
+                locations: locationList,
+                altitude: HomeInteractor().getAltimeterSum
             )
             
             let stopAlert = UIAlertController(

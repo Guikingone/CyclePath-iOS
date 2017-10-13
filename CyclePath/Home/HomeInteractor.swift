@@ -82,9 +82,9 @@ extension HomeInteractor: HomeInteractorProtocol
         handledData(seconds, distance, locationList)
     }
     
-    func pauseTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.pause
+    func pauseTracking(seconds: Int16, distance: Double, locations: [CLLocation], altitude: Double) -> TrackingPathStruct.pause
     {
-        return HomeManager().pauseTracking(seconds: seconds, distance: distance, locations: locations)
+        return HomeManager().pauseTracking(seconds: seconds, distance: distance, locations: locations, altitude: altitude)
     }
     
     func resumeTracking(actualData: TrackingPathStruct.pause)
@@ -92,9 +92,9 @@ extension HomeInteractor: HomeInteractorProtocol
         
     }
     
-    func stopTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.stop
+    func stopTracking(seconds: Int16, distance: Double, locations: [CLLocation], altitude: Double) -> TrackingPathStruct.stop
     {
-        return HomeManager().stopTracking(seconds: seconds, distance: distance, locations: locations)
+        return HomeManager().stopTracking(seconds: seconds, distance: distance, locations: locations, altitude: altitude)
     }
     
     func restartTracking(locationManager: CLLocationManager)

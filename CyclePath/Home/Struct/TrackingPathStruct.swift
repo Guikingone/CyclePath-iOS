@@ -23,6 +23,7 @@ struct TrackingPathStruct
         let distance: Double
         let duration: Int16
         let locations: [CLLocation]
+        let altitude: Double
     }
     
     struct stop
@@ -30,5 +31,6 @@ struct TrackingPathStruct
         let distance: Double
         let duration: Int16
         let locations: [CLLocation]
+        let altitude: Double
     }
 }

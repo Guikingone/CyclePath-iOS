@@ -29,14 +29,14 @@ extension HomeManager
         success(true)
     }
     
-    func pauseTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.pause
+    func pauseTracking(seconds: Int16, distance: Double, locations: [CLLocation], altitude: Double) -> TrackingPathStruct.pause
     {
-       return TrackingPathStruct.pause(distance: distance, duration: seconds, locations: locations)
+        return TrackingPathStruct.pause(distance: distance, duration: seconds, locations: locations, altitude: altitude)
     }
     
-    func stopTracking(seconds: Int16, distance: Double, locations: [CLLocation]) -> TrackingPathStruct.stop
+    func stopTracking(seconds: Int16, distance: Double, locations: [CLLocation], altitude: Double) -> TrackingPathStruct.stop
     {
-        return TrackingPathStruct.stop(distance: distance, duration: seconds, locations: locations)
+        return TrackingPathStruct.stop(distance: distance, duration: seconds, locations: locations, altitude: altitude)
     }
     
     func localPathStorage(path: TrackingPathStruct.create, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())

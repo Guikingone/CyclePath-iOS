@@ -49,6 +49,8 @@
 		8AB075511F7E328C0096F022 /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB075501F7E328C0096F022 /* LoginWorker.swift */; };
 		8AB075541F7E6BF70096F022 /* ProfileAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB075531F7E6BF70096F022 /* ProfileAction.swift */; };
 		8AB075571F7E6CB30096F022 /* PathsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB075561F7E6CB30096F022 /* PathsAction.swift */; };
+		8AB2293E1F909953002FC6FB /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2293D1F909953002FC6FB /* DataTransformer.swift */; };
+		8AB229401F909997002FC6FB /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2293F1F909997002FC6FB /* LoginInteractor.swift */; };
 		8AB3F70A1F7A3D0F00E62756 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB3F7091F7A3D0F00E62756 /* DataService.swift */; };
 		8ABD98631F823B6B00A64099 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98621F823B6B00A64099 /* Paths.swift */; };
 		8ABD98671F8262A600A64099 /* PathsDetailsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */; };
@@ -182,6 +184,8 @@
 		8AB075501F7E328C0096F022 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		8AB075531F7E6BF70096F022 /* ProfileAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAction.swift; sourceTree = "<group>"; };
 		8AB075561F7E6CB30096F022 /* PathsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsAction.swift; sourceTree = "<group>"; };
+		8AB2293D1F909953002FC6FB /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
+		8AB2293F1F909997002FC6FB /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		8AB3F7091F7A3D0F00E62756 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8ABD98621F823B6B00A64099 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		8ABD98661F8262A600A64099 /* PathsDetailsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathsDetailsAction.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				8A1D6EBF1F7A77F300ECAD59 /* LoginAction.swift */,
 				8AB075501F7E328C0096F022 /* LoginWorker.swift */,
 				8A39E1491F80E3E800A583E6 /* LoginRouter.swift */,
+				8AB2293F1F909997002FC6FB /* LoginInteractor.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				8AB3F7091F7A3D0F00E62756 /* DataService.swift */,
+				8AB2293D1F909953002FC6FB /* DataTransformer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -963,6 +969,7 @@
 				8AB075511F7E328C0096F022 /* LoginWorker.swift in Sources */,
 				8A7C059E1F7A2D6D00992F06 /* HomeAction.swift in Sources */,
 				8AA69D531F82309700939FD9 /* PathsInteractorProtocol.swift in Sources */,
+				8AB229401F909997002FC6FB /* LoginInteractor.swift in Sources */,
 				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
 				8A9FF4F71F82A72C00EBA211 /* HomeLocationStruct.swift in Sources */,
 				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
@@ -983,6 +990,7 @@
 				8ABD986D1F82651C00A64099 /* LoginProtocol.swift in Sources */,
 				8A1D6EC51F7A784800ECAD59 /* SecurityService.swift in Sources */,
 				8ABD98671F8262A600A64099 /* PathsDetailsAction.swift in Sources */,
+				8AB2293E1F909953002FC6FB /* DataTransformer.swift in Sources */,
 				8A39E1541F80EF0800A583E6 /* ForgotPasswordAction.swift in Sources */,
 				8ACAE9D91F8655D200067B72 /* UIViewControllerExtension.swift in Sources */,
 				8A961A1A1F7CD6B6000E7BB7 /* HomeStruct.swift in Sources */,
