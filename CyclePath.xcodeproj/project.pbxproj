@@ -17,6 +17,8 @@
 		8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */; };
 		8A1D6ECE1F7A927000ECAD59 /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */; };
 		8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */; };
+		8A225F6B1FB1924A008123BD /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A225F6A1FB1924A008123BD /* schema.json */; };
+		8A225F6D1FB192C1008123BD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A225F6C1FB192C1008123BD /* API.swift */; };
 		8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE41F7BF07B0098B5CA /* PathView.swift */; };
 		8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */; };
 		8A39E14A1F80E3E800A583E6 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1491F80E3E800A583E6 /* LoginRouter.swift */; };
@@ -146,6 +148,8 @@
 		8A1D6EC91F7A913C00ECAD59 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		8A1D6ECD1F7A927000ECAD59 /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
 		8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8A225F6A1FB1924A008123BD /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		8A225F6C1FB192C1008123BD /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8A2D2FE41F7BF07B0098B5CA /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
 		8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8A39E1491F80E3E800A583E6 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -220,6 +224,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E4330F12F054C0FEBA557C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A7C05681F7A2A6D00992F06 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +370,8 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8A225F6C1FB192C1008123BD /* API.swift */,
+				8A225F6A1FB1924A008123BD /* schema.json */,
 				8ACAE9D71F8628AE00067B72 /* Models */,
 				8ABD98651F82628F00A64099 /* PathsDetails */,
 				8AFB12301F81246D009C2A41 /* Extensions */,
@@ -592,6 +605,7 @@
 			buildConfigurationList = 8A7C05931F7A2A6D00992F06 /* Build configuration list for PBXNativeTarget "CyclePath" */;
 			buildPhases = (
 				41706A61FD8BFD0C61C91B7E /* [CP] Check Pods Manifest.lock */,
+				8A225F691FB1913B008123BD /* Generate Apollo GraphQL API */,
 				8A7C05671F7A2A6D00992F06 /* Sources */,
 				8A7C05681F7A2A6D00992F06 /* Frameworks */,
 				8A7C05691F7A2A6D00992F06 /* Resources */,
@@ -657,6 +671,7 @@
 			buildPhases = (
 				8AF55EE51F88BB3B003CF0FE /* Resources */,
 				8AF55F0C1F88BB3B003CF0FE /* Embed App Extensions */,
+				5E4330F12F054C0FEBA557C0 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -756,6 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7C05791F7A2A6D00992F06 /* LaunchScreen.storyboard in Resources */,
+				8A225F6B1FB1924A008123BD /* schema.json in Resources */,
 				8ADAD9971F867EC700EB12EE /* GoogleService-Info.plist in Resources */,
 				8A7C05761F7A2A6D00992F06 /* Assets.xcassets in Resources */,
 				8A7C05741F7A2A6D00992F06 /* Main.storyboard in Resources */,
@@ -907,6 +923,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A225F691FB1913B008123BD /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
+		};
 		BF7ACFBC7266F6FAD9078FE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -932,6 +962,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CyclePath/Pods-CyclePath-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -941,6 +972,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -1004,6 +1036,7 @@
 				8AC868201F8366B800CD8D69 /* LoginRouterProtocol.swift in Sources */,
 				8A1D6ECA1F7A913C00ECAD59 /* ProfileImage.swift in Sources */,
 				8AE120D21F8B5D78001DF5FC /* MapColorLine.swift in Sources */,
+				8A225F6D1FB192C1008123BD /* API.swift in Sources */,
 				8A39E1571F80F34C00A583E6 /* PathsActionProtocol.swift in Sources */,
 				8AFB12321F81269B009C2A41 /* HomeInteractorProtocol.swift in Sources */,
 				8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */,
