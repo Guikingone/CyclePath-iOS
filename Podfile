@@ -12,6 +12,7 @@ target 'CyclePath' do
   pod 'Firebase/Auth'
   pod 'Firebase/Performance'
   pod 'FirebaseUI/Storage'
+  pod 'Apollo'
 
   target 'CyclePathTests' do
     inherit! :search_paths
