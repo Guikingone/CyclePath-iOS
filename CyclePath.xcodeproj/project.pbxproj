@@ -19,6 +19,9 @@
 		8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D6EF01F7ABD8B00ECAD59 /* Model.xcdatamodeld */; };
 		8A225F6B1FB1924A008123BD /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A225F6A1FB1924A008123BD /* schema.json */; };
 		8A225F6D1FB192C1008123BD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A225F6C1FB192C1008123BD /* API.swift */; };
+		8A225F721FB1953D008123BD /* GraphQLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A225F711FB1953D008123BD /* GraphQLFactory.swift */; };
+		8A225F751FB19551008123BD /* GraphQLFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A225F741FB19551008123BD /* GraphQLFactoryProtocol.swift */; };
+		8A225F7A1FB196C6008123BD /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A225F791FB196C6008123BD /* constants.swift */; };
 		8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE41F7BF07B0098B5CA /* PathView.swift */; };
 		8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */; };
 		8A39E14A1F80E3E800A583E6 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39E1491F80E3E800A583E6 /* LoginRouter.swift */; };
@@ -150,6 +153,9 @@
 		8A1D6EF11F7ABD8B00ECAD59 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8A225F6A1FB1924A008123BD /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		8A225F6C1FB192C1008123BD /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8A225F711FB1953D008123BD /* GraphQLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFactory.swift; sourceTree = "<group>"; };
+		8A225F741FB19551008123BD /* GraphQLFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFactoryProtocol.swift; sourceTree = "<group>"; };
+		8A225F791FB196C6008123BD /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		8A2D2FE41F7BF07B0098B5CA /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
 		8A2D2FE61F7BFCB10098B5CA /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8A39E1491F80E3E800A583E6 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -304,6 +310,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8A225F701FB19530008123BD /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				8A225F731FB19548008123BD /* Protocol */,
+				8A225F711FB1953D008123BD /* GraphQLFactory.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		8A225F731FB19548008123BD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				8A225F741FB19551008123BD /* GraphQLFactoryProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		8A225F761FB19644008123BD /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				8A225F791FB196C6008123BD /* constants.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		8A39E14B1F80E80E00A583E6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +401,8 @@
 		8A7C056D1F7A2A6D00992F06 /* CyclePath */ = {
 			isa = PBXGroup;
 			children = (
+				8A225F761FB19644008123BD /* Configuration */,
+				8A225F701FB19530008123BD /* GraphQL */,
 				8A225F6C1FB192C1008123BD /* API.swift */,
 				8A225F6A1FB1924A008123BD /* schema.json */,
 				8ACAE9D71F8628AE00067B72 /* Models */,
@@ -1004,6 +1037,7 @@
 				8AB229401F909997002FC6FB /* LoginInteractor.swift in Sources */,
 				8A2D2FE71F7BFCB10098B5CA /* HomeInteractor.swift in Sources */,
 				8A9FF4F71F82A72C00EBA211 /* HomeLocationStruct.swift in Sources */,
+				8A225F751FB19551008123BD /* GraphQLFactoryProtocol.swift in Sources */,
 				8A2D2FE51F7BF07B0098B5CA /* PathView.swift in Sources */,
 				8A961A181F7CD63C000E7BB7 /* HomeWorker.swift in Sources */,
 				8ABD986A1F82631000A64099 /* PathDetailsProtocol.swift in Sources */,
@@ -1041,6 +1075,8 @@
 				8AFB12321F81269B009C2A41 /* HomeInteractorProtocol.swift in Sources */,
 				8A1D6EF21F7ABD8B00ECAD59 /* Model.xcdatamodeld in Sources */,
 				8ADAD9951F8664F400EB12EE /* Locations.swift in Sources */,
+				8A225F7A1FB196C6008123BD /* constants.swift in Sources */,
+				8A225F721FB1953D008123BD /* GraphQLFactory.swift in Sources */,
 				8A1D6EC01F7A77F300ECAD59 /* LoginAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
