@@ -10,5 +10,27 @@ import Foundation
 
 class UserBuilder
 {
+    private(set) var user = User()
+}
+
+extension UserBuilder: UserBuilderProtocol
+{
+    func create() -> UserBuilder
+    {
+        self.user = User()
+        
+        return self
+    }
     
+    func withUsername(username: String) -> UserBuilder
+    {
+        self.user.setUsername(username: username)
+        
+        return self
+    }
+    
+    func build() -> User
+    {
+        return self.user
+    }
 }

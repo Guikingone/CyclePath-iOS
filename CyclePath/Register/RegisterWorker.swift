@@ -31,3 +31,14 @@ class RegisterWorker
         }
     }
 }
+
+extension RegisterWorker: RegisterWorkerProtocol
+{
+    func registerUser(username: String, email: String, password: String) {
+        GraphQLSecurityService().registerUser(username: username, email: email, password: password, success: { (saved) in
+            // TODO
+        }) { (failed) in
+            // TODO
+        }
+    }
+}
