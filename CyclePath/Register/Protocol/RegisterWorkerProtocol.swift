@@ -8,5 +8,5 @@
 
 protocol RegisterWorkerProtocol
 {
-    func registerUser(username: String, email: String, password: String)
+    func registerUser(registerStruct: RegisterStruct, status: @escaping (_: Bool) -> ())
 }

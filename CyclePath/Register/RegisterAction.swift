@@ -40,11 +40,13 @@ class RegisterAction: UIViewController
         guard let password = passwordTxtLabel.text , passwordTxtLabel.text != "" else { return }
         guard let passwordRpt = passwordRptTxtLabel.text , passwordRptTxtLabel.text == password else { return }
         
-        RegisterWorker().register(withUsername: username, withEmail: email, withPassword: passwordRpt) { (created, errors) in
-            if created {
+        let registerStruct = RegisterStruct(username: username, email: email, password: passwordRpt)
+        
+        RegisterWorker().registerUser(registerStruct: registerStruct) { (saved) in
+            if saved {
                 self.performSegue(withIdentifier: "RegisteredSegue", sender: self)
             } else {
-                print(errors?.localizedDescription as Any)
+                print("Registration failure !")
             }
         }
     }

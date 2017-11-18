@@ -15,12 +15,12 @@ class GraphQLSecurityService
 
 extension GraphQLSecurityService: GraphQLSecurityServiceProtocol
 {
-    func registerUser(username: String, email: String, password: String, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool)-> ())
+    func registerUser(registerStruct: RegisterStruct, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool)-> ())
     {
         GraphQLFactory
             .instance
             .getClient(url: developmentGraphQLUrl)
-            .perform(mutation: RegisterUserMutation(username: username, email: email, password: password)) {
+            .perform(mutation: RegisterUserMutation(username: registerStruct.getUsername(), email: registerStruct.getEmail(), password: registerStruct.getPassword())) {
                 (data, errors) in
                 
                 if errors != nil {

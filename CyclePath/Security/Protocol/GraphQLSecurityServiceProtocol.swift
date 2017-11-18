@@ -8,7 +8,7 @@
 
 protocol GraphQLSecurityServiceProtocol
 {
-    func registerUser(username: String, email: String, password: String, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
+    func registerUser(registerStruct: RegisterStruct, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool) -> ())
     
     func loginUser(email: String, password: String, success: @escaping (_: Bool) -> (), failure: @escaping (_: Bool)-> ())
 }
